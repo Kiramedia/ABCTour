@@ -12,10 +12,10 @@ public class Parallax : MonoBehaviour
     [SerializeField]
     private float speed = 0.25f;
     /// <summary>
-    /// Value for offset between real and duplicate object. Default: 19.2f
+    /// Value for offset between real and duplicate object. Default: 17.5f
     /// </summary>
     [SerializeField]
-    private float offset = 19.2f;
+    private float offset = 17.5f;
     /// <summary>
     /// Bool that indicate parallax orientation. Default: false
     /// </summary>
