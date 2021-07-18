@@ -22,11 +22,16 @@ public class Parallax : MonoBehaviour
     [SerializeField]
     private bool toRight = false;
     /// <summary>
-    /// 
+    /// Start position of parallax object.
     /// </summary>
     private Vector2 startPosition;
+    /// <summary>
+    /// Indicate the next position in X axis.
+    /// </summary>
     private float nextPosition;
-
+    /// <summary>
+    /// It's the gameobject duplicate for get infinite scroll.
+    /// </summary>
     private GameObject duplicate;
 
     /// <summary>
@@ -50,7 +55,7 @@ public class Parallax : MonoBehaviour
     }
 
     /// <summary>
-    /// Create a duplicated of this game object for repeat position.
+    /// Create a duplicated of this gameobject for repeat position.
     /// </summary>
     private void createDuplicate()
     {
