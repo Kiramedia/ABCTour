@@ -41,7 +41,7 @@ public class Parallax : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        createDuplicate();
+        CreateDuplicate();
     }
 
     /// <summary>
@@ -57,7 +57,7 @@ public class Parallax : MonoBehaviour
     /// <summary>
     /// Create a duplicated of this gameobject for repeat position.
     /// </summary>
-    private void createDuplicate()
+    private void CreateDuplicate()
     {
         duplicate = GameObject.Instantiate(transform.gameObject);
         Destroy(duplicate.GetComponent<Parallax>());

@@ -21,15 +21,26 @@ public class AnimatorController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     /// <summary>
     /// Method to controll boolean parameters in animator
     /// </summary>
     /// <param name="anim">Boolean parameter of animator</param>
-    public void SetBoolAnim(string anim){
+    public void SetBoolAnim(string anim)
+    {
         bool state = animator.GetBool(anim);
         animator.SetBool(anim, !state);
+
+        CursorController cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<CursorController>();
+        if (state && cursor.isActiveAndEnabled)
+        {
+            cursor.ChangeCursor("default");
+        }
+        else
+        {
+            cursor.ChangeCursor("hover");
+        }
     }
 }
