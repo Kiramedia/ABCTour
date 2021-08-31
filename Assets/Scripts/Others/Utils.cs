@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -43,5 +44,36 @@ public class Utils : MonoBehaviour
         result += "." + subSplitEmail[1];
 
         return result;
+    }
+
+    /// <summary>
+    /// Method to change second to formatted time
+    /// </summary>
+    /// <param name="time">Time in seconds</param>
+    /// <returns>Formatted time</returns>
+    public static string GetTimeFormatted(int time){
+        TimeSpan t = TimeSpan.FromSeconds( time );
+        string result = string.Format("{0:D1}h {1:D2}m {2:D2}s", 
+                t.Hours, 
+                t.Minutes, 
+                t.Seconds, 
+                t.Milliseconds);
+        return result;
+    }
+
+    /// <summary>
+    /// Method to get current date with necessary format
+    /// </summary>
+    /// <returns>Formatted date</returns>
+    public static string GetCurrentDate(){
+        return DateTime.Now.ToString("dd/MM/yyyy"); 
+    }
+
+    /// <summary>
+    /// Method to get current hour with necessary format
+    /// </summary>
+    /// <returns>Formatted hour</returns>
+    public static string GetCurrentHour(){
+        return DateTime.Now.ToString("HH:mm");
     }
 }
