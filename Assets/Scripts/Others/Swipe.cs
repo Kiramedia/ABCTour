@@ -24,6 +24,7 @@ public class Swipe : MonoBehaviour
     public GameObject[] difficulties;
     private Level[] levels;
     private GameObject selectedDifficultStyle;
+    private int difficultLevel;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -90,7 +91,7 @@ public class Swipe : MonoBehaviour
                 imageContent.transform.GetChild(i).localScale = Vector2.Lerp(imageContent.transform.GetChild(i).localScale, new Vector2(1.0f, 1.0f), 0.1f);
                 SetColor(imageContent.transform.GetChild(i).GetComponent<Image>(), 
                     imageContent.transform.GetChild(i).GetChild(0).GetComponent<Text>(), 
-                    colors[0], colors[1], i);
+                    colors[1], colors[0], i);
                 SetMaterial(transform.GetChild(i).GetComponent<Image>(), i);
                 transform.GetChild(i).GetChild(0).GetComponent<Image>().enabled = false;
 
@@ -103,9 +104,10 @@ public class Swipe : MonoBehaviour
     /// Method for set difficult information and UI
     /// </summary>
     private void SetDificulty(){
-        if(levels[currentSelectedLevel].isDifficultyVariant && !difficulties[0].activeSelf){
+        if(levels[currentSelectedLevel].isDifficultyVariant && (!difficulties[0].activeSelf || difficultLevel != currentSelectedLevel)){
             difficulties[0].SetActive(true);
-            if(selectedDifficultStyle == null){
+            
+            if(selectedDifficultStyle == null || difficultLevel != currentSelectedLevel){
                 if(Random.value > 0.5f){
                     selectedDifficultStyle = difficulties[1];
                     difficulties[1].SetActive(true);
@@ -116,6 +118,8 @@ public class Swipe : MonoBehaviour
                     difficulties[2].SetActive(true);
                 }
             }
+
+            difficultLevel = currentSelectedLevel;
         }else if(!levels[currentSelectedLevel].isDifficultyVariant){
             selectedDifficultStyle = null;
             difficulties[0].SetActive(false);
