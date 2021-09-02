@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Start/Start - Configuration.unity
     guid: 9415c93af86d3f44e84d01751252681b
   - enabled: 1
-    path: Assets/Scenes/Start/Start - Calification.unity
+    path: Assets/Scenes/Start/Start - Levels.unity
     guid: db01c1825bc35894bad713b0953ae409
+  - enabled: 1
+    path: Assets/Scenes/Start/Start - Calification.unity
+    guid: 23a54812c5aa4c245b69f8d97857b8b4
   m_configObjects: {}
