@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// Channel link https://www.youtube.com/channel/UCeXba0QM17gpmzaiV71w1AQ
 /// Modify by ABCTour team
 /// </summary>
-public class Swipe : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
     //General Parameters
     public Color[] colors;
@@ -112,10 +112,20 @@ public class Swipe : MonoBehaviour
                     selectedDifficultStyle = difficulties[1];
                     difficulties[1].SetActive(true);
                     difficulties[2].SetActive(false);
+                    if(currentSelectedLevel < actLevel){
+                        difficulties[1].GetComponent<DifficultController>().SetDifficultState(true);
+                    }else{
+                        difficulties[1].GetComponent<DifficultController>().SetDifficultState(false);
+                    }
                 }else{
                     selectedDifficultStyle = difficulties[2];
                     difficulties[1].SetActive(false);
                     difficulties[2].SetActive(true);
+                    if(currentSelectedLevel < actLevel){
+                        difficulties[2].GetComponent<DifficultController>().SetDifficultState(true);
+                    }else{
+                        difficulties[2].GetComponent<DifficultController>().SetDifficultState(false);
+                    }
                 }
             }
 
