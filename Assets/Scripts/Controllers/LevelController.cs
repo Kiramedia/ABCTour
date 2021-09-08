@@ -285,19 +285,20 @@ public class LevelController : MonoBehaviour
         }else if(i < actLevel){
             switch(i){
                 case 0:
-                    Debug.Log("Level 1");
+                    PlayerPrefs.SetInt("selectedLevel", 1);
+
                     break;
                 case 1:
-                    Debug.Log("Level 2");
+                    PlayerPrefs.SetInt("selectedLevel", 2);
                     break;
                 case 2:
-                    Debug.Log("Level 3");
+                    PlayerPrefs.SetInt("selectedLevel", 3);
                     break;
                 case 3:
-                    Debug.Log("Level 4");
+                    PlayerPrefs.SetInt("selectedLevel", 4);
                     break;
             }
-
+            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Start - Selector");
         }
     }
 }
