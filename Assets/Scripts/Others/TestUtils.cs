@@ -88,7 +88,9 @@ public class TestUtils : MonoBehaviour
 
         string json = JsonUtility.ToJson(collection);
         PlayerPrefs.SetString("Levels", json);
+    }
 
-        Debug.Log(json);
+    public void DeletePlayerPrefs(){
+        PlayerPrefs.DeleteAll();
     }
 }

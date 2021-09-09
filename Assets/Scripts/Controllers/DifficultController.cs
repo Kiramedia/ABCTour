@@ -24,12 +24,9 @@ public class DifficultController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        PlayerPrefs.SetInt("actDifficultAvalaible", 2);
-        //TestUtils.LevelTestData();
         actAvalaibleDifficult = PlayerPrefs.GetInt("actDifficultAvalaible");
         currentDifficult = actAvalaibleDifficult;
         PlayerPrefs.SetInt("selectedDifficult", actAvalaibleDifficult);
-        SetDifficultState(true);
     }
 
     /// <summary>
@@ -42,6 +39,7 @@ public class DifficultController : MonoBehaviour
 
     public void SetDifficultState(bool state){
         isActive = state;
+        Debug.Log(state);
         if(state){
             barUpdating = true;
             currentDifficult = PlayerPrefs.GetInt("selectedDifficult");

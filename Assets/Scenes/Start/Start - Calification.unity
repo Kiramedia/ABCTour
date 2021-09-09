@@ -3555,9 +3555,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Row2
       objectReference: {fileID: 0}
+    - target: {fileID: 7720738155338848410, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: 0h 00m 00s
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364396, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: dd/mm/yyyy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364399, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 7720738155512864529, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_text
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: Nombre del equipo
       objectReference: {fileID: 0}
     - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_overflowMode
@@ -3566,6 +3582,10 @@ PrefabInstance:
     - target: {fileID: 7720738155906693177, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738156469942967, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: hh:mm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
@@ -3816,6 +3836,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Row4
       objectReference: {fileID: 0}
+    - target: {fileID: 7720738155338848410, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: 0h 00m 00s
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364396, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: dd/mm/yyyy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364399, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: Nombre del equipo
+      objectReference: {fileID: 0}
     - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_overflowMode
       value: 1
@@ -3823,6 +3859,10 @@ PrefabInstance:
     - target: {fileID: 7720738155906693177, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738156469942967, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: hh:mm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
@@ -3932,9 +3972,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Row3
       objectReference: {fileID: 0}
+    - target: {fileID: 7720738155338848410, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: 0h 00m 00s
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364396, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: dd/mm/yyyy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364399, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 7720738155512864529, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_text
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: Nombre del equipo
       objectReference: {fileID: 0}
     - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_overflowMode
@@ -3943,6 +3999,10 @@ PrefabInstance:
     - target: {fileID: 7720738155906693177, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738156469942967, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: hh:mm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
@@ -4052,9 +4112,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Row1
       objectReference: {fileID: 0}
+    - target: {fileID: 7720738155338848410, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: 0h 00m 00s
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364396, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: dd/mm/yyyy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155399364399, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 7720738155512864529, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_text
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: Nombre del equipo
       objectReference: {fileID: 0}
     - target: {fileID: 7720738155906693158, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_overflowMode
@@ -4063,6 +4139,10 @@ PrefabInstance:
     - target: {fileID: 7720738155906693177, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720738156469942967, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}
+      propertyPath: m_text
+      value: hh:mm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce552c458fb2254d9b5f183d7f2c9b1, type: 3}

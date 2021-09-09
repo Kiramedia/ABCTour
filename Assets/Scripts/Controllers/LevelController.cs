@@ -18,6 +18,9 @@ public class LevelController : MonoBehaviour
     private Button takeTheBtn;
     int btnNumber;
     int currentSelectedLevel;
+    /// <summary>
+    /// Indicate the level last level avalaible, > 0 [1..]
+    /// </summary>
     int actLevel;
     public Material grayScaleMaterial;
     private float distance;
@@ -32,12 +35,19 @@ public class LevelController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //PlayerPrefs.SetInt("actLevelAvalaible", 3);
-        //TestUtils.LevelTestData();
-        actLevel = PlayerPrefs.GetInt("actLevelAvalaible");
+        SetLevelData();
         GetPositions();
         GetLevelsInformation();
         SetDificulty();
+    }
+
+    /// <summary>
+    /// Method to get and set current and actual level
+    /// </summary>
+    void SetLevelData(){
+        actLevel = PlayerPrefs.GetInt("actLevelAvalaible");
+        actLevel = actLevel == 0 ? 1 : actLevel;
+        currentSelectedLevel = actLevel - 1;
     }
 
     /// <summary>
@@ -60,6 +70,8 @@ public class LevelController : MonoBehaviour
         }
 
         btnNumber = actLevel-1;
+        Debug.Log(btnNumber);
+        Debug.Log(pos);
         time = 0;
         scroll_pos = (pos[btnNumber]);
         runIt = true;
@@ -286,7 +298,6 @@ public class LevelController : MonoBehaviour
             switch(i){
                 case 0:
                     PlayerPrefs.SetInt("selectedLevel", 1);
-
                     break;
                 case 1:
                     PlayerPrefs.SetInt("selectedLevel", 2);
