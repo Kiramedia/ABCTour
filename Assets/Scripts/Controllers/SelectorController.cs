@@ -11,10 +11,14 @@ public class SelectorController : MonoBehaviour
     public Material[] boyMaterials;
     public Material[] girlMaterials;
 
+    public GameObject colorPicker;
     public GameObject colorPickerBack;
+
+    public Color[] colors;
 
     private string selectedSex;
     public int selectedColor;
+    public int disabledColor;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -24,6 +28,9 @@ public class SelectorController : MonoBehaviour
     {
         selectedSex = "";
         colorPickerBack.transform.GetChild(selectedColor).GetComponent<Image>().enabled = true;
+        boyObject.material = boyMaterials[selectedColor];
+        girlObject.material = girlMaterials[selectedColor];
+        DisableColor(disabledColor);
     }
 
     public void SelectSex(string sex){
@@ -44,5 +51,13 @@ public class SelectorController : MonoBehaviour
         colorPickerBack.transform.GetChild(selectedColor).GetComponent<Image>().enabled = false;
         colorPickerBack.transform.GetChild(index).GetComponent<Image>().enabled = true;
         selectedColor = index;
+    }
+
+    public void DisableColor(int index){
+        colorPicker.transform.GetChild(disabledColor).GetComponent<Image>().color = colors[disabledColor];
+        colorPicker.transform.GetChild(disabledColor).GetChild(0).GetComponent<Image>().enabled = false;
+        colorPicker.transform.GetChild(index).GetComponent<Image>().color = Color.gray;
+        colorPicker.transform.GetChild(index).GetChild(0).GetComponent<Image>().enabled = true;
+        disabledColor = index;
     }
 }
