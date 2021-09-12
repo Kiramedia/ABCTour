@@ -97,15 +97,22 @@ public class ConfigController : MonoBehaviour
     /// </summary>
     void SetEmail(){
         string emailValue = PlayerPrefs.GetString("Email").ToLower();
-        string result = Utils.GetCensoredEmail(emailValue);
-        email.text = result;
+        if(emailValue != ""){
+            string result = Utils.GetCensoredEmail(emailValue);
+            email.text = result;
+        }
     }
 
     /// <summary>
     /// Set device text to TMP_Text
     /// </summary>
     void SetDevice(){
-        device.text = PlayerPrefs.GetString("Device");
+        string actDevice = PlayerPrefs.GetString("Device");
+        if(actDevice == ""){
+            actDevice = Utils.CreateRandomTeamName();
+            PlayerPrefs.SetString("Device", actDevice);
+        }
+        device.text = actDevice;
     }
 
     /// <summary>

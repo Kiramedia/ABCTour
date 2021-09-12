@@ -39,7 +39,6 @@ public class DifficultController : MonoBehaviour
 
     public void SetDifficultState(bool state){
         isActive = state;
-        Debug.Log(state);
         if(state){
             barUpdating = true;
             currentDifficult = PlayerPrefs.GetInt("selectedDifficult");

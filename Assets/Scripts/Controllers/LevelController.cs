@@ -70,8 +70,6 @@ public class LevelController : MonoBehaviour
         }
 
         btnNumber = actLevel-1;
-        Debug.Log(btnNumber);
-        Debug.Log(pos);
         time = 0;
         scroll_pos = (pos[btnNumber]);
         runIt = true;
@@ -95,7 +93,6 @@ public class LevelController : MonoBehaviour
         {
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
             {
-                //Debug.LogWarning("Current Selected Level" + i);
                 currentSelectedLevel = i;
                 SetDificulty();
 
