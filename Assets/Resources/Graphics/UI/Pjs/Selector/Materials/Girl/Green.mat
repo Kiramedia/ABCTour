@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Green
+  m_Shader: {fileID: -6465566751694194690, guid: 3e8143a41d987824a9e2aa7bc64211e4, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 1
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainText:
+        m_Texture: {fileID: 2800000, guid: a0cb0613601e7c24e8d7f74082e15772, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _PantsColor: {r: 0.22352941, g: 0.7372549, b: 0.46666667, a: 0}
+    - _PantsOriginalColor: {r: 1, g: 0, b: 0, a: 1}
+    - _ShirColor: {r: 0, g: 0.6627451, b: 0.3372549, a: 0}
+    - _ShirtOriginalColor: {r: 0, g: 1, b: 0.282353, a: 1}
+    - _TopPantsColor: {r: 0, g: 0.44705883, b: 0.21176471, a: 0}
+    - _TopPantsOriginalColor: {r: 1, g: 0.7607844, b: 0, a: 1}
+  m_BuildTextureStacks: []
