@@ -42,20 +42,24 @@ public class StartApp : MonoBehaviour
         Level level1 = new Level();
         level1.numberLevel = 1;
         level1.isDifficultyVariant = false;
+        level1.numberOfPlayers = 2;
 
         Level level2 = new Level();
         level2.numberLevel = 2;
         level2.isDifficultyVariant = false;
+        level2.numberOfPlayers = 2;
 
         Level level3 = new Level();
         level3.numberLevel = 3;
         level3.isDifficultyVariant = true;
         level3.actualDifficult = 0;
+        level3.numberOfPlayers = 1;
 
         Level level4 = new Level();
         level4.numberLevel = 4;
         level4.isDifficultyVariant = true;
         level4.actualDifficult = 0;
+        level4.numberOfPlayers = 2;
 
         levels.Add(level1);
         levels.Add(level2);

@@ -16,8 +16,9 @@ public class SelectorController : MonoBehaviour
 
     public Color[] colors;
 
-    private string selectedSex;
+    public string selectedSex;
     public int selectedColor;
+    public bool isDisabledColor;
     public int disabledColor;
 
     /// <summary>
@@ -30,7 +31,9 @@ public class SelectorController : MonoBehaviour
         colorPickerBack.transform.GetChild(selectedColor).GetComponent<Image>().enabled = true;
         boyObject.material = boyMaterials[selectedColor];
         girlObject.material = girlMaterials[selectedColor];
-        DisableColor(disabledColor);
+        if(isDisabledColor){
+            DisableColor(disabledColor);
+        }
     }
 
     public void SelectSex(string sex){

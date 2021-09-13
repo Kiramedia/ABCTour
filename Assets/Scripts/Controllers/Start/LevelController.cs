@@ -292,20 +292,7 @@ public class LevelController : MonoBehaviour
             scroll_pos = (pos[btnNumber]);
             runIt = true;
         }else if(i < actLevel){
-            switch(i){
-                case 0:
-                    PlayerPrefs.SetInt("selectedLevel", 1);
-                    break;
-                case 1:
-                    PlayerPrefs.SetInt("selectedLevel", 2);
-                    break;
-                case 2:
-                    PlayerPrefs.SetInt("selectedLevel", 3);
-                    break;
-                case 3:
-                    PlayerPrefs.SetInt("selectedLevel", 4);
-                    break;
-            }
+            PlayerPrefs.SetString("selectedLevel", JsonUtility.ToJson(levels[i]));
             GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Start - Selector");
         }
     }
