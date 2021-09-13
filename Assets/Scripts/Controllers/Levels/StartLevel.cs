@@ -1,8 +1,17 @@
 using UnityEngine;
 
+/// <summary>
+/// Class to init level scenes
+/// </summary>
 public class StartLevel : MonoBehaviour
 {
+    /// <summary>
+    /// Test image player
+    /// </summary>
     public SpriteRenderer imagePlayer;
+    /// <summary>
+    /// Test icon image
+    /// </summary>
     public SpriteRenderer iconImage;
 
     /// <summary>

@@ -86,12 +86,20 @@ public class Utils : MonoBehaviour
         return DateTime.Now.ToString("HH:mm");
     }
 
+    /// <summary>
+    /// Method that creates a random character
+    /// </summary>
+    /// <returns>Random character</returns>
     public static char CreateRandomLetter(){
         string st = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char c = st[UnityEngine.Random.Range(0, st.Length)];
         return c;
     }
 
+    /// <summary>
+    /// Method to create random team name
+    /// </summary>
+    /// <returns>String with "Equipo" + "Random letter" + "Random number between [1 - 100)"</returns>
     public static string CreateRandomTeamName(){
         string name = "Equipo ";
         name += CreateRandomLetter();

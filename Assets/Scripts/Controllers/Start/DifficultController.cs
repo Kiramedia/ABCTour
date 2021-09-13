@@ -1,21 +1,71 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controller to select the difficult when level have these
+/// </summary>
 public class DifficultController : MonoBehaviour
 {
+    /// <summary>
+    /// Baby image for easy difficult
+    /// </summary>
     public Image baby;
+
+    /// <summary>
+    /// Child image for intermediate difficult
+    /// </summary>
     public Image child;
+
+    /// <summary>
+    /// Teen image for hard difficult
+    /// </summary>
     public Image teen;
+
+    /// <summary>
+    /// Bar object to give feedback of difficult selected
+    /// </summary>
     public RectTransform bar;
+
+    /// <summary>
+    /// Arrow object to give feedback of difficult selected
+    /// </summary>
     public RectTransform arrow;
+
+    /// <summary>
+    /// Material for disabled porpouses
+    /// </summary>
     public Material grayMaterial;
+
+    /// <summary>
+    /// Difficults avalaible (0 for easy, 1 for easy and intermediate, 2 for all)
+    /// </summary>
     private int actAvalaibleDifficult;
+
+    /// <summary>
+    /// State that defines the current selected difficult
+    /// </summary>
     private int currentDifficult;
 
     // Bar parameters
+
+    /// <summary>
+    /// Duration of the bar animation
+    /// </summary>
     public float animDuration = 1f;
+    
+    /// <summary>
+    /// Current time of the bar animation
+    /// </summary>
     float time = 0;
+
+    /// <summary>
+    /// State that defines if bar is updating (for animation porpouses)
+    /// </summary>
     bool barUpdating = false;
+
+    /// <summary>
+    /// State that defines if the difficult modal is enable or disabled
+    /// </summary>
     bool isActive = true;
 
     /// <summary>
@@ -37,6 +87,10 @@ public class DifficultController : MonoBehaviour
         UpdateUIInformation();
     }
 
+    /// <summary>
+    /// Method to set difficult state, change the current difficult if is possible
+    /// </summary>
+    /// <param name="state">Define if is enable or disable</param>
     public void SetDifficultState(bool state){
         isActive = state;
         if(state){
@@ -74,6 +128,9 @@ public class DifficultController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method to update bar animation
+    /// </summary>
     void UpdateUIInformation(){
         if(barUpdating && time <= animDuration){
             time += Time.fixedDeltaTime;
@@ -85,6 +142,11 @@ public class DifficultController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method called when button with difficult is pressed
+    /// Verify if the difficult is avalabile and if the modal is active
+    /// </summary>
+    /// <param name="difficult">Selected difficult index</param>
     public void ClickDifficult(int difficult){
         if(difficult <= actAvalaibleDifficult && isActive){
             barUpdating = true;

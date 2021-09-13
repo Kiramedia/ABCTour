@@ -8,25 +8,84 @@ using UnityEngine.UI;
 /// </summary>
 public class LevelController : MonoBehaviour
 {
-    //General Parameters
+    /// <summary>
+    /// Array with state color for the bottom buttons
+    /// </summary>
     public Color[] colors;
+
+    /// <summary>
+    /// Scrollbar information
+    /// </summary>
     public GameObject scrollbar, imageContent;
+
+    /// <summary>
+    /// Scroll position
+    /// </summary>
     private float scroll_pos = 0;
+
+    /// <summary>
+    /// Array with scroll positions for the level containers
+    /// </summary>
     float[] pos;
+
+    /// <summary>
+    /// State for scroll animations
+    /// </summary>
     private bool runIt = false;
+
+    /// <summary>
+    /// Current time for scroll animation
+    /// </summary>
     private float time;
+
+    /// <summary>
+    /// Current focus button
+    /// </summary>
     private Button takeTheBtn;
+
+    /// <summary>
+    /// Index of the focus button
+    /// </summary>
     int btnNumber;
+
+    /// <summary>
+    /// Index of the current selected level
+    /// </summary>
     int currentSelectedLevel;
+
     /// <summary>
     /// Indicate the level last level avalaible, > 0 [1..]
     /// </summary>
     int actLevel;
+
+    /// <summary>
+    /// Material for disabled porpouses
+    /// </summary>
     public Material grayScaleMaterial;
+
+    /// <summary>
+    /// Distance between level containers
+    /// </summary>
     private float distance;
+
+    /// <summary>
+    /// Gameobjects array with boy and girl modal, [0] for difficult gameobject, [1] for boy, [2] for girl
+    /// </summary>
     public GameObject[] difficulties;
+
+    /// <summary>
+    /// Levels array with all levels information
+    /// </summary>
     private Level[] levels;
+
+    /// <summary>
+    /// Selected random difficulty modal, boy or girl in 50% of changes
+    /// </summary>
     private GameObject selectedDifficultStyle;
+
+    /// <summary>
+    /// Defines what is the last difficult level selected
+    /// </summary>
     private int difficultLevel;
 
     /// <summary>
@@ -283,7 +342,7 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Method for EventTrigger navigator buttons, call the button functions and if is necessary move the scrollbar
     /// </summary>
-    /// <param name="i"></param>
+    /// <param name="i">Index of the level clicked</param>
     public void LevelBtnClicked(int i)
     {
         if(currentSelectedLevel != i){

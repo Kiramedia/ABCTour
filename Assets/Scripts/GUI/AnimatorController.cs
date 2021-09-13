@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to control animators states and functions
+/// </summary>
 [RequireComponent(typeof(Animator))]
 public class AnimatorController : MonoBehaviour
 {
@@ -16,12 +17,6 @@ public class AnimatorController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     /// <summary>

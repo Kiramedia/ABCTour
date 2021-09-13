@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class manage scenes, this allow to change with animations/transitions
+/// </summary>
 [RequireComponent(typeof(Animator))]
 public class SceneController : MonoBehaviour
 {
