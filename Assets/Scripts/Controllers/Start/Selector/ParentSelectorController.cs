@@ -183,7 +183,8 @@ public class ParentSelectorController : MonoBehaviour
                 PlayerPrefs.SetString("player2", JsonUtility.ToJson(playerInfo2));
             }
 
-            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level " + selectedLevel.numberLevel);
+            PlayerPrefs.SetString("loadingToScene", "Level " + selectedLevel.numberLevel);
+            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Loading");
         }
     }
 

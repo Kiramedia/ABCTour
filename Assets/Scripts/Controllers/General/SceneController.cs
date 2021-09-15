@@ -36,6 +36,15 @@ public class SceneController : MonoBehaviour
     }
 
     /// <summary>
+    /// Method to load async scene from string name
+    /// </summary>
+    /// <param name="scene">name of the scene</param>
+    public void LoadAsycScene(string scene){
+        
+        StartCoroutine(LoadAsync(scene));
+    }
+
+    /// <summary>
     /// Async method to load scene from string name
     /// </summary>
     /// <param name="scene">name of the scene</param>
@@ -46,6 +55,21 @@ public class SceneController : MonoBehaviour
         yield return new WaitForSeconds(transitionTime);
 
         SceneManager.LoadScene(scene);
+    }
+
+    /// <summary>
+    /// Async method to load scene from string name
+    /// </summary>
+    /// <param name="scene">name of the scene</param>
+    /// <returns>yield response</returns>
+    IEnumerator LoadAsync(string scene)
+    {
+        yield return new WaitForSeconds(transitionTime + 0.5f);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
+        operation.allowSceneActivation = false;
+        animator.SetTrigger("load");
+        yield return new WaitForSeconds(transitionTime);
+        operation.allowSceneActivation = true;
     }
 
     /// <summary>
