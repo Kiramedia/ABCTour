@@ -28,20 +28,29 @@ public class Utils : MonoBehaviour
     public static string GetCensoredEmail(string email){
         string result = "";
         string[] splitEmail = email.Split('@');
-        result += splitEmail[0].Substring(0, 3);
-        for (int i = 0; i < Utils.GetLimit(splitEmail[0].Length - 3, 12); i++)
-        {
-            result += "*";
-        }
-        result += "@";
+        if(splitEmail.Length == 2){
+            result += splitEmail[0].Substring(0, 3);
+            for (int i = 0; i < Utils.GetLimit(splitEmail[0].Length - 3, 12); i++)
+            {
+                result += "*";
+            }
+            result += "@";
 
-        string[] subSplitEmail = splitEmail[1].Split('.');
-        result += subSplitEmail[0].Substring(0, 1);
-        for (int i = 0; i < Utils.GetLimit(subSplitEmail[0].Length - 1, 7); i++)
-        {
-            result += "*";
+            string[] subSplitEmail = splitEmail[1].Split('.');
+            if(subSplitEmail.Length == 2){
+                result += subSplitEmail[0].Substring(0, 1);
+                for (int i = 0; i < Utils.GetLimit(subSplitEmail[0].Length - 1, 7); i++)
+                {
+                    result += "*";
+                }
+                result += "." + subSplitEmail[1];
+            }else{
+                return "";
+            }
+            
+        }else{
+            return "";
         }
-        result += "." + subSplitEmail[1];
 
         return result;
     }
@@ -75,5 +84,26 @@ public class Utils : MonoBehaviour
     /// <returns>Formatted hour</returns>
     public static string GetCurrentHour(){
         return DateTime.Now.ToString("HH:mm");
+    }
+
+    /// <summary>
+    /// Method that creates a random character
+    /// </summary>
+    /// <returns>Random character</returns>
+    public static char CreateRandomLetter(){
+        string st = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        char c = st[UnityEngine.Random.Range(0, st.Length)];
+        return c;
+    }
+
+    /// <summary>
+    /// Method to create random team name
+    /// </summary>
+    /// <returns>String with "Equipo" + "Random letter" + "Random number between [1 - 100)"</returns>
+    public static string CreateRandomTeamName(){
+        string name = "Equipo ";
+        name += CreateRandomLetter();
+        name += UnityEngine.Random.Range(1, 100);
+        return name;
     }
 }

@@ -8,6 +8,14 @@ Shader "Sprites-GrayScale"
         _Color ("Tint", Color) = (1,1,1,1)
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
         _GrayscaleAmount ("Grayscale Amount", Range (0, 1)) = 1.0
+        _Stencil ("Stencil Ref", Float) = 0
+        // look to UI-Default.shader to see these.
+        _StencilComp ("Stencil Comparison", Float) = 8
+        _Stencil ("Stencil ID", Float) = 0
+        _StencilOp ("Stencil Operation", Float) = 0
+        _StencilWriteMask ("Stencil Write Mask", Float) = 255
+        _StencilReadMask ("Stencil Read Mask", Float) = 255
+        _ColorMask ("Color Mask", Float) = 15
     }
  
     SubShader

@@ -1,8 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class manage scenes, this allow to change with animations/transitions
+/// </summary>
 [RequireComponent(typeof(Animator))]
 public class SceneController : MonoBehaviour
 {
@@ -53,4 +55,5 @@ public class SceneController : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

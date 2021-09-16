@@ -22,11 +22,17 @@ public class Level
     public int actualDifficult;
 
     /// <summary>
+    /// Number of players for the level - max 2 players
+    /// </summary>
+    public int numberOfPlayers;
+
+    /// <summary>
     /// Serialize information in String
     /// </summary>
     public new string ToString => "Nivel: " + numberLevel
         + "\nTiene dificultades: " + isDifficultyVariant
-        + "\nDificultad actual: " + actualDifficult;
+        + "\nDificultad actual: " + actualDifficult
+        + "\nNumero de jugadores: " + numberOfPlayers;
 
 }
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Alert class to display modals with password information
@@ -43,6 +44,10 @@ public class AlertController : MonoBehaviour
     /// Alert type that indicates the different functionalities 
     /// </summary>
     public string type;
+    /// <summary>
+    /// Password string that the user should write in alert
+    /// </summary>
+    public string password;
 
     /// <summary>
     /// Confirm method to change alert status
@@ -51,7 +56,7 @@ public class AlertController : MonoBehaviour
     {
         if (buttonText.text == "Confirmar")
         {
-            if ("TestPassword" == passwordField.text)
+            if (password == passwordField.text && type != "DeleteData")
             {
                 changeImage.color = new Color32(255, 67, 90, 255);
                 changeLabel.color = new Color32(0, 0, 0, 255);
@@ -60,6 +65,10 @@ public class AlertController : MonoBehaviour
                 changeField.text = PlayerPrefs.GetString(type);
                 buttonText.text = "Guardar";
                 error.text = "";
+            }else if(type == "DeleteData" && password == passwordField.text){
+                PlayerPrefs.DeleteAll();
+                gameObject.SetActive(false);
+                GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene(SceneManager.GetActiveScene().name);
             }
             else
             {
@@ -71,13 +80,25 @@ public class AlertController : MonoBehaviour
             PlayerPrefs.SetString(type, changeField.text);
             if(updatedText != null){
                 if(type == "Email"){
-                    updatedText.text = Utils.GetCensoredEmail(PlayerPrefs.GetString("Email").ToLower());
+                    string email = Utils.GetCensoredEmail(PlayerPrefs.GetString("Email").ToLower());
+                    if(email != ""){
+                        updatedText.text = email;
+                        Clear();
+                        gameObject.SetActive(false);
+                    }else{
+                        error.text = "Por favor, inserte un correo válido";
+                    }
+                    
                 }else{
-                    updatedText.text = PlayerPrefs.GetString(type);
+                    string typeInfo = PlayerPrefs.GetString(type);
+                    if(typeInfo != ""){
+                        updatedText.text = typeInfo;
+                        Clear();
+                        gameObject.SetActive(false);
+                    }
                 }
             }
-            Clear();
-            gameObject.SetActive(false);
+            
         }
         else
         {
@@ -92,10 +113,13 @@ public class AlertController : MonoBehaviour
     public void Clear()
     {
         passwordField.text = "";
-        changeImage.color = new Color32(153, 153, 153, 255);
-        changeLabel.color = new Color32(153, 153, 153, 255);
-        changeText.color = new Color32(153, 153, 153, 255);
-        changeField.interactable = false;
+        if(changeImage != null && changeLabel != null && changeText != null && changeField != null){
+            changeImage.color = new Color32(153, 153, 153, 255);
+            changeLabel.color = new Color32(153, 153, 153, 255);
+            changeText.color = new Color32(153, 153, 153, 255);
+            changeField.interactable = false;
+        }
+        
         buttonText.text = "Confirmar";
         error.text = "";
     }
