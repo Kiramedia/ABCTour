@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c571725b98fa2e43bb7e7cac3ad55c2, type: 3}
   m_Name: Abecedary
   m_EditorClassIdentifier: 
-  signs: []
+  signs:
+  - {fileID: 11400000, guid: 4c994bc4cc97a7a478b6a3ab66812cd5, type: 2}
+  - {fileID: 11400000, guid: 904834103b5eb17439e91020554c916d, type: 2}
