@@ -45,3 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Lights
+    uniqueID: 3516635705
+    locked: 0
+  - name: Front
+    uniqueID: 1578929371
+    locked: 0

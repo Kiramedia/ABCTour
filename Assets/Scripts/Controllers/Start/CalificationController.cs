@@ -26,6 +26,7 @@ public class CalificationController : MonoBehaviour
     /// </summary>
     void SetCalifications(){
         CalificationCollection collection = JsonUtility.FromJson<CalificationCollection>(PlayerPrefs.GetString("Calification"));
+
         if(collection != null){
             for (int i = 0; i < collection.califications.Length; i++)
             {
@@ -33,4 +34,6 @@ public class CalificationController : MonoBehaviour
             }
         }
     }
+
+
 }
