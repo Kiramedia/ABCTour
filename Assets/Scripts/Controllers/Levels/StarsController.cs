@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +15,7 @@ public class StarsController : MonoBehaviour
 
     private bool isAnim = false;
     private float time = 0;
-    private float startPosition = 280;
+    public float startPosition = 280;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -27,6 +25,7 @@ public class StarsController : MonoBehaviour
     {
         mask2D = GetComponent<RectMask2D>();
         maxSize = mask2D.padding.z;
+        mask2D.padding = new Vector4(0, 0, startPosition, 0);
         pointsToGive = maxSize / numOfItems;
     }
 

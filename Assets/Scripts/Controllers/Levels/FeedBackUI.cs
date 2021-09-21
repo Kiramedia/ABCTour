@@ -6,7 +6,7 @@ public class FeedBackUI : MonoBehaviour
     public RectTransform fillBar;
     public float widthBar = 885;
     public int sections;
-    private int currentSection;
+    public int currentSection;
 
     private float actPosition;
     public float duration = 1f;
@@ -19,7 +19,7 @@ public class FeedBackUI : MonoBehaviour
     /// </summary>
     void Start()
     {
-        currentSection = 0;
+        fillBar.sizeDelta = new Vector2((widthBar / sections) * currentSection, fillBar.sizeDelta.y);
         actPosition = fillBar.sizeDelta.x;
     }
 
