@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: A
   m_EditorClassIdentifier: 
   letter: 97
-  sign: {fileID: 0}
+  sign: {fileID: 21300000, guid: c8cc78dd3a30f4455b82126691e671b0, type: 3}

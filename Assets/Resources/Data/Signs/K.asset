@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3ce7e031b88db4dbd42e1d120984cc, type: 3}
   m_Name: K
   m_EditorClassIdentifier: 
-  letter: 0
-  sign: {fileID: 0}
+  letter: 107
+  sign: {fileID: 21300000, guid: c2944355397574fc4b0ebadbe557a35f, type: 3}
