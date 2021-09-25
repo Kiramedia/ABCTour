@@ -99,4 +99,7 @@ public class TestUtils : MonoBehaviour
         PlayerPrefs.SetString("Levels", json);
     }
 
+    public static Sprite LoadSprite(){
+        return Resources.Load("Graphics/Backgrounds/Level 1/Letters/a", typeof(Sprite)) as Sprite;
+    }
 }

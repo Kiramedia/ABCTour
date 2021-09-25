@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class for util methods
@@ -105,5 +107,64 @@ public class Utils : MonoBehaviour
         name += CreateRandomLetter();
         name += UnityEngine.Random.Range(1, 100);
         return name;
+    }
+
+    public static List<Tutorial> GetTutorials(){
+        List<Tutorial> tutorials = new List<Tutorial>();
+
+        Tutorial letterA = new Tutorial();
+        letterA.isLetterTutorial = true;
+        letterA.videoPath = "Vids/Tutorials/letterA";
+        letterA.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/a", typeof(Sprite)) as Sprite;
+        letterA.camPosition = new Vector3(4f, -0.5f, -10f);
+        letterA.camProjection = 2.75f;
+
+        Tutorial letterE = new Tutorial();
+        letterE.isLetterTutorial = true;
+        letterE.videoPath = "Vids/Tutorials/letterE";
+        letterE.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/e", typeof(Sprite)) as Sprite;
+        letterE.camPosition = new Vector3(-3f, -0.5f, -10f);
+        letterE.camProjection = 2.75f;
+
+        Tutorial letterO = new Tutorial();
+        letterO.isLetterTutorial = true;
+        letterO.videoPath = "Vids/Tutorials/letterO";
+        letterO.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/o", typeof(Sprite)) as Sprite;
+        letterO.camPosition = new Vector3(1.2f, -0.5f, -10f);
+        letterO.camProjection = 2.75f;
+
+        tutorials.Add(letterA);
+        tutorials.Add(letterE);
+        tutorials.Add(letterO);
+
+        return tutorials;
+    }
+
+    public static Tutorial GetTutorial(int index){
+        Tutorial tutorial = Utils.GetTutorials()[index];
+
+        return tutorial;
+    }
+
+    public static void SetPlayer(string playerParam, SpriteRenderer spriteContainer, SpriteRenderer iconContainer){
+        Player player = JsonUtility.FromJson<Player>(PlayerPrefs.GetString(playerParam));
+        spriteContainer.material = player.colorMaterial;
+        iconContainer.sprite = player.icon;
+        if(player.sex == "Boy"){
+            spriteContainer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Boy", typeof(Sprite)) as Sprite;
+        }else{
+            spriteContainer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Girl", typeof(Sprite)) as Sprite;
+        }
+    }
+
+    public static void SetPlayer(string playerParam, Image spriteContainer, Image iconContainer){
+        Player player = JsonUtility.FromJson<Player>(PlayerPrefs.GetString(playerParam));
+        spriteContainer.material = player.colorMaterial;
+        iconContainer.sprite = player.icon;
+        if(player.sex == "Boy"){
+            spriteContainer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Boy", typeof(Sprite)) as Sprite;
+        }else{
+            spriteContainer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Girl", typeof(Sprite)) as Sprite;
+        }
     }
 }

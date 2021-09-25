@@ -1,29 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Class to init level scenes
 /// </summary>
 public class StartLevel : MonoBehaviour
 {
-    /// <summary>
-    /// Test image player
-    /// </summary>
-    public SpriteRenderer imagePlayer1;
-    /// <summary>
-    /// Test image player
-    /// </summary>
-    public SpriteRenderer imagePlayer2;
-    /// <summary>
-    /// Test icon image
-    /// </summary>
-    public SpriteRenderer iconImage1;
-    /// <summary>
-    /// Test icon image
-    /// </summary>
-    public SpriteRenderer iconImage2;
+    public bool isTutorial = false;
 
-    public Sprite boy;
-    public Sprite girl;
+    public SpriteRenderer[] imagePlayers;
+    public SpriteRenderer[] iconImages;
+
+    public Image Letter;
+    public Image[] UIPlayers;
+    public Image[] UIIcons;
+
+    private Tutorial tutorialInfo;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -31,23 +23,34 @@ public class StartLevel : MonoBehaviour
     /// </summary>
     void Start()
     {
-        Player player1 = JsonUtility.FromJson<Player>(PlayerPrefs.GetString("player1"));
-        imagePlayer1.material = player1.colorMaterial;
-        iconImage1.sprite = player1.icon;
-        if(player1.sex == "Boy"){
-            imagePlayer1.sprite = boy;
-        }else{
-            imagePlayer1.sprite = girl;
+        if(isTutorial){
+            tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
         }
+        InitPlayers();
+    }
 
-        if(imagePlayer2 != null){
-            Player player2 = JsonUtility.FromJson<Player>(PlayerPrefs.GetString("player2"));
-            imagePlayer2.material = player2.colorMaterial;
-            iconImage2.sprite = player2.icon;
-            if(player2.sex == "Boy"){
-                imagePlayer2.sprite = boy;
-            }else{
-                imagePlayer2.sprite = girl;
+    void InitPlayers(){
+        if(!isTutorial){
+            if(imagePlayers[0] != null && iconImages[0] != null){
+                Utils.SetPlayer("player1", imagePlayers[0], iconImages[0]);
+            }
+
+            if(imagePlayers[1] != null && iconImages[1] != null){
+                Utils.SetPlayer("player2", imagePlayers[1], iconImages[1]);
+            }
+        }else{
+            if(UIPlayers[0] != null && UIIcons[0] != null){
+                Utils.SetPlayer("player1", UIPlayers[0], UIIcons[0]);
+            }
+
+            if(UIPlayers[1] != null && UIIcons[1] != null){
+                Utils.SetPlayer("player2", UIPlayers[1], UIIcons[1]);
+            }
+
+            if(tutorialInfo != null){
+                Letter.sprite = tutorialInfo.letterSprite;
+                Camera.main.transform.localPosition = tutorialInfo.camPosition;
+                Camera.main.orthographicSize = tutorialInfo.camProjection;
             }
         }
     }

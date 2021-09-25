@@ -72,8 +72,26 @@ public class MainLevelController : MonoBehaviour
  
             if(hit.collider != null)
             {
-                Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
+                switch(hit.collider.gameObject.transform.name){
+                    case "a letter":
+                        PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(0)));
+                        GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
+                        break;
+                    case "e letter":
+                        PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(1)));
+                        GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
+                        break;
+                    case "o letter":
+                        PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(2)));
+                        GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
+                        break;
+                    default:
+                        break;
+                }
+
+                
             }
         }
     }
+
 }
