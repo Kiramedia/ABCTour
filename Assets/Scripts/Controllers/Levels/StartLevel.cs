@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 /// <summary>
 /// Class to init level scenes
@@ -14,6 +15,8 @@ public class StartLevel : MonoBehaviour
     public Image Letter;
     public Image[] UIPlayers;
     public Image[] UIIcons;
+
+    public GameObject videoObject;
 
     private Tutorial tutorialInfo;
 
@@ -51,6 +54,9 @@ public class StartLevel : MonoBehaviour
                 Letter.sprite = tutorialInfo.letterSprite;
                 Camera.main.transform.localPosition = tutorialInfo.camPosition;
                 Camera.main.orthographicSize = tutorialInfo.camProjection;
+                VideoPlayer videoPlayer = videoObject.GetComponentInChildren<VideoPlayer>();
+                VideoClip videoClip = Resources.Load(tutorialInfo.videoPath, typeof(VideoClip)) as VideoClip;
+                videoPlayer.clip = videoClip;
             }
         }
     }

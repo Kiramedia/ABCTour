@@ -8,6 +8,7 @@ TagManager:
   - Cursor
   - Loader
   - Configurations
+  - VideoPlayer
   layers:
   - Default
   - TransparentFX
