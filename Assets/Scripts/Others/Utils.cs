@@ -115,7 +115,7 @@ public class Utils : MonoBehaviour
         Tutorial letterA = new Tutorial();
         letterA.isLetterTutorial = true;
         letterA.videoPath = "Vids/Tutorials/a";
-        letterA.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/a", typeof(Sprite)) as Sprite;
+        letterA.letterSprite = Resources.Load("Graphics/Levels/1/Letters/a", typeof(Sprite)) as Sprite;
         letterA.camPosition = new Vector3(4f, -0.5f, -10f);
         letterA.camProjection = 2.75f;
         letterA.activityScene = "Level 1 - Activity 1";
@@ -123,7 +123,7 @@ public class Utils : MonoBehaviour
         Tutorial letterE = new Tutorial();
         letterE.isLetterTutorial = true;
         letterE.videoPath = "Vids/Tutorials/e";
-        letterE.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/e", typeof(Sprite)) as Sprite;
+        letterE.letterSprite = Resources.Load("Graphics/Levels/1/Letters/e", typeof(Sprite)) as Sprite;
         letterE.camPosition = new Vector3(-3f, -0.5f, -10f);
         letterE.camProjection = 2.75f;
         letterE.activityScene = "Level 1 - Activity 2";
@@ -131,7 +131,7 @@ public class Utils : MonoBehaviour
         Tutorial letterO = new Tutorial();
         letterO.isLetterTutorial = true;
         letterO.videoPath = "Vids/Tutorials/o";
-        letterO.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/o", typeof(Sprite)) as Sprite;
+        letterO.letterSprite = Resources.Load("Graphics/Levels/1/Letters/o", typeof(Sprite)) as Sprite;
         letterO.camPosition = new Vector3(1.2f, -0.5f, -10f);
         letterO.camProjection = 2.75f;
         letterE.activityScene = "Level 1 - Activity 3";
