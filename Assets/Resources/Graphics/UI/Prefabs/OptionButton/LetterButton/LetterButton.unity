@@ -599,6 +599,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1919095757}
     m_Modifications:
+    - target: {fileID: 60520157, guid: cb11a36f8bd6d412d8c53b278f658ed6, type: 3}
+      propertyPath: m_Text
+      value: Mm
+      objectReference: {fileID: 0}
+    - target: {fileID: 60520157, guid: cb11a36f8bd6d412d8c53b278f658ed6, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 60520157, guid: cb11a36f8bd6d412d8c53b278f658ed6, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4402238434753298428, guid: cb11a36f8bd6d412d8c53b278f658ed6, type: 3}
       propertyPath: m_Name
       value: LetterButton
