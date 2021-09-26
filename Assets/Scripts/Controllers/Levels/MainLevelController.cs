@@ -49,7 +49,7 @@ public class MainLevelController : MonoBehaviour
             data.players.Add(player2);
         }
 
-        data.level = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("Levels"));
+        data.level = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel"));
         data.currentMisstakes = 0;
         data.currentCorrect = 0;
         data.starsPosition = 280;
@@ -60,10 +60,19 @@ public class MainLevelController : MonoBehaviour
         return data;
     }
 
+    public void SaveLevelData(){
+        levelData.currentCorrect = starsController.currentCorrect;
+        levelData.currentMisstakes = starsController.currentMisstakes;
+        levelData.starsPosition = starsController.startPosition;
+        levelData.barCurrentSection = progressBar.currentSection;
+        PlayerPrefs.SetString("levelData", JsonUtility.ToJson(levelData));
+    }
+
     // Update is called once per frame
     void Update()
     {
         MouseRaycast();
+        levelData.time += Time.deltaTime;
     }
 
     void MouseRaycast(){
@@ -72,23 +81,27 @@ public class MainLevelController : MonoBehaviour
  
             if(hit.collider != null)
             {
-                switch(hit.collider.gameObject.transform.name){
-                    case "a letter":
-                        PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(0)));
-                        GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
-                        break;
-                    case "e letter":
-                        PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(1)));
-                        GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
-                        break;
-                    case "o letter":
-                        PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(2)));
-                        GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
-                        break;
-                    default:
-                        break;
+                if(hit.collider.gameObject.transform.name.Contains("letter")){
+                    switch(hit.collider.gameObject.transform.name){
+                        case "a letter":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(0)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
+                            break;
+                        case "e letter":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(1)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
+                            break;
+                        case "o letter":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(2)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
+                            break;
+                        default:
+                            break;
+                    }
+                }else if(hit.collider.gameObject.transform.name.Contains("ActivityItem")){
+                    ActivityItem activityItem = hit.collider.gameObject.GetComponentInParent<ActivityItem>();
+                    activityItem.SetAnswer();
                 }
-
                 
             }
         }

@@ -10,4 +10,5 @@ public class Tutorial
     public Sprite letterSprite;
     public Vector3 camPosition;
     public float camProjection;
+    public string activityScene;
 }

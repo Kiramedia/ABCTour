@@ -41,10 +41,10 @@ public class FeedBackUI : MonoBehaviour
         }
     }
 
-    public void AddSection(){
+    public void AddSection(bool anim){
         if(!isAnim && currentSection < sections){
             currentSection++;
-            isAnim = true;
+            isAnim = anim;
         }
     }
 

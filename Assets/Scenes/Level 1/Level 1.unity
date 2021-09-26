@@ -1734,8 +1734,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 638477920}
         m_TargetAssemblyTypeName: ModalController, Assembly-CSharp
-        m_MethodName: ResetTimeScale
-        m_Mode: 1
+        m_MethodName: PauseStatus
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

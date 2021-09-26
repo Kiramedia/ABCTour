@@ -53,7 +53,9 @@ public class SceneController : MonoBehaviour
     {
         animator.SetTrigger("load");
         yield return new WaitForSeconds(transitionTime);
-
+        if(scene == "Start - Principal"){
+            PlayerPrefs.SetString("levelData", null);
+        }
         SceneManager.LoadScene(scene);
     }
 
@@ -69,6 +71,9 @@ public class SceneController : MonoBehaviour
         operation.allowSceneActivation = false;
         animator.SetTrigger("load");
         yield return new WaitForSeconds(transitionTime);
+        if(scene == "Start - Principal"){
+            PlayerPrefs.SetString("levelData", null);
+        }
         operation.allowSceneActivation = true;
     }
 

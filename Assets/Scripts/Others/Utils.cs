@@ -118,6 +118,7 @@ public class Utils : MonoBehaviour
         letterA.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/a", typeof(Sprite)) as Sprite;
         letterA.camPosition = new Vector3(4f, -0.5f, -10f);
         letterA.camProjection = 2.75f;
+        letterA.activityScene = "Level 1 - Activity 1";
 
         Tutorial letterE = new Tutorial();
         letterE.isLetterTutorial = true;
@@ -125,6 +126,7 @@ public class Utils : MonoBehaviour
         letterE.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/e", typeof(Sprite)) as Sprite;
         letterE.camPosition = new Vector3(-3f, -0.5f, -10f);
         letterE.camProjection = 2.75f;
+        letterE.activityScene = "Level 1 - Activity 2";
 
         Tutorial letterO = new Tutorial();
         letterO.isLetterTutorial = true;
@@ -132,6 +134,7 @@ public class Utils : MonoBehaviour
         letterO.letterSprite = Resources.Load("Graphics/Backgrounds/Level 1/Letters/o", typeof(Sprite)) as Sprite;
         letterO.camPosition = new Vector3(1.2f, -0.5f, -10f);
         letterO.camProjection = 2.75f;
+        letterE.activityScene = "Level 1 - Activity 3";
 
         tutorials.Add(letterA);
         tutorials.Add(letterE);
@@ -144,6 +147,59 @@ public class Utils : MonoBehaviour
         Tutorial tutorial = Utils.GetTutorials()[index];
 
         return tutorial;
+    }
+
+    /// <summary>
+    /// Create level data to start application first time
+    /// </summary>
+    public static void InitLevelsData(){
+        List<Level> levels = new List<Level>();
+        
+        Level level1 = new Level();
+        level1.numberLevel = 1;
+        level1.isDifficultyVariant = false;
+        level1.numberOfPlayers = 2;
+        level1.numberOfItems = 6;
+        level1.possibleMisstakes = 3;
+        level1.barSections = 6;
+
+        Level level2 = new Level();
+        level2.numberLevel = 2;
+        level2.isDifficultyVariant = false;
+        level2.numberOfPlayers = 2;
+        level2.numberOfItems = 4;
+        level2.possibleMisstakes = 2;
+        level2.barSections = 4;
+
+        Level level3 = new Level();
+        level3.numberLevel = 3;
+        level3.isDifficultyVariant = true;
+        level3.actualDifficult = 0;
+        level3.numberOfPlayers = 1;
+        level3.numberOfItems = 12;
+        level3.possibleMisstakes = 5;
+        level3.barSections = 6;
+
+        Level level4 = new Level();
+        level4.numberLevel = 4;
+        level4.isDifficultyVariant = true;
+        level4.actualDifficult = 0;
+        level4.numberOfPlayers = 2;
+        level4.numberOfItems = 4;
+        level4.possibleMisstakes = 2;
+        level4.barSections = 4;
+
+        levels.Add(level1);
+        levels.Add(level2);
+        levels.Add(level3);
+        levels.Add(level4);
+
+        LevelCollection collection = new LevelCollection();
+        collection.levels = levels.ToArray();
+
+        string json = JsonUtility.ToJson(collection);
+        PlayerPrefs.SetString("Levels", json);
+        PlayerPrefs.SetInt("actLevelAvalaible", 1);
     }
 
     public static void SetPlayer(string playerParam, SpriteRenderer spriteContainer, SpriteRenderer iconContainer){
