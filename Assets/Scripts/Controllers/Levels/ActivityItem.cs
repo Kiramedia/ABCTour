@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,9 +38,15 @@ public class ActivityItem : MonoBehaviour
             main.starsController.IncorrectAnswer();
             activity.ChangeTurn();
         }
-        transform.GetChild(0).gameObject.SetActive(false);
-        transform.GetChild(1).gameObject.SetActive(false);
         
+        Animator animator = transform.GetChild(2).GetComponent<Animator>();
+        animator.SetBool("isActive", true);
+        ParticleSystem pSystem = transform.GetChild(3).GetComponent<ParticleSystem>();
+        pSystem.Play(true);
+
+        if(transform.GetChild(0).gameObject.activeSelf && transform.GetChild(1).gameObject.activeSelf){
+            StartCoroutine(HideItem());
+        }
     }
 
     /// <summary>
@@ -61,5 +68,11 @@ public class ActivityItem : MonoBehaviour
                 mask2D.padding = new Vector4(0, 0, 0, 0);
             }
         }
+    }
+
+    IEnumerator HideItem(){
+        yield return new WaitForSeconds(0.1f);
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 }

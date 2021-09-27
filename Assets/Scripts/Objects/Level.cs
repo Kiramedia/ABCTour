@@ -30,6 +30,7 @@ public class Level
     public int possibleMisstakes;
 
     public int barSections;
+    public int numOfActivities;
 }
 
 /// <summary>

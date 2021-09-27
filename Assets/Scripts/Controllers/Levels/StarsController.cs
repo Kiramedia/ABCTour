@@ -16,6 +16,7 @@ public class StarsController : MonoBehaviour
     private bool isAnim = false;
     private float time = 0;
     public float startPosition = 280;
+    private MainLevelController main;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -23,6 +24,7 @@ public class StarsController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        main = GameObject.FindGameObjectWithTag("LevelController").GetComponent<MainLevelController>();
         mask2D = GetComponent<RectMask2D>();
         maxSize = mask2D.padding.z;
         mask2D.padding = new Vector4(0, 0, startPosition, 0);
@@ -34,7 +36,7 @@ public class StarsController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(isAnim){
+        if(isAnim && !main.isFinish){
             mask2D.padding = new Vector4(0, 0, Mathf.Lerp(startPosition, startPosition - pointsToGive, time), 0);
             time += Time.deltaTime/duration;
 
@@ -48,7 +50,7 @@ public class StarsController : MonoBehaviour
     }
     
     public void CorrectAnswer(){
-        if(!isAnim){
+        if(!isAnim && !main.isFinish){
             currentCorrect++;
             if( currentMisstakes > possibleMisstakes ){
                 float pointsInMisstake = maxSize / (numOfItems + (currentMisstakes - possibleMisstakes));
@@ -67,6 +69,8 @@ public class StarsController : MonoBehaviour
     }
 
     public void IncorrectAnswer(){
-        currentMisstakes++;
+        if(!main.isFinish){
+            currentMisstakes++;
+        }
     }
 }

@@ -9,6 +9,7 @@ public class MainLevelController : MonoBehaviour
     public BackpackController backpack;
     public LevelData levelData;
     public bool inModal = false;
+    public bool isFinish = false;
 
     private void Awake() {
         ReadLevelData();
@@ -21,8 +22,11 @@ public class MainLevelController : MonoBehaviour
 
         progressBar.sections = levelData.level.barSections;
         progressBar.currentSection = levelData.barCurrentSection;
-
         backpack.currentTrophys = levelData.currentTrophys;
+
+        if(levelData.currentTrophys.Count == levelData.level.numOfActivities){
+            isFinish = true;
+        }
     }
 
     void ReadLevelData() {
@@ -61,11 +65,13 @@ public class MainLevelController : MonoBehaviour
     }
 
     public void SaveLevelData(){
-        levelData.currentCorrect = starsController.currentCorrect;
-        levelData.currentMisstakes = starsController.currentMisstakes;
-        levelData.starsPosition = starsController.startPosition;
-        levelData.barCurrentSection = progressBar.currentSection;
-        PlayerPrefs.SetString("levelData", JsonUtility.ToJson(levelData));
+        if(!isFinish){
+            levelData.currentCorrect = starsController.currentCorrect;
+            levelData.currentMisstakes = starsController.currentMisstakes;
+            levelData.starsPosition = starsController.startPosition;
+            levelData.barCurrentSection = progressBar.currentSection;
+            PlayerPrefs.SetString("levelData", JsonUtility.ToJson(levelData));
+        }
     }
 
     // Update is called once per frame

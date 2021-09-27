@@ -11,4 +11,5 @@ public class Tutorial
     public Vector3 camPosition;
     public float camProjection;
     public string activityScene;
+    public int id;
 }

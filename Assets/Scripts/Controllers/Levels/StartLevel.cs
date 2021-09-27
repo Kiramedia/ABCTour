@@ -9,7 +9,8 @@ public class StartLevel : MonoBehaviour
 {
     public bool isTutorial = false;
 
-    public SpriteRenderer[] imagePlayers;
+    public PlayerSpriteRenderer[] imagesPlayer1;
+    public PlayerSpriteRenderer[] imagesPlayer2;
     public SpriteRenderer[] iconImages;
 
     public Image Letter;
@@ -33,12 +34,22 @@ public class StartLevel : MonoBehaviour
 
     void InitPlayers(){
         if(!isTutorial){
-            if(imagePlayers[0] != null && iconImages[0] != null){
-                Utils.SetPlayer("player1", imagePlayers[0], iconImages[0]);
+            if(imagesPlayer1.Length > 0){
+                foreach (PlayerSpriteRenderer item in imagesPlayer1)
+                {
+                    Utils.SetPlayer("player1", item, null);
+                }
             }
 
-            if(imagePlayers[1] != null && iconImages[1] != null){
-                Utils.SetPlayer("player2", imagePlayers[1], iconImages[1]);
+            if(imagesPlayer2.Length > 0){
+                foreach (PlayerSpriteRenderer item in imagesPlayer2)
+                {
+                    Utils.SetPlayer("player2", item, null);
+                }
+            }
+
+            if(iconImages.Length > 0){
+                Utils.SetIcons("player1", iconImages);
             }
         }else{
             if(UIPlayers[0] != null && UIIcons[0] != null){

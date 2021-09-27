@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectionActivity : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class SelectionActivity : MonoBehaviour
     public List<ActivityItem> incorrectItems;
     public int numOfCorrect = 0;
     public GameObject[] turns;
+    public GameObject inGameObjects;
+    public GameObject inGameUIObjects;
+    public GameObject trophy;
+    public Image whitePanel;
+    public Tutorial tutorialInfo;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -22,6 +28,7 @@ public class SelectionActivity : MonoBehaviour
             turns[0].SetActive(true);
             turns[1].SetActive(false);
         }
+        tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
     }
 
     void InitObjectPositions(){
@@ -56,7 +63,17 @@ public class SelectionActivity : MonoBehaviour
                 turns[0].SetActive(false);
                 turns[1].SetActive(false);
             }
-            Debug.Log("Todo Nice");
+            
+            MainLevelController main = GameObject.FindGameObjectWithTag("LevelController").GetComponent<MainLevelController>();
+            Tutorial tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
+            
+            if(!main.levelData.currentTrophys.Contains(tutorialInfo.id)){
+                main.levelData.currentTrophys.Add(tutorialInfo.id);
+            }
+
+            main.progressBar.AddSection(true);
+
+            StartCoroutine(ChangeToPrincipal(main));
         }else{
             ChangeTurn();
         }
@@ -70,5 +87,19 @@ public class SelectionActivity : MonoBehaviour
             turns[0].SetActive(true);
             turns[1].SetActive(false);
         }
+    }
+
+    IEnumerator ChangeToPrincipal(MainLevelController main){
+        yield return new WaitForSeconds(1f);
+
+        inGameObjects.SetActive(false);
+        inGameUIObjects.SetActive(false);
+        whitePanel.color = new Color32(255, 255, 255, 0);
+        trophy.SetActive(true);
+
+        yield return new WaitForSeconds(5f);
+        SceneController sceneController = GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>();
+        main.SaveLevelData();
+        sceneController.LoadScene("Level " + main.levelData.level.numberLevel);
     }
 }

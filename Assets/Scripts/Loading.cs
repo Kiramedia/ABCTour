@@ -10,5 +10,7 @@ public class Loading : MonoBehaviour
     {
         string sceneName = PlayerPrefs.GetString("loadingToScene");
         GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadAsycScene(sceneName);
+
+        PlayerPrefs.SetString("levelData", null);
     }
 }
