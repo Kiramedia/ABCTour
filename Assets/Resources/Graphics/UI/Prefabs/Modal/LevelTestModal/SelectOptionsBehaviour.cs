@@ -6,8 +6,7 @@ using System.Linq;
 
 public class SelectOptionsBehaviour : MonoBehaviour
 {
-    public int level;
-    public int numberOfSimilarOptions;
+    public TestModalController testModalController;
     public Abecedary levelSigns;
     public Abecedary abecedary;
 
@@ -16,17 +15,9 @@ public class SelectOptionsBehaviour : MonoBehaviour
     [NonSerialized]
     public List<Sign> incorrectOptions = new List<Sign>();
 
-    // Start is called before the first frame update
-    void Start()
+    public void setup()
     {
-        Debug.Log("select options");
         selectOptions();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void selectOptions()
@@ -42,7 +33,7 @@ public class SelectOptionsBehaviour : MonoBehaviour
 
         incorrectOptions = new List<Sign>();
 
-        int numberOfSimilarIncorrectOptions = numberOfSimilarOptions < numberOfOptions ? numberOfSimilarOptions : numberOfOptions;
+        int numberOfSimilarIncorrectOptions = testModalController.numberOfSimilarOptions < numberOfOptions ? testModalController.numberOfSimilarOptions : numberOfOptions;
         incorrectOptions.AddRange(selectOptions(ref temporalLevelSigns, numberOfSimilarIncorrectOptions));
 
         //List to remove from abecedary
@@ -54,13 +45,15 @@ public class SelectOptionsBehaviour : MonoBehaviour
         int numberOfIncorrectOptions = numberOfOptions - (incorrectOptions.Count + 1);
 
         incorrectOptions.AddRange(selectOptions(ref temporalAbecedary, numberOfIncorrectOptions));
+
+        abecedary.signs.ToList().ForEach(sign => {Debug.Log("abc " + sign.letter);});
     }
 
-    public Sign RemoveAndGet<Sign>(IList<Sign> list, int index)
+    public T RemoveAndGet<T>(IList<T> list, int index)
     {
         lock (list)
         {
-            Sign value = list[index];
+            T value = list[index];
             list.RemoveAt(index);
             return value;
         }
@@ -69,11 +62,11 @@ public class SelectOptionsBehaviour : MonoBehaviour
     public int selectNumberOfOptions()
     {
         int numberOfOptions = 0;
-        if (level == 1)
+        if (testModalController.level == 1)
             numberOfOptions = 3;
-        else if (level == 2)
+        else if (testModalController.level == 2)
             numberOfOptions = 6;
-        else if (level == 3)
+        else if (testModalController.level == 3)
             numberOfOptions = 12;
 
         return numberOfOptions;
@@ -102,13 +95,5 @@ public class SelectOptionsBehaviour : MonoBehaviour
         }
 
         return selectedOptions;
-    }
-
-    public void handleCorrectAnswer(){
-        Debug.Log("Se respondió correctamente");
-    }
-
-    public void handleIncorrectAnswer(){
-        Debug.Log("Se respondió incorrectamente");
     }
 }

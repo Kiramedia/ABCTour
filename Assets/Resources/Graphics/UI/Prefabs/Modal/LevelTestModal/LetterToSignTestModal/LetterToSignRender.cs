@@ -4,13 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class SignToLetterRender : LevelTestModalRender
+public class LetterToSignRender : LevelTestModalRender
 {
-    public Image signImage;
-
+    public RenderLetter renderLetter;
     public override void setup()
     {
-        signImage.sprite = selectOptionsBehaviour.correctOption.sign;
+        renderLetter.setLetter(selectOptionsBehaviour.correctOption.letter);
 
         setupAnswerOptionsLayout();
 
@@ -60,7 +59,7 @@ public class SignToLetterRender : LevelTestModalRender
         UnityAction unityActionOnCorrectAnswer = new UnityAction(optionButtonBehaviour.onCorrectAnswer);
         UnityAction unityActionOnIncorrectAnswer = new UnityAction(optionButtonBehaviour.onIncorrectAnswer);
 
-        button.GetComponent<RenderLetter>().letter = sign.letter;
+        button.GetComponent<RenderSign>().setSign(sign.sign);
         button.GetComponent<Button>().onClick.AddListener(
             isCorrect ?
             unityActionOnCorrectAnswer :
