@@ -1971,6 +1971,7 @@ MonoBehaviour:
   error: {fileID: 1696053808}
   updatedText: {fileID: 0}
   type: Email
+  password: 
 --- !u!1 &7233564575084129642
 GameObject:
   m_ObjectHideFlags: 0
