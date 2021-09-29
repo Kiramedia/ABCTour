@@ -1,9 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 
+/// </summary>
 public class BusAppear : MonoBehaviour
 {
+    /// <summary>
+    /// In principal scene of the level, have a busObject that appears when all trophies are won
+    /// </summary>
     public GameObject busObject;
 
     /// <summary>
@@ -13,10 +17,14 @@ public class BusAppear : MonoBehaviour
     void Start()
     {
         GameObject mainLevelController = GameObject.FindGameObjectWithTag("LevelController");
-        if(mainLevelController != null){
-            if(mainLevelController.GetComponent<MainLevelController>().isFinish){
+        if (mainLevelController != null)
+        {
+            if (mainLevelController.GetComponent<MainLevelController>().isFinish)
+            {
                 busObject.SetActive(true);
-            }else{
+            }
+            else
+            {
                 busObject.SetActive(false);
             }
         }

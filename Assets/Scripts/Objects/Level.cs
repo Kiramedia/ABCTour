@@ -26,10 +26,24 @@ public class Level
     /// </summary>
     public int numberOfPlayers;
 
+    /// <summary>
+    /// Number of items in the level
+    /// </summary>
     public int numberOfItems;
+
+    /// <summary>
+    /// Possible misstakes for the level
+    /// </summary>
     public int possibleMisstakes;
 
+    /// <summary>
+    /// Number of sections for the progress bar
+    /// </summary>
     public int barSections;
+
+    /// <summary>
+    /// Number of activities in the level
+    /// </summary>
     public int numOfActivities;
 }
 
@@ -37,7 +51,8 @@ public class Level
 /// Level collection
 /// </summary>
 [Serializable]
-public class LevelCollection{
+public class LevelCollection
+{
     /// <summary>
     /// Level array
     /// </summary>

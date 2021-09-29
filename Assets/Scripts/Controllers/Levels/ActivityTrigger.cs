@@ -1,10 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class to change Letter icon status (mision or repeat)
+/// </summary>
 public class ActivityTrigger : MonoBehaviour
 {
+    /// <summary>
+    /// Trophy index associated to the letter
+    /// </summary>
     public int trophyIndex;
+
+    /// <summary>
+    /// Icon renderer to change the sprite with the status
+    /// </summary>
     public SpriteRenderer icon;
 
     /// <summary>
@@ -15,10 +23,13 @@ public class ActivityTrigger : MonoBehaviour
     {
         MainLevelController main = GameObject.FindGameObjectWithTag("LevelController").GetComponent<MainLevelController>();
         BoxCollider2D collider2D = transform.GetComponent<BoxCollider2D>();
-        if(main.levelData.currentTrophys.Contains(trophyIndex) && !main.isFinish){
+        if (main.levelData.currentTrophies.Contains(trophyIndex) && !main.isFinish)
+        {
             icon.enabled = false;
             collider2D.enabled = false;
-        }else if(main.isFinish){
+        }
+        else if (main.isFinish)
+        {
             icon.enabled = true;
             collider2D.enabled = true;
             icon.sprite = Resources.Load("Graphics/Levels/Repeat", typeof(Sprite)) as Sprite;

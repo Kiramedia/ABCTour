@@ -78,7 +78,8 @@ public class ParentSelectorController : MonoBehaviour
     void Start()
     {
         conPlayer1 = player1.GetComponent<SelectorController>();
-        if(player2 != null){
+        if (player2 != null)
+        {
             conPlayer2 = player2.GetComponent<SelectorController>();
         }
         SetIcon(iconSelected);
@@ -92,13 +93,18 @@ public class ParentSelectorController : MonoBehaviour
     /// Method to set color for player 1 modal
     /// </summary>
     /// <param name="color">Index of the color</param>
-    public void SetPlayer1Color(int color){
-        if(player2 != null){
-            if(conPlayer2.selectedColor != color){
+    public void SetPlayer1Color(int color)
+    {
+        if (player2 != null)
+        {
+            if (conPlayer2.selectedColor != color)
+            {
                 conPlayer1.SetColor(color);
                 conPlayer2.DisableColor(color);
             }
-        }else{
+        }
+        else
+        {
             conPlayer1.SetColor(color);
         }
     }
@@ -107,8 +113,10 @@ public class ParentSelectorController : MonoBehaviour
     /// Method to set color for player 2 modal
     /// </summary>
     /// <param name="color">Index of the color</param>
-    public void SetPlayer2Color(int color){
-        if(conPlayer1.selectedColor != color){
+    public void SetPlayer2Color(int color)
+    {
+        if (conPlayer1.selectedColor != color)
+        {
             conPlayer2.SetColor(color);
             conPlayer1.DisableColor(color);
         }
@@ -118,7 +126,8 @@ public class ParentSelectorController : MonoBehaviour
     /// Method to set icon in icon images array
     /// </summary>
     /// <param name="icon">Index of the icon</param>
-    public void SetIcon(int icon){
+    public void SetIcon(int icon)
+    {
         foreach (Image image in iconImages)
         {
             image.sprite = icons[icon];
@@ -132,39 +141,50 @@ public class ParentSelectorController : MonoBehaviour
     /// Method to change continue button state
     /// </summary>
     /// <param name="state">Indicates if is disable or enable</param>
-    public void ChangeButtonEnable(bool state){
+    public void ChangeButtonEnable(bool state)
+    {
         foreach (Image image in continueButtonImages)
         {
-            if(state){
+            if (state)
+            {
                 image.material = null;
-            }else{
+            }
+            else
+            {
                 image.material = grayMaterial;
             }
-            
+
         }
     }
 
     /// <summary>
     /// Method to verify and set if the continue button can be in hover
     /// </summary>
-    public void ChangeButtonHover(){
-        if(isPlayer1Selected && (isPlayer2Selected || player2 == null)){
+    public void ChangeButtonHover()
+    {
+        if (isPlayer1Selected && (isPlayer2Selected || player2 == null))
+        {
             continueButton.GetComponent<AnimatorController>().SetBoolAnim("inHover");
         }
     }
-    
+
     /// <summary>
     /// Method to set selected players state
     /// </summary>
     /// <param name="player">Num of the player (1 for the left, 2 for the right modal)</param>
-    public void SelectPlayer(int player){
-        if(player == 1){
+    public void SelectPlayer(int player)
+    {
+        if (player == 1)
+        {
             isPlayer1Selected = true;
-        }else{
+        }
+        else
+        {
             isPlayer2Selected = true;
         }
 
-        if(isPlayer1Selected && (isPlayer2Selected || player2 == null)){
+        if (isPlayer1Selected && (isPlayer2Selected || player2 == null))
+        {
             ChangeButtonEnable(true);
         }
     }
@@ -174,11 +194,14 @@ public class ParentSelectorController : MonoBehaviour
     /// Create and set player(s) information in player prefs
     /// </summary>
     /// <param name="selectedLevel">Indicate the level selected in level scene</param>
-    public void ContinueToLevel(Level selectedLevel){
-        if(isPlayer1Selected && (isPlayer2Selected || player2 == null)){
+    public void ContinueToLevel(Level selectedLevel)
+    {
+        if (isPlayer1Selected && (isPlayer2Selected || player2 == null))
+        {
             Player playerInfo1 = CreatePlayerInformation(conPlayer1);
             PlayerPrefs.SetString("player1", JsonUtility.ToJson(playerInfo1));
-            if(player2 != null){
+            if (player2 != null)
+            {
                 Player playerInfo2 = CreatePlayerInformation(conPlayer2);
                 PlayerPrefs.SetString("player2", JsonUtility.ToJson(playerInfo2));
             }
@@ -193,15 +216,19 @@ public class ParentSelectorController : MonoBehaviour
     /// </summary>
     /// <param name="selector">controller of player to create</param>
     /// <returns>Player record with the selected information</returns>
-    Player CreatePlayerInformation(SelectorController selector){
+    Player CreatePlayerInformation(SelectorController selector)
+    {
         Player player = new Player();
         player.sex = selector.selectedSex;
-        if(player.sex == "Boy"){
+        if (player.sex == "Boy")
+        {
             player.colorMaterial = selector.boyMaterials[selector.selectedColor];
-        }else{
+        }
+        else
+        {
             player.colorMaterial = selector.girlMaterials[selector.selectedColor];
         }
-        
+
         player.icon = icons[iconSelected];
 
         return player;

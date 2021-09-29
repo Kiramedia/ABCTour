@@ -1,15 +1,31 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class to control videoplayer behaviour
+/// </summary>
 public class VideoTutorialController : MonoBehaviour
 {
+    /// <summary>
+    /// VideoPlayer component
+    /// </summary>
     public VideoPlayer videoPlayer;
+
+    /// <summary>
+    /// Gameobject that contains videoplayer options to display these when clip finish
+    /// </summary>
     public GameObject videoOptions;
+
+    /// <summary>
+    /// Image that contains RenderTexture to display video
+    /// </summary>
     public RawImage renderTexture;
 
+    /// <summary>
+    /// Tutorial record that have the information that should be display
+    /// </summary>
     private Tutorial tutorialInfo;
 
     /// <summary>
@@ -30,24 +46,41 @@ public class VideoTutorialController : MonoBehaviour
         videoPlayer.loopPointReached += CheckOver;
     }
 
-    void CheckOver(UnityEngine.Video.VideoPlayer vp)
+    /// <summary>
+    /// Method called when clip is finished
+    /// </summary>
+    /// <param name="vp">Videoplayer to check clip information</param>
+    void CheckOver(VideoPlayer vp)
     {
         renderTexture.enabled = false;
         videoOptions.SetActive(true);
     }
 
-    public void RepeatVideo(){
+    /// <summary>
+    /// Method to repeat video when repeat option is clicked
+    /// </summary>
+    public void RepeatVideo()
+    {
         videoPlayer.Play();
         videoOptions.SetActive(false);
         StartCoroutine(EnableTexture());
     }
 
-    IEnumerator EnableTexture(){
+    /// <summary>
+    /// IEnumerator method to wait 0.1f before to display texture (this is for visual bug)
+    /// </summary>
+    /// <returns>Courutine</returns>
+    IEnumerator EnableTexture()
+    {
         yield return new WaitForSeconds(0.1f);
         renderTexture.enabled = true;
     }
 
-    public void StartActivity(){
+    /// <summary>
+    /// Method to continue with the activity when continuos option is clicked
+    /// </summary>
+    public void StartActivity()
+    {
         MainLevelController levelController = GameObject.FindGameObjectWithTag("LevelController").GetComponent<MainLevelController>();
         levelController.progressBar.AddSection(false);
         levelController.SaveLevelData();

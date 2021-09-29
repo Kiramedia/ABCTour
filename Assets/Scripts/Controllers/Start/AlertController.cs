@@ -65,7 +65,9 @@ public class AlertController : MonoBehaviour
                 changeField.text = PlayerPrefs.GetString(type);
                 buttonText.text = "Guardar";
                 error.text = "";
-            }else if(type == "DeleteData" && password == passwordField.text){
+            }
+            else if (type == "DeleteData" && password == passwordField.text)
+            {
                 PlayerPrefs.DeleteAll();
                 gameObject.SetActive(false);
                 GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene(SceneManager.GetActiveScene().name);
@@ -78,27 +80,35 @@ public class AlertController : MonoBehaviour
         else if (buttonText.text == "Guardar")
         {
             PlayerPrefs.SetString(type, changeField.text);
-            if(updatedText != null){
-                if(type == "Email"){
+            if (updatedText != null)
+            {
+                if (type == "Email")
+                {
                     string email = Utils.GetCensoredEmail(PlayerPrefs.GetString("Email").ToLower());
-                    if(email != ""){
+                    if (email != "")
+                    {
                         updatedText.text = email;
                         Clear();
                         gameObject.SetActive(false);
-                    }else{
+                    }
+                    else
+                    {
                         error.text = "Por favor, inserte un correo válido";
                     }
-                    
-                }else{
+
+                }
+                else
+                {
                     string typeInfo = PlayerPrefs.GetString(type);
-                    if(typeInfo != ""){
+                    if (typeInfo != "")
+                    {
                         updatedText.text = typeInfo;
                         Clear();
                         gameObject.SetActive(false);
                     }
                 }
             }
-            
+
         }
         else
         {
@@ -113,13 +123,14 @@ public class AlertController : MonoBehaviour
     public void Clear()
     {
         passwordField.text = "";
-        if(changeImage != null && changeLabel != null && changeText != null && changeField != null){
+        if (changeImage != null && changeLabel != null && changeText != null && changeField != null)
+        {
             changeImage.color = new Color32(153, 153, 153, 255);
             changeLabel.color = new Color32(153, 153, 153, 255);
             changeText.color = new Color32(153, 153, 153, 255);
             changeField.interactable = false;
         }
-        
+
         buttonText.text = "Confirmar";
         error.text = "";
     }

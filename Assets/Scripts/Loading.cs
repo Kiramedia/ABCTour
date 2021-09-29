@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Loading class, scene between start and level
+/// </summary>
 public class Loading : MonoBehaviour
 {
     /// <summary>

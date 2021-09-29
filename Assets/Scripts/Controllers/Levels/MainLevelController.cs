@@ -2,16 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Main class that control all level functions
+/// This is the core of levels behaviour
+/// </summary>
 public class MainLevelController : MonoBehaviour
 {
+
+    /// <summary>
+    /// Start controller of the level
+    /// </summary>
     public StarsController starsController;
+
+    /// <summary>
+    /// Progress bar controller of the level
+    /// </summary>
     public FeedBackUI progressBar;
+
+    /// <summary>
+    /// Backpack controller of the level
+    /// </summary>
     public BackpackController backpack;
+
+    /// <summary>
+    /// Object with all important level data
+    /// </summary>
     public LevelData levelData;
+
+    /// <summary>
+    /// Define if level is in modal to change some behaviors
+    /// </summary>
     public bool inModal = false;
+
+    /// <summary>
+    /// Define if the player completed all the activities
+    /// </summary>
     public bool isFinish = false;
 
-    private void Awake() {
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
         ReadLevelData();
 
         starsController.currentCorrect = levelData.currentCorrect;
@@ -22,40 +54,55 @@ public class MainLevelController : MonoBehaviour
 
         progressBar.sections = levelData.level.barSections;
         progressBar.currentSection = levelData.barCurrentSection;
-        backpack.currentTrophys = levelData.currentTrophys;
+        backpack.currentTrophies = levelData.currentTrophies;
 
-        if(levelData.currentTrophys.Count == levelData.level.numOfActivities){
+        if (levelData.currentTrophies.Count == levelData.level.numOfActivities)
+        {
             isFinish = true;
 
-            if(levelData.emailWasSend == false){
-                StartCoroutine(SendTeacherEmail(levelData));
+            if (levelData.emailWasSend == false)
+            {
                 levelData.emailWasSend = true;
                 SaveLevelData();
                 SaveCalification(levelData);
+                EmailManager.Send(levelData);
             }
         }
     }
 
-    void ReadLevelData() {
+    /// <summary>
+    /// Method to get level data if exists, in case that not, create the data
+    /// </summary>
+    void ReadLevelData()
+    {
         string jsonData = PlayerPrefs.GetString("levelData");
-        if(jsonData == null || jsonData == ""){
+        if (jsonData == null || jsonData == "")
+        {
             levelData = CreateLevelData();
             PlayerPrefs.SetString("levelData", JsonUtility.ToJson(levelData));
-        }else{
+        }
+        else
+        {
             levelData = JsonUtility.FromJson<LevelData>(jsonData);
         }
     }
 
-    LevelData CreateLevelData() {
+    /// <summary>
+    /// Method to create level data if not exist
+    /// </summary>
+    /// <returns>Level data</returns>
+    LevelData CreateLevelData()
+    {
         LevelData data = new LevelData();
-        data.currentTrophys = new List<int>();
+        data.currentTrophies = new List<int>();
         Player player1 = JsonUtility.FromJson<Player>(PlayerPrefs.GetString("player1"));
 
         data.players = new List<Player>();
         data.players.Add(player1);
 
         string player2Json = PlayerPrefs.GetString("player2");
-        if(player2Json != null && player2Json != ""){
+        if (player2Json != null && player2Json != "")
+        {
             Player player2 = JsonUtility.FromJson<Player>(player2Json);
             data.players.Add(player2);
         }
@@ -72,8 +119,13 @@ public class MainLevelController : MonoBehaviour
         return data;
     }
 
-    public void SaveLevelData(){
-        if(!isFinish){
+    /// <summary>
+    /// Method to save level data in the player prefs
+    /// </summary>
+    public void SaveLevelData()
+    {
+        if (!isFinish)
+        {
             levelData.currentCorrect = starsController.currentCorrect;
             levelData.currentMisstakes = starsController.currentMisstakes;
             levelData.starsPosition = starsController.startPosition;
@@ -91,14 +143,21 @@ public class MainLevelController : MonoBehaviour
         levelData.time += Time.deltaTime;
     }
 
-    void MouseRaycast(){
-        if (Input.GetMouseButtonDown(0) && !inModal){
+    /// <summary>
+    /// Method to called in update to check mouse raycast and make some actions depends of the collider hitted
+    /// </summary>
+    void MouseRaycast()
+    {
+        if (Input.GetMouseButtonDown(0) && !inModal)
+        {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
- 
-            if(hit.collider != null)
+
+            if (hit.collider != null)
             {
-                if(hit.collider.gameObject.transform.name.Contains("letter")){
-                    switch(hit.collider.gameObject.transform.name){
+                if (hit.collider.gameObject.transform.name.Contains("letter"))
+                {
+                    switch (hit.collider.gameObject.transform.name)
+                    {
                         case "a letter":
                             PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(0)));
                             GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
@@ -114,27 +173,32 @@ public class MainLevelController : MonoBehaviour
                         default:
                             break;
                     }
-                }else if(hit.collider.gameObject.transform.name.Contains("ActivityItem")){
+                }
+                else if (hit.collider.gameObject.transform.name.Contains("ActivityItem"))
+                {
                     ActivityItem activityItem = hit.collider.gameObject.GetComponentInParent<ActivityItem>();
                     activityItem.SetAnswer();
 
                     GameObject ballsSystem = GameObject.Find("BallSystem");
-                    if(ballsSystem != null){
+                    if (ballsSystem != null)
+                    {
                         ballsSystem.GetComponent<BallsSystem>().DisappearBall();
                     }
-                }else if(hit.collider.gameObject.transform.name.Equals("BusLevel")){
+                }
+                else if (hit.collider.gameObject.transform.name.Equals("BusLevel"))
+                {
                     GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Start - Levels");
                 }
             }
         }
     }
 
-    IEnumerator SendTeacherEmail(LevelData data){
-        SendEmail.Send(data);
-        yield return new WaitForSeconds(2.0f);
-    }
-
-    void SaveCalification(LevelData data){
+    /// <summary>
+    /// Method to save calification information in player prefs
+    /// </summary>
+    /// <param name="data">Level data necessary to make calification</param>
+    void SaveCalification(LevelData data)
+    {
         CalificationCollection collection = JsonUtility.FromJson<CalificationCollection>(PlayerPrefs.GetString("Calification"));
 
         Calification newCalification = new Calification();
@@ -147,7 +211,8 @@ public class MainLevelController : MonoBehaviour
 
         List<Calification> califications = new List<Calification>(collection.califications);
 
-        if(califications.Count >= data.level.numberLevel){
+        if (califications.Count >= data.level.numberLevel)
+        {
             califications[data.level.numberLevel - 1] = newCalification;
         }
 
@@ -155,8 +220,9 @@ public class MainLevelController : MonoBehaviour
         PlayerPrefs.SetString("Calification", JsonUtility.ToJson(collection));
 
         int actLevel = PlayerPrefs.GetInt("actLevelAvalaible");
-        if(actLevel == data.level.numberLevel){
-            PlayerPrefs.SetInt("actLevelAvalaible", data.level.numberLevel+1);
+        if (actLevel == data.level.numberLevel)
+        {
+            PlayerPrefs.SetInt("actLevelAvalaible", data.level.numberLevel + 1);
         }
     }
 }

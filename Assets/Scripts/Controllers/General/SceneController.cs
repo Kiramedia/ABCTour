@@ -39,8 +39,9 @@ public class SceneController : MonoBehaviour
     /// Method to load async scene from string name
     /// </summary>
     /// <param name="scene">name of the scene</param>
-    public void LoadAsycScene(string scene){
-        
+    public void LoadAsycScene(string scene)
+    {
+
         StartCoroutine(LoadAsync(scene));
     }
 
@@ -53,7 +54,8 @@ public class SceneController : MonoBehaviour
     {
         animator.SetTrigger("load");
         yield return new WaitForSeconds(transitionTime);
-        if(scene == "Start - Principal"){
+        if (scene == "Start - Principal")
+        {
             PlayerPrefs.SetString("levelData", null);
         }
         SceneManager.LoadScene(scene);
@@ -71,7 +73,8 @@ public class SceneController : MonoBehaviour
         operation.allowSceneActivation = false;
         animator.SetTrigger("load");
         yield return new WaitForSeconds(transitionTime);
-        if(scene == "Start - Principal"){
+        if (scene == "Start - Principal")
+        {
             PlayerPrefs.SetString("levelData", null);
         }
         operation.allowSceneActivation = true;

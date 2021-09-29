@@ -40,7 +40,8 @@ public class CalificationRow : MonoBehaviour
     /// Method for assign calification information in fields
     /// </summary>
     /// <param name="calification">Calification record</param>
-    public void AssignInformation(Calification calification){
+    public void AssignInformation(Calification calification)
+    {
         level.text = calification.level.ToString();
         teamName.text = calification.teamName;
         misstakes.text = calification.misstakes.ToString();
@@ -54,14 +55,22 @@ public class CalificationRow : MonoBehaviour
     /// Method to change misstake color field according with the number of misstakes
     /// </summary>
     /// <param name="numMisstakes">number of misstakes by the student(s)</param>
-    void SetMisstakeColor(int numMisstakes){
-        if(numMisstakes == 0){
+    void SetMisstakeColor(int numMisstakes)
+    {
+        if (numMisstakes == 0)
+        {
             misstakes.color = new Color32(88, 173, 14, 255);
-        }else if(numMisstakes <=3){
+        }
+        else if (numMisstakes <= 3)
+        {
             misstakes.color = new Color32(11, 112, 14, 255);
-        }else if(numMisstakes <=6){
+        }
+        else if (numMisstakes <= 6)
+        {
             misstakes.color = new Color32(229, 116, 14, 255);
-        }else{
+        }
+        else
+        {
             misstakes.color = new Color32(211, 0, 0, 255);
         }
     }

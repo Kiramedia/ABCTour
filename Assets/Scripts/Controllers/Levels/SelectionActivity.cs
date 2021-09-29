@@ -3,20 +3,74 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class to control all selection level activity
+/// </summary>
 public class SelectionActivity : MonoBehaviour
 {
+    /// <summary>
+    /// List with possible positions for the activityItems
+    /// </summary>
     public List<Vector2> possiblePositions;
+
+    /// <summary>
+    /// List with possible position for the MathParent of the activityItems
+    /// </summary>
     public List<Vector2> possibleUIPositions;
+
+    /// <summary>
+    /// Define the number of objects of the activity
+    /// </summary>
     public int numberOfItems;
+
+    /// <summary>
+    /// List with the correct activity items
+    /// </summary>
     public List<ActivityItem> correctItems;
+
+    /// <summary>
+    /// List with the incorrect activity items
+    /// </summary>
     public List<ActivityItem> incorrectItems;
+
+    /// <summary>
+    /// List with the UI Match parent of the activity items
+    /// </summary>
     public List<RectTransform> UIItems;
+
+    /// <summary>
+    /// Define the current number of correct items that select the user
+    /// </summary>
     public int numOfCorrect = 0;
+
+    /// <summary>
+    /// Gameobjects that defines the turns of the players
+    /// </summary>
     public GameObject[] turns;
+
+    /// <summary>
+    /// Container of all objects in game (necessary to hidde when recompensation appears)
+    /// </summary>
     public GameObject inGameObjects;
+
+    /// <summary>
+    /// Container of all ui objects (necessary to hidde when recompensation appears)
+    /// </summary>
     public GameObject inGameUIObjects;
+
+    /// <summary>
+    /// Trophy gameobject, this appear when activity is finish
+    /// </summary>
     public GameObject trophy;
+
+    /// <summary>
+    /// White panel that create overlay effect in the scene, it's necessay to change alpha when recompensation appears
+    /// </summary>
     public Image whitePanel;
+
+    /// <summary>
+    /// Object with tutorial information needed
+    /// </summary>
     public Tutorial tutorialInfo;
 
     /// <summary>
@@ -26,34 +80,45 @@ public class SelectionActivity : MonoBehaviour
     void Start()
     {
         InitObjectPositions();
-        if(turns.Length == 2){
+        if (turns.Length == 2)
+        {
             turns[0].SetActive(true);
             turns[1].SetActive(false);
         }
         tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
     }
 
-    void InitObjectPositions(){
+    /// <summary>
+    /// Method to init the objects positions
+    /// Positions are random, but all of correct items appear ever
+    /// </summary>
+    void InitObjectPositions()
+    {
         List<ActivityItem> correctTemporal = new List<ActivityItem>(correctItems);
-        List<ActivityItem> incorrectTemporal =  new List<ActivityItem>(incorrectItems);
+        List<ActivityItem> incorrectTemporal = new List<ActivityItem>(incorrectItems);
 
-        List<Vector2> temporalPositions =  new List<Vector2>(possiblePositions);
-        List<Vector2> temporalUIPositions =  new List<Vector2>(possibleUIPositions);
-        
+        List<Vector2> temporalPositions = new List<Vector2>(possiblePositions);
+        List<Vector2> temporalUIPositions = new List<Vector2>(possibleUIPositions);
+
 
         for (int i = 0; i < numberOfItems; i++)
         {
             int indexPosition = Random.Range(0, temporalPositions.Count);
-            if(correctTemporal.Count != 0){
+            if (correctTemporal.Count != 0)
+            {
                 correctTemporal[0].gameObject.SetActive(true);
                 correctTemporal[0].gameObject.transform.position = new Vector3(temporalPositions[indexPosition].x, temporalPositions[indexPosition].y, 0);
                 correctTemporal.RemoveAt(0);
-            }else if(incorrectTemporal.Count != 0){
+            }
+            else if (incorrectTemporal.Count != 0)
+            {
                 int indexIncorrect = Random.Range(0, incorrectTemporal.Count);
                 incorrectTemporal[indexIncorrect].gameObject.SetActive(true);
                 incorrectTemporal[indexIncorrect].gameObject.transform.position = new Vector3(temporalPositions[indexPosition].x, temporalPositions[indexPosition].y, 0);
                 incorrectTemporal.RemoveAt(indexIncorrect);
-            }else{
+            }
+            else
+            {
                 break;
             }
 
@@ -68,40 +133,63 @@ public class SelectionActivity : MonoBehaviour
         }
     }
 
-    public void CheckIfFinish(){
+    /// <summary>
+    /// Method to check if the user finish the activity
+    /// If not, change the turn
+    /// </summary>
+    public void CheckIfFinish()
+    {
         numOfCorrect++;
-        if(numOfCorrect >= correctItems.Count){
-            if(turns.Length == 2){
+        if (numOfCorrect >= correctItems.Count)
+        {
+            if (turns.Length == 2)
+            {
                 turns[0].SetActive(false);
                 turns[1].SetActive(false);
             }
-            
+
             MainLevelController main = GameObject.FindGameObjectWithTag("LevelController").GetComponent<MainLevelController>();
             Tutorial tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
-            
-            if(!main.levelData.currentTrophys.Contains(tutorialInfo.id)){
-                main.levelData.currentTrophys.Add(tutorialInfo.id);
+
+            if (!main.levelData.currentTrophies.Contains(tutorialInfo.id))
+            {
+                main.levelData.currentTrophies.Add(tutorialInfo.id);
             }
 
             main.progressBar.AddSection(true);
 
             StartCoroutine(ChangeToPrincipal(main));
-        }else{
+        }
+        else
+        {
             ChangeTurn();
         }
     }
 
-    public void ChangeTurn(){
-        if(turns.Length == 2 && turns[0].activeSelf){
+    /// <summary>
+    /// Method to change turn gameobject
+    /// </summary>
+    public void ChangeTurn()
+    {
+        if (turns.Length == 2 && turns[0].activeSelf)
+        {
             turns[0].SetActive(false);
             turns[1].SetActive(true);
-        }else if(turns.Length == 2){
+        }
+        else if (turns.Length == 2)
+        {
             turns[0].SetActive(true);
             turns[1].SetActive(false);
         }
     }
 
-    IEnumerator ChangeToPrincipal(MainLevelController main){
+    /// <summary>
+    /// Method to change scene to level principal 
+    /// </summary>
+    /// <param name="main">MainLevelController to save level data</param>
+    /// <returns>Courutine</returns>
+    IEnumerator ChangeToPrincipal(MainLevelController main)
+    {
         yield return new WaitForSeconds(1f);
 
         inGameObjects.SetActive(false);

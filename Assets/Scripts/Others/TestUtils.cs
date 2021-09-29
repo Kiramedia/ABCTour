@@ -5,15 +5,16 @@ using UnityEngine;
 /// Class for util methods
 /// </summary>
 public class TestUtils : MonoBehaviour
-{ 
+{
     /// <summary>
     /// Created with test purposes
     /// Create calification test data
     /// </summary>
-    public static void CalificationTestData(){
-        
+    public static void CalificationTestData()
+    {
+
         List<Calification> califications = new List<Calification>();
-        
+
         Calification cal1 = new Calification();
         cal1.level = 1;
         cal1.teamName = "Nombre del equipo";
@@ -62,9 +63,10 @@ public class TestUtils : MonoBehaviour
     /// Created with test purposes
     /// Create level test data
     /// </summary>
-    public static void LevelTestData() { 
+    public static void LevelTestData()
+    {
         List<Level> levels = new List<Level>();
-        
+
         Level level1 = new Level();
         level1.numberLevel = 1;
         level1.isDifficultyVariant = false;
@@ -99,7 +101,12 @@ public class TestUtils : MonoBehaviour
         PlayerPrefs.SetString("Levels", json);
     }
 
-    public static Sprite LoadSprite(){
+    /// <summary>
+    /// Test method to check if is possible to load sprite from the resources folder
+    /// </summary>
+    /// <returns></returns>
+    public static Sprite LoadSprite()
+    {
         return Resources.Load("Graphics/Backgrounds/Level 1/Letters/a", typeof(Sprite)) as Sprite;
     }
 }

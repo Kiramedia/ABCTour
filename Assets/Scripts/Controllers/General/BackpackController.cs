@@ -2,10 +2,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class to control the backpack behaviour
+/// </summary>
 public class BackpackController : MonoBehaviour
 {
+
+    /// <summary>
+    /// Number of items in the backpack, defines the maxSize of the currentTrophies
+    /// </summary>
     private int numOfItems;
-    public List<int> currentTrophys;
+
+    /// <summary>
+    /// List with index that identifies the trophies won
+    /// </summary>
+    public List<int> currentTrophies;
+
+    /// <summary>
+    /// Material for disabled porpouses
+    /// </summary>
     public Material grayMaterial;
 
     /// <summary>
@@ -15,19 +30,27 @@ public class BackpackController : MonoBehaviour
     void Start()
     {
         numOfItems = transform.childCount;
-        SetCurrentTrophys();
+        SetCurrentTrophies();
     }
 
-    public void SetCurrentTrophys(){
+    /// <summary>
+    /// Method to init current trophies
+    /// Set disable and enable trophies in the backpack
+    /// </summary>
+    public void SetCurrentTrophies()
+    {
         for (int i = 0; i < numOfItems; i++)
         {
-            if(currentTrophys.Contains(i)){
+            if (currentTrophies.Contains(i))
+            {
                 GameObject child = transform.GetChild(i).gameObject;
                 child.GetComponent<Image>().material = null;
                 child.transform.GetChild(0).GetComponent<Image>().material = null;
                 child.transform.GetChild(1).GetComponent<Image>().enabled = false;
                 child.transform.GetChild(2).GetComponent<Image>().enabled = true;
-            }else{
+            }
+            else
+            {
                 GameObject child = transform.GetChild(i).gameObject;
                 child.GetComponent<Image>().material = grayMaterial;
                 child.transform.GetChild(0).GetComponent<Image>().material = grayMaterial;

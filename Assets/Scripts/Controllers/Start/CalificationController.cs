@@ -24,16 +24,16 @@ public class CalificationController : MonoBehaviour
     /// <summary>
     /// Method that initialize califications in row fields
     /// </summary>
-    void SetCalifications(){
+    void SetCalifications()
+    {
         CalificationCollection collection = JsonUtility.FromJson<CalificationCollection>(PlayerPrefs.GetString("Calification"));
 
-        if(collection != null){
+        if (collection != null)
+        {
             for (int i = 0; i < collection.califications.Length; i++)
             {
                 rows[i].AssignInformation(collection.califications[i]);
             }
         }
     }
-
-
 }

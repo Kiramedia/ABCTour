@@ -103,7 +103,8 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Method to get and set current and actual level
     /// </summary>
-    void SetLevelData(){
+    void SetLevelData()
+    {
         actLevel = PlayerPrefs.GetInt("actLevelAvalaible");
         actLevel = actLevel == 0 ? 1 : actLevel;
         currentSelectedLevel = actLevel - 1;
@@ -112,23 +113,25 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Obtain the levels information to know what difficult information displays or not
     /// </summary>
-    void GetLevelsInformation(){
+    void GetLevelsInformation()
+    {
         levels = JsonUtility.FromJson<LevelCollection>(PlayerPrefs.GetString("Levels")).levels;
     }
 
     /// <summary>
     /// Get position for the scrollbar
     /// </summary>
-    void GetPositions(){
+    void GetPositions()
+    {
         pos = new float[transform.childCount];
-        distance = 1f / (pos.Length-0.8f);
+        distance = 1f / (pos.Length - 0.8f);
 
         for (int i = 0; i < pos.Length; i++)
         {
             pos[i] = distance * i;
         }
 
-        btnNumber = actLevel-1;
+        btnNumber = actLevel - 1;
         time = 0;
         scroll_pos = (pos[btnNumber]);
         runIt = true;
@@ -147,7 +150,8 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Update scrollbar and UI Information
     /// </summary>
-    private void UpdateUIAndStates(){
+    private void UpdateUIAndStates()
+    {
         for (int i = 0; i < pos.Length; i++)
         {
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
@@ -157,8 +161,8 @@ public class LevelController : MonoBehaviour
 
                 transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f);
                 imageContent.transform.GetChild(i).localScale = Vector2.Lerp(imageContent.transform.GetChild(i).localScale, new Vector2(1.0f, 1.0f), 0.1f);
-                SetColor(imageContent.transform.GetChild(i).GetComponent<Image>(), 
-                    imageContent.transform.GetChild(i).GetChild(0).GetComponent<Text>(), 
+                SetColor(imageContent.transform.GetChild(i).GetComponent<Image>(),
+                    imageContent.transform.GetChild(i).GetChild(0).GetComponent<Text>(),
                     colors[1], colors[0], i);
                 SetMaterial(transform.GetChild(i).GetComponent<Image>(), i);
                 transform.GetChild(i).GetChild(0).GetComponent<Image>().enabled = false;
@@ -171,34 +175,48 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Method for set difficult information and UI
     /// </summary>
-    private void SetDificulty(){
-        if(levels[currentSelectedLevel].isDifficultyVariant && (!difficulties[0].activeSelf || difficultLevel != currentSelectedLevel)){
+    private void SetDificulty()
+    {
+        if (levels[currentSelectedLevel].isDifficultyVariant && (!difficulties[0].activeSelf || difficultLevel != currentSelectedLevel))
+        {
             difficulties[0].SetActive(true);
-            
-            if(selectedDifficultStyle == null || difficultLevel != currentSelectedLevel){
-                if(Random.value > 0.5f){
+
+            if (selectedDifficultStyle == null || difficultLevel != currentSelectedLevel)
+            {
+                if (Random.value > 0.5f)
+                {
                     selectedDifficultStyle = difficulties[1];
                     difficulties[1].SetActive(true);
                     difficulties[2].SetActive(false);
-                    if(currentSelectedLevel < actLevel){
+                    if (currentSelectedLevel < actLevel)
+                    {
                         difficulties[1].GetComponent<DifficultController>().SetDifficultState(true);
-                    }else{
+                    }
+                    else
+                    {
                         difficulties[1].GetComponent<DifficultController>().SetDifficultState(false);
                     }
-                }else{
+                }
+                else
+                {
                     selectedDifficultStyle = difficulties[2];
                     difficulties[1].SetActive(false);
                     difficulties[2].SetActive(true);
-                    if(currentSelectedLevel < actLevel){
+                    if (currentSelectedLevel < actLevel)
+                    {
                         difficulties[2].GetComponent<DifficultController>().SetDifficultState(true);
-                    }else{
+                    }
+                    else
+                    {
                         difficulties[2].GetComponent<DifficultController>().SetDifficultState(false);
                     }
                 }
             }
 
             difficultLevel = currentSelectedLevel;
-        }else if(!levels[currentSelectedLevel].isDifficultyVariant){
+        }
+        else if (!levels[currentSelectedLevel].isDifficultyVariant)
+        {
             selectedDifficultStyle = null;
             difficulties[0].SetActive(false);
         }
@@ -207,7 +225,8 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Method to move the Scrollbar to button position
     /// </summary>
-    private void MoveScrollbar(){
+    private void MoveScrollbar()
+    {
         if (runIt)
         {
             GecisiDuzenle(distance, pos, takeTheBtn);
@@ -224,7 +243,8 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Method to check scrollbar drag and set the value to button position
     /// </summary>
-    private void CheckDragScrollbar(){
+    private void CheckDragScrollbar()
+    {
         if (Input.GetMouseButton(0))
         {
             scroll_pos = scrollbar.GetComponent<Scrollbar>().value;
@@ -260,7 +280,8 @@ public class LevelController : MonoBehaviour
             }
         }
 
-        if(btn != null){
+        if (btn != null)
+        {
             for (int i = 0; i < btn.transform.parent.transform.childCount; i++)
             {
                 btn.transform.name = ".";
@@ -271,13 +292,14 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Method to update not selected buttons styles, information and UI
     /// </summary>
-    private void SetNotSelectedValues(){
+    private void SetNotSelectedValues()
+    {
         for (int j = 0; j < pos.Length; j++)
         {
             if (j != currentSelectedLevel)
             {
-                SetColor(imageContent.transform.GetChild(j).GetComponent<Image>(), 
-                    imageContent.transform.GetChild(j).GetChild(0).GetComponent<Text>(), 
+                SetColor(imageContent.transform.GetChild(j).GetComponent<Image>(),
+                    imageContent.transform.GetChild(j).GetChild(0).GetComponent<Text>(),
                     colors[0], colors[1], j);
                 SetMaterial(transform.GetChild(j).GetComponent<Image>(), j);
 
@@ -293,10 +315,14 @@ public class LevelController : MonoBehaviour
     /// </summary>
     /// <param name="sprite">Image to check what material set</param>
     /// <param name="index">Index to check with actual level</param>
-    private void SetMaterial(Image sprite, int index){
-        if(index < actLevel){
+    private void SetMaterial(Image sprite, int index)
+    {
+        if (index < actLevel)
+        {
             sprite.material = null;
-        }else{
+        }
+        else
+        {
             sprite.material = grayScaleMaterial;
         }
     }
@@ -309,11 +335,15 @@ public class LevelController : MonoBehaviour
     /// <param name="color">Color image</param>
     /// <param name="textColor">Text color</param>
     /// <param name="index">Index to check with actual level</param>
-    private void SetColor(Image sprite, Text text, Color32 color, Color32 textColor, int index){
-        if(index < actLevel){
+    private void SetColor(Image sprite, Text text, Color32 color, Color32 textColor, int index)
+    {
+        if (index < actLevel)
+        {
             sprite.color = color;
             text.color = textColor;
-        }else{
+        }
+        else
+        {
             sprite.color = new Color32(158, 158, 158, 255);
             text.color = colors[0];
         }
@@ -345,12 +375,15 @@ public class LevelController : MonoBehaviour
     /// <param name="i">Index of the level clicked</param>
     public void LevelBtnClicked(int i)
     {
-        if(currentSelectedLevel != i){
+        if (currentSelectedLevel != i)
+        {
             btnNumber = i;
             time = 0;
             scroll_pos = (pos[btnNumber]);
             runIt = true;
-        }else if(i < actLevel){
+        }
+        else if (i < actLevel)
+        {
             PlayerPrefs.SetString("selectedLevel", JsonUtility.ToJson(levels[i]));
             GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Start - Selector");
         }
