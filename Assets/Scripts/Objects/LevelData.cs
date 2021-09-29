@@ -14,4 +14,5 @@ public class LevelData
     public float time;
     public string date;
     public string hour;
+    public bool emailWasSend;
 }

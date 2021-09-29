@@ -26,6 +26,8 @@ public class ModalController : MonoBehaviour
     }
 
     public void SetStatus(bool status){
+        GameObject mainLevelController = GameObject.FindGameObjectWithTag("LevelController");
+
         if(status){
             animator.SetBool("appear", true);
             canvasGroup.blocksRaycasts = true;
@@ -35,6 +37,9 @@ public class ModalController : MonoBehaviour
                 VideoPlayer videoPlayer = videoPlayerObject.GetComponentInChildren<VideoPlayer>();
                 videoPlayer.Pause();
             }
+            if(mainLevelController != null){
+                mainLevelController.GetComponent<MainLevelController>().inModal = true;
+            }
         } else{
             animator.SetBool("appear", false);
             canvasGroup.blocksRaycasts = false;
@@ -43,6 +48,9 @@ public class ModalController : MonoBehaviour
             if(videoPlayerObject != null){
                 VideoPlayer videoPlayer = videoPlayerObject.GetComponentInChildren<VideoPlayer>();
                 videoPlayer.Play();
+            }
+            if(mainLevelController != null){
+                mainLevelController.GetComponent<MainLevelController>().inModal = false;
             }
         }
     }

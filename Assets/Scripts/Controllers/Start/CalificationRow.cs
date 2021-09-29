@@ -56,13 +56,13 @@ public class CalificationRow : MonoBehaviour
     /// <param name="numMisstakes">number of misstakes by the student(s)</param>
     void SetMisstakeColor(int numMisstakes){
         if(numMisstakes == 0){
-            misstakes.color = new Color32(183, 226, 51, 255);
+            misstakes.color = new Color32(88, 173, 14, 255);
         }else if(numMisstakes <=3){
-            misstakes.color = new Color32(128, 181, 0, 255);
+            misstakes.color = new Color32(11, 112, 14, 255);
         }else if(numMisstakes <=6){
-            misstakes.color = new Color32(255, 208, 59, 255);
+            misstakes.color = new Color32(229, 116, 14, 255);
         }else{
-            misstakes.color = new Color32(229, 0, 60, 255);
+            misstakes.color = new Color32(211, 0, 0, 255);
         }
     }
 }

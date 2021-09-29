@@ -152,6 +152,56 @@ public class Utils : MonoBehaviour
         return tutorial;
     }
 
+    public static void CalificationData(){
+        
+        if(PlayerPrefs.GetString("Calification") == null || PlayerPrefs.GetString("Calification") == ""){
+            List<Calification> califications = new List<Calification>();
+        
+            Calification cal1 = new Calification();
+            cal1.level = 1;
+            cal1.teamName = "Nombre del equipo";
+            cal1.misstakes = 0;
+            cal1.time = "0h 00m 0s";
+            cal1.date = "dd/mm/yy";
+            cal1.hour = "hh:mm";
+
+            Calification cal2 = new Calification();
+            cal2.level = 2;
+            cal2.teamName = "Nombre del equipo";
+            cal2.misstakes = 0;
+            cal2.time = "0h 00m 0s";
+            cal2.date = "dd/mm/yy";
+            cal2.hour = "hh:mm";
+
+            Calification cal3 = new Calification();
+            cal3.level = 3;
+            cal3.teamName = "Nombre del equipo";
+            cal3.misstakes = 0;
+            cal3.time = "0h 00m 0s";
+            cal3.date = "dd/mm/yy";
+            cal3.hour = "hh:mm";
+
+            Calification cal4 = new Calification();
+            cal4.level = 4;
+            cal4.teamName = "Nombre del equipo";
+            cal4.misstakes = 0;
+            cal4.time = "0h 00m 0s";
+            cal4.date = "dd/mm/yy";
+            cal4.hour = "hh:mm";
+
+            califications.Add(cal1);
+            califications.Add(cal2);
+            califications.Add(cal3);
+            califications.Add(cal4);
+
+            CalificationCollection collection = new CalificationCollection();
+            collection.califications = califications.ToArray();
+
+            string json = JsonUtility.ToJson(collection);
+            PlayerPrefs.SetString("Calification", json);
+        }
+    }
+
     /// <summary>
     /// Create level data to start application first time
     /// </summary>
@@ -206,7 +256,11 @@ public class Utils : MonoBehaviour
 
         string json = JsonUtility.ToJson(collection);
         PlayerPrefs.SetString("Levels", json);
-        PlayerPrefs.SetInt("actLevelAvalaible", 1);
+        
+        int actLevel = PlayerPrefs.GetInt("actLevelAvalaible");
+        if(actLevel == 0){
+            PlayerPrefs.SetInt("actLevelAvalaible", 1);
+        }
     }
 
     public static void SetPlayer(string playerParam, PlayerSpriteRenderer spriteContainer, SpriteRenderer iconContainer){

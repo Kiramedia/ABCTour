@@ -26,6 +26,13 @@ public class MainLevelController : MonoBehaviour
 
         if(levelData.currentTrophys.Count == levelData.level.numOfActivities){
             isFinish = true;
+
+            if(levelData.emailWasSend == false){
+                StartCoroutine(SendTeacherEmail(levelData));
+                levelData.emailWasSend = true;
+                SaveLevelData();
+                SaveCalification(levelData);
+            }
         }
     }
 
@@ -61,6 +68,7 @@ public class MainLevelController : MonoBehaviour
         data.time = 0;
         data.date = Utils.GetCurrentDate();
         data.hour = Utils.GetCurrentHour();
+        data.emailWasSend = false;
         return data;
     }
 
@@ -74,7 +82,9 @@ public class MainLevelController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
     void Update()
     {
         MouseRaycast();
@@ -107,10 +117,46 @@ public class MainLevelController : MonoBehaviour
                 }else if(hit.collider.gameObject.transform.name.Contains("ActivityItem")){
                     ActivityItem activityItem = hit.collider.gameObject.GetComponentInParent<ActivityItem>();
                     activityItem.SetAnswer();
+
+                    GameObject ballsSystem = GameObject.Find("BallSystem");
+                    if(ballsSystem != null){
+                        ballsSystem.GetComponent<BallsSystem>().DisappearBall();
+                    }
+                }else if(hit.collider.gameObject.transform.name.Equals("BusLevel")){
+                    GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Start - Levels");
                 }
-                
             }
         }
     }
 
+    IEnumerator SendTeacherEmail(LevelData data){
+        SendEmail.Send(data);
+        yield return new WaitForSeconds(2.0f);
+    }
+
+    void SaveCalification(LevelData data){
+        CalificationCollection collection = JsonUtility.FromJson<CalificationCollection>(PlayerPrefs.GetString("Calification"));
+
+        Calification newCalification = new Calification();
+        newCalification.level = data.level.numberLevel;
+        newCalification.date = data.date;
+        newCalification.teamName = PlayerPrefs.GetString("Device");
+        newCalification.misstakes = data.currentMisstakes;
+        newCalification.time = Utils.GetTimeFormatted((int)data.time);
+        newCalification.hour = data.hour;
+
+        List<Calification> califications = new List<Calification>(collection.califications);
+
+        if(califications.Count >= data.level.numberLevel){
+            califications[data.level.numberLevel - 1] = newCalification;
+        }
+
+        collection.califications = califications.ToArray();
+        PlayerPrefs.SetString("Calification", JsonUtility.ToJson(collection));
+
+        int actLevel = PlayerPrefs.GetInt("actLevelAvalaible");
+        if(actLevel == data.level.numberLevel){
+            PlayerPrefs.SetInt("actLevelAvalaible", data.level.numberLevel+1);
+        }
+    }
 }

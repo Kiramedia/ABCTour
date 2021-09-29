@@ -29,6 +29,7 @@ public class StartApp : MonoBehaviour
         Screen.fullScreen = fullScreen == -1 ? false : true;
 
         Utils.InitLevelsData();
+        Utils.CalificationData();
     }
 
     

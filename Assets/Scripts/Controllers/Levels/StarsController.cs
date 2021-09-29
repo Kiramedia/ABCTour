@@ -27,6 +27,7 @@ public class StarsController : MonoBehaviour
         main = GameObject.FindGameObjectWithTag("LevelController").GetComponent<MainLevelController>();
         mask2D = GetComponent<RectMask2D>();
         maxSize = mask2D.padding.z;
+        GetStartPosition();
         mask2D.padding = new Vector4(0, 0, startPosition, 0);
         pointsToGive = maxSize / numOfItems;
     }
@@ -48,9 +49,27 @@ public class StarsController : MonoBehaviour
             }
         }
     }
+
+    void GetStartPosition(){
+        float totalPoints = startPosition;
+
+        if( currentMisstakes > possibleMisstakes ){
+            float pointsInMisstake = maxSize / (numOfItems + (currentMisstakes - possibleMisstakes));
+            totalPoints = maxSize - (pointsInMisstake * currentCorrect);
+
+            if(totalPoints > startPosition){
+                totalPoints = startPosition;
+            }
+        }else{
+            float pointsNormally = maxSize / numOfItems;
+            totalPoints = maxSize - (pointsNormally * currentCorrect);
+        }
+
+        startPosition = totalPoints;
+    }
     
     public void CorrectAnswer(){
-        if(!isAnim && !main.isFinish){
+        if(!main.isFinish){
             currentCorrect++;
             if( currentMisstakes > possibleMisstakes ){
                 float pointsInMisstake = maxSize / (numOfItems + (currentMisstakes - possibleMisstakes));
@@ -64,7 +83,12 @@ public class StarsController : MonoBehaviour
             }
 
             startPosition = mask2D.padding.z;
-            isAnim = true;
+            if(!isAnim ){
+                isAnim = true;
+            }else{
+                time = 0;
+            }
+            
         }
     }
 

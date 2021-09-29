@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class SelectionActivity : MonoBehaviour
 {
     public List<Vector2> possiblePositions;
+    public List<Vector2> possibleUIPositions;
     public int numberOfItems;
     public List<ActivityItem> correctItems;
     public List<ActivityItem> incorrectItems;
+    public List<RectTransform> UIItems;
     public int numOfCorrect = 0;
     public GameObject[] turns;
     public GameObject inGameObjects;
@@ -34,7 +36,10 @@ public class SelectionActivity : MonoBehaviour
     void InitObjectPositions(){
         List<ActivityItem> correctTemporal = new List<ActivityItem>(correctItems);
         List<ActivityItem> incorrectTemporal =  new List<ActivityItem>(incorrectItems);
+
         List<Vector2> temporalPositions =  new List<Vector2>(possiblePositions);
+        List<Vector2> temporalUIPositions =  new List<Vector2>(possibleUIPositions);
+        
 
         for (int i = 0; i < numberOfItems; i++)
         {
@@ -53,6 +58,13 @@ public class SelectionActivity : MonoBehaviour
             }
 
             temporalPositions.RemoveAt(indexPosition);
+        }
+
+        foreach (RectTransform UIItem in UIItems)
+        {
+            int indexPosition = Random.Range(0, temporalUIPositions.Count);
+            UIItem.anchoredPosition = temporalUIPositions[indexPosition];
+            temporalUIPositions.RemoveAt(indexPosition);
         }
     }
 
