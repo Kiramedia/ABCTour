@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectOptionsBehaviour: {fileID: 7816086672779694357}
   levelTestModalRender: {fileID: 0}
+  timeBehaviour: {fileID: 6324716680969896268}
   level: 2
   numberOfSimilarOptions: 1
   correctOptionButtonBehaviour: {fileID: 0}
@@ -51,6 +52,7 @@ MonoBehaviour:
   testModalController: {fileID: 0}
   levelSigns: {fileID: 11400000, guid: 35c070133bddc6047a60f029eabebd17, type: 2}
   abecedary: {fileID: 11400000, guid: 386b499a1bcc14b488a46e8260050492, type: 2}
+  levelBehaviour: {fileID: 0}
 --- !u!1001 &1314211860230066037
 PrefabInstance:
   m_ObjectHideFlags: 0

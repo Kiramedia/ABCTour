@@ -7,6 +7,7 @@ public class TestModalController : MonoBehaviour
 {
     public SelectOptionsBehaviour selectOptionsBehaviour;
     public LevelTestModalRender levelTestModalRender;
+    public TimeBehaviour timeBehaviour;
     public int level;
     public int numberOfSimilarOptions;
     public OptionButtonBehaviour correctOptionButtonBehaviour;
@@ -44,6 +45,8 @@ public class TestModalController : MonoBehaviour
         correctOptionButtonBehaviour.showCorrectAnswer();
 
         deactivateButtons();
+
+        timeBehaviour.isStartTime = false;
     }
 
     public void deactivateButtons()
