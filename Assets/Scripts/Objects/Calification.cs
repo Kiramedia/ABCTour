@@ -52,7 +52,8 @@ public class Calification
 /// Calification collection
 /// </summary>
 [Serializable]
-public class CalificationCollection{
+public class CalificationCollection
+{
     /// <summary>
     /// Calification array
     /// </summary>

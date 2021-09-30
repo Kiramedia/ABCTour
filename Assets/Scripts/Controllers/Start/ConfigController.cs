@@ -71,7 +71,8 @@ public class ConfigController : MonoBehaviour
         screenResolution.AddOptions(options);
 
         int screenSize = PlayerPrefs.GetInt("ScreenSize");
-        if(screenSize >= 0){
+        if (screenSize >= 0)
+        {
             screenResolution.value = screenSize;
         }
     }
@@ -79,7 +80,8 @@ public class ConfigController : MonoBehaviour
     /// <summary>
     /// Set status in the fullscreen toggle
     /// </summary>
-    void SetFullScreen(){
+    void SetFullScreen()
+    {
         int fullScreenValue = PlayerPrefs.GetInt("FullScreen");
         fullScreen.isOn = fullScreenValue == -1 ? false : true;
     }
@@ -87,7 +89,8 @@ public class ConfigController : MonoBehaviour
     /// <summary>
     /// Set status in the haptic toggle
     /// </summary>
-    void SetHaptic(){
+    void SetHaptic()
+    {
         int hapticValue = PlayerPrefs.GetInt("Haptic");
         haptic.isOn = hapticValue == -1 ? false : true;
     }
@@ -95,9 +98,11 @@ public class ConfigController : MonoBehaviour
     /// <summary>
     /// Set email text to TMP_Text
     /// </summary>
-    void SetEmail(){
+    void SetEmail()
+    {
         string emailValue = PlayerPrefs.GetString("Email").ToLower();
-        if(emailValue != ""){
+        if (emailValue != "")
+        {
             string result = Utils.GetCensoredEmail(emailValue);
             email.text = result;
         }
@@ -106,9 +111,11 @@ public class ConfigController : MonoBehaviour
     /// <summary>
     /// Set device text to TMP_Text
     /// </summary>
-    void SetDevice(){
+    void SetDevice()
+    {
         string actDevice = PlayerPrefs.GetString("Device");
-        if(actDevice == ""){
+        if (actDevice == "")
+        {
             actDevice = Utils.CreateRandomTeamName();
             PlayerPrefs.SetString("Device", actDevice);
         }
@@ -156,7 +163,8 @@ public class ConfigController : MonoBehaviour
     /// <summary>
     /// Method executed when fullscreen checkbox change
     /// </summary>
-    public void ChangeFullScreen(){
+    public void ChangeFullScreen()
+    {
         Screen.fullScreen = fullScreen.isOn;
         PlayerPrefs.SetInt("FullScreen", fullScreen.isOn ? 1 : -1);
     }
@@ -164,7 +172,8 @@ public class ConfigController : MonoBehaviour
     /// <summary>
     /// Method executed when haptic checkbox change
     /// </summary>
-    public void ChangeHaptic(){
+    public void ChangeHaptic()
+    {
         PlayerPrefs.SetInt("Haptic", haptic.isOn ? 1 : -1);
     }
 
@@ -172,13 +181,17 @@ public class ConfigController : MonoBehaviour
     /// Method to present alert in configurations scene
     /// </summary>
     /// <param name="alert">alert gameobject</param>
-    public void PresentAlert(GameObject alert){
+    public void PresentAlert(GameObject alert)
+    {
         alert.SetActive(true);
         AlertController alertController = alert.GetComponent<AlertController>();
         alertController.changeField.interactable = false;
-        if(alertController.type == "Email"){
+        if (alertController.type == "Email")
+        {
             alertController.changeField.text = Utils.GetCensoredEmail(PlayerPrefs.GetString("Email").ToLower());
-        }else{
+        }
+        else
+        {
             alertController.changeField.text = PlayerPrefs.GetString(alertController.type);
         }
     }
@@ -187,7 +200,8 @@ public class ConfigController : MonoBehaviour
     /// Method to close alert in configurations scene
     /// </summary>
     /// <param name="alert">alert gameobject</param>
-    public void CloseAlert(GameObject alert){
+    public void CloseAlert(GameObject alert)
+    {
         AlertController alertController = alert.GetComponent<AlertController>();
         alertController.Clear();
         alert.SetActive(false);

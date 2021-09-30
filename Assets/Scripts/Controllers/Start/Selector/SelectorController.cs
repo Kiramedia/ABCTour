@@ -11,7 +11,7 @@ public class SelectorController : MonoBehaviour
     /// Define what player is, first or second
     /// </summary>
     public int numberPlayer;
-    
+
     /// <summary>
     /// Image of the boy in the modal
     /// </summary>
@@ -88,7 +88,8 @@ public class SelectorController : MonoBehaviour
         colorPickerBack.transform.GetChild(selectedColor).GetComponent<Image>().enabled = true;
         boyObject.material = boyMaterials[selectedColor];
         girlObject.material = girlMaterials[selectedColor];
-        if(isDisabledColor){
+        if (isDisabledColor)
+        {
             DisableColor(disabledColor);
         }
     }
@@ -97,12 +98,16 @@ public class SelectorController : MonoBehaviour
     /// Method to change sex state
     /// </summary>
     /// <param name="sex">text with sex information ("Boy" and "Girl")</param>
-    public void SelectSex(string sex){
-        if(sex == "Boy"){
+    public void SelectSex(string sex)
+    {
+        if (sex == "Boy")
+        {
             boyOverlay.SetActive(false);
             girlOverlay.SetActive(true);
             selectedSex = "Boy";
-        }else{
+        }
+        else
+        {
             boyOverlay.SetActive(true);
             girlOverlay.SetActive(false);
             selectedSex = "Girl";
@@ -113,7 +118,8 @@ public class SelectorController : MonoBehaviour
     /// Method to change color state
     /// </summary>
     /// <param name="index">Index of the color selected</param>
-    public void SetColor(int index){
+    public void SetColor(int index)
+    {
         boyObject.material = boyMaterials[index];
         girlObject.material = girlMaterials[index];
         colorPickerBack.transform.GetChild(selectedColor).GetComponent<Image>().enabled = false;
@@ -125,7 +131,8 @@ public class SelectorController : MonoBehaviour
     /// Method to change the disable color in the color picker
     /// </summary>
     /// <param name="index">Index of the disable color</param>
-    public void DisableColor(int index){
+    public void DisableColor(int index)
+    {
         colorPicker.transform.GetChild(disabledColor).GetComponent<Image>().color = colors[disabledColor];
         colorPicker.transform.GetChild(disabledColor).GetChild(0).GetComponent<Image>().enabled = false;
         colorPicker.transform.GetChild(index).GetComponent<Image>().color = Color.gray;

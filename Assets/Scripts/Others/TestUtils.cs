@@ -5,46 +5,47 @@ using UnityEngine;
 /// Class for util methods
 /// </summary>
 public class TestUtils : MonoBehaviour
-{ 
+{
     /// <summary>
     /// Created with test purposes
     /// Create calification test data
     /// </summary>
-    public static void CalificationTestData(){
-        
+    public static void CalificationTestData()
+    {
+
         List<Calification> califications = new List<Calification>();
-        
+
         Calification cal1 = new Calification();
         cal1.level = 1;
-        cal1.teamName = "Kela Team";
+        cal1.teamName = "Nombre del equipo";
         cal1.misstakes = 0;
-        cal1.time = "0h 37m 0s";
-        cal1.date = "30/08/2021";
-        cal1.hour = "09:51";
+        cal1.time = "0h 00m 0s";
+        cal1.date = "DD/MM/YYYY";
+        cal1.hour = "HH:MM";
 
         Calification cal2 = new Calification();
         cal2.level = 2;
-        cal2.teamName = "Kira Team";
-        cal2.misstakes = 3;
-        cal2.time = "0h 07m 03s";
-        cal2.date = "30/08/2021";
-        cal2.hour = "10:09";
+        cal2.teamName = "Nombre del equipo";
+        cal2.misstakes = 0;
+        cal2.time = "0h 00m 0s";
+        cal2.date = "DD/MM/YYYY";
+        cal2.hour = "HH:MM";
 
         Calification cal3 = new Calification();
         cal3.level = 3;
-        cal3.teamName = "KiraxKela Team";
-        cal3.misstakes = 5;
-        cal3.time = "0h 07m 03s";
-        cal3.date = "30/08/2021";
-        cal3.hour = "10:09";
+        cal3.teamName = "Nombre del equipo";
+        cal3.misstakes = 0;
+        cal3.time = "0h 00m 0s";
+        cal3.date = "DD/MM/YYYY";
+        cal3.hour = "HH:MM";
 
         Calification cal4 = new Calification();
         cal4.level = 4;
-        cal4.teamName = "Let's get married with me baby";
-        cal4.misstakes = 7;
-        cal4.time = "0h 07m 03s";
-        cal4.date = "30/08/2021";
-        cal4.hour = "10:09";
+        cal4.teamName = "Nombre del equipo";
+        cal4.misstakes = 0;
+        cal4.time = "0h 00m 0s";
+        cal4.date = "DD/MM/YYYY";
+        cal4.hour = "HH:MM";
 
         califications.Add(cal1);
         califications.Add(cal2);
@@ -62,9 +63,10 @@ public class TestUtils : MonoBehaviour
     /// Created with test purposes
     /// Create level test data
     /// </summary>
-    public static void LevelTestData() { 
+    public static void LevelTestData()
+    {
         List<Level> levels = new List<Level>();
-        
+
         Level level1 = new Level();
         level1.numberLevel = 1;
         level1.isDifficultyVariant = false;
@@ -99,4 +101,12 @@ public class TestUtils : MonoBehaviour
         PlayerPrefs.SetString("Levels", json);
     }
 
+    /// <summary>
+    /// Test method to check if is possible to load sprite from the resources folder
+    /// </summary>
+    /// <returns></returns>
+    public static Sprite LoadSprite()
+    {
+        return Resources.Load("Graphics/Backgrounds/Level 1/Letters/a", typeof(Sprite)) as Sprite;
+    }
 }

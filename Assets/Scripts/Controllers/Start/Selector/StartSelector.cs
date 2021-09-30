@@ -26,7 +26,7 @@ public class StartSelector : MonoBehaviour
     /// </summary>
     private Level selectedLevel;
 
-    
+
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
     /// any of the Update methods is called the first time.
@@ -40,14 +40,18 @@ public class StartSelector : MonoBehaviour
     /// Define what modal is going to display in the selector scene
     /// Depends of number of players in the selected level
     /// </summary>
-    void SetNumberOfPlayers(){
+    void SetNumberOfPlayers()
+    {
         selectedLevel = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel"));
 
-        if(selectedLevel.numberOfPlayers == 1){
+        if (selectedLevel.numberOfPlayers == 1)
+        {
             toPlayer1.SetActive(true);
             toPlayer2.SetActive(false);
             actualParent = toPlayer1.gameObject.GetComponent<ParentSelectorController>();
-        }else{
+        }
+        else
+        {
             toPlayer1.SetActive(false);
             toPlayer2.SetActive(true);
             actualParent = toPlayer2.gameObject.GetComponent<ParentSelectorController>();
@@ -57,14 +61,16 @@ public class StartSelector : MonoBehaviour
     /// <summary>
     /// Method to call parent button hover method from button trigger event
     /// </summary>
-    public void ChangeHoverButton(){
+    public void ChangeHoverButton()
+    {
         actualParent.ChangeButtonHover();
     }
 
     /// <summary>
     /// Method to call parent button continue to level method from button trigger event
     /// </summary>
-    public void ContinueToLevel(){
+    public void ContinueToLevel()
+    {
         actualParent.ContinueToLevel(selectedLevel);
     }
 }
