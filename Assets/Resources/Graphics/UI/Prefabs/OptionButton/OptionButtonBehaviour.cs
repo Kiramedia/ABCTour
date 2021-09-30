@@ -7,9 +7,13 @@ public class OptionButtonBehaviour : MonoBehaviour
 {
     public TestModalController testModalController;
     public Button button;
+    public Image incorrectImage; 
+    public Image correctImage; 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        incorrectImage.enabled = false;
+        correctImage.enabled = false;
     }
 
     // Update is called once per frame
@@ -19,10 +23,17 @@ public class OptionButtonBehaviour : MonoBehaviour
     }
 
     public void onCorrectAnswer(){
+        correctImage.enabled = true;
+        Debug.Log("on correct " + correctImage.enabled);
+
         testModalController.onCorrectAnswer();
+
     }
 
     public void onIncorrectAnswer(){
+        incorrectImage.enabled = true;
+        Debug.Log("on incorrect " + correctImage.enabled);
+
         testModalController.onIncorrectAnswer();
     }
 }

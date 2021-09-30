@@ -599,6 +599,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 157216648}
     m_Modifications:
+    - target: {fileID: 2862167831791591971, guid: 4c06d9d68a9ef4a79997d1188ea3815e, type: 3}
+      propertyPath: correctImage
+      value: 
+      objectReference: {fileID: 4915189967293955974}
+    - target: {fileID: 2862167831791591971, guid: 4c06d9d68a9ef4a79997d1188ea3815e, type: 3}
+      propertyPath: incorrectImage
+      value: 
+      objectReference: {fileID: 4915189967293955975}
     - target: {fileID: 4915189968296663880, guid: 4c06d9d68a9ef4a79997d1188ea3815e, type: 3}
       propertyPath: m_Name
       value: OptionButton
@@ -689,3 +697,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c06d9d68a9ef4a79997d1188ea3815e, type: 3}
+--- !u!1 &4915189967293955974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 865778252967046486, guid: 4c06d9d68a9ef4a79997d1188ea3815e, type: 3}
+  m_PrefabInstance: {fileID: 4915189967293955973}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4915189967293955975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2625946372645875186, guid: 4c06d9d68a9ef4a79997d1188ea3815e, type: 3}
+  m_PrefabInstance: {fileID: 4915189967293955973}
+  m_PrefabAsset: {fileID: 0}
