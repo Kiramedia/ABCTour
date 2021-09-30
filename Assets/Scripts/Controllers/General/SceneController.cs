@@ -88,4 +88,8 @@ public class SceneController : MonoBehaviour
         Application.Quit();
     }
 
+
+    public string GetCurrentScene(){
+        return SceneManager.GetActiveScene().name;
+    }
 }

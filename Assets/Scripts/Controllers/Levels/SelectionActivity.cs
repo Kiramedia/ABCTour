@@ -82,8 +82,15 @@ public class SelectionActivity : MonoBehaviour
         InitObjectPositions();
         if (turns.Length == 2)
         {
-            turns[0].SetActive(true);
-            turns[1].SetActive(false);
+            SceneController sceneController = GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>();
+
+            if (sceneController.GetCurrentScene() != "Level 2 - Activity 1-1") { 
+                turns[0].SetActive(true);
+                turns[1].SetActive(false);
+            }else{
+                turns[1].SetActive(true);
+                turns[0].SetActive(false);
+            }
         }
         tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
     }
@@ -151,12 +158,16 @@ public class SelectionActivity : MonoBehaviour
             MainLevelController main = GameObject.FindGameObjectWithTag("LevelController").GetComponent<MainLevelController>();
             Tutorial tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
 
-            if (!main.levelData.currentTrophies.Contains(tutorialInfo.id))
-            {
-                main.levelData.currentTrophies.Add(tutorialInfo.id);
-            }
+            SceneController sceneController = GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>();
+            
+            if(sceneController.GetCurrentScene() != "Level 2 - Activity 1"){
+                if (!main.levelData.currentTrophies.Contains(tutorialInfo.id))
+                {
+                    main.levelData.currentTrophies.Add(tutorialInfo.id);
+                }
 
-            main.progressBar.AddSection(true);
+                main.progressBar.AddSection(true);
+            }
 
             StartCoroutine(ChangeToPrincipal(main));
         }
@@ -190,16 +201,24 @@ public class SelectionActivity : MonoBehaviour
     /// <returns>Courutine</returns>
     IEnumerator ChangeToPrincipal(MainLevelController main)
     {
+        SceneController sceneController = GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>();
         yield return new WaitForSeconds(1f);
 
-        inGameObjects.SetActive(false);
-        inGameUIObjects.SetActive(false);
-        whitePanel.color = new Color32(255, 255, 255, 0);
-        trophy.SetActive(true);
+        if (sceneController.GetCurrentScene() != "Level 2 - Activity 1") {
+            inGameObjects.SetActive(false);
+            inGameUIObjects.SetActive(false); 
+            whitePanel.color = new Color32(255, 255, 255, 0);
+            trophy.SetActive(true);
+        }else{
+            main.SaveLevelData();
+            sceneController.LoadScene("Level 2 - Activity 1-1");
+        }
 
         yield return new WaitForSeconds(5f);
-        SceneController sceneController = GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>();
-        main.SaveLevelData();
-        sceneController.LoadScene("Level " + main.levelData.level.numberLevel);
+
+        if(sceneController.GetCurrentScene() != "Level 2 - Activity 1"){
+            main.SaveLevelData();
+            sceneController.LoadScene("Level " + main.levelData.level.numberLevel);
+        }
     }
 }
