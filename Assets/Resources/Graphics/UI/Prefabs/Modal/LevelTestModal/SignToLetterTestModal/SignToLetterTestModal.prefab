@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &270331816759277674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323843478735366355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1108328c69e27f44496885a74b3e076c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectOptionsBehaviour: {fileID: 2496311377986255751}
+  testModalController: {fileID: 8886178783837239136}
+  answerOptions: {fileID: 743280671258659217}
+  optionButtonPrefab: {fileID: 4402238434753298428, guid: cb11a36f8bd6d412d8c53b278f658ed6, type: 3}
+  widthsByLevel:
+  - 400
+  - 400
+  - 800
+  signImage: {fileID: 2979947337653790911}
 --- !u!1 &5889121253027717246
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,27 +96,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &270331816759277674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7323843478735366355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1108328c69e27f44496885a74b3e076c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectOptionsBehaviour: {fileID: 2496311377986255751}
-  testModalController: {fileID: 8886178783837239136}
-  answerOptions: {fileID: 743280671258659217}
-  optionButtonPrefab: {fileID: 4402238434753298428, guid: cb11a36f8bd6d412d8c53b278f658ed6, type: 3}
-  widthsByLevel:
-  - 400
-  - 400
-  - 800
-  signImage: {fileID: 2979947337653790911}
 --- !u!1001 &5682694533915093650
 PrefabInstance:
   m_ObjectHideFlags: 0

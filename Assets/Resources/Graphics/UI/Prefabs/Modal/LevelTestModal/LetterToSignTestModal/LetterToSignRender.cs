@@ -28,21 +28,23 @@ public class LetterToSignRender : LevelTestModalRender
     public void renderButtons()
     {
         System.Random random = new System.Random();
-        int randomNumber = random.Next(0, selectOptionsBehaviour.incorrectOptions.Count);
+        int randomNumber = random.Next(0, selectOptionsBehaviour.incorrectOptions.Count + 1);
+
+        List<Sign> options = new List<Sign>(selectOptionsBehaviour.incorrectOptions);
+        options.Insert(randomNumber, selectOptionsBehaviour.correctOption);
 
         int counter = 0;
-        while (counter < selectOptionsBehaviour.incorrectOptions.Count)
+        while (counter < options.Count)
         {
             if (randomNumber == counter)
             {
-                renderButton(selectOptionsBehaviour.correctOption, true);
-                randomNumber = selectOptionsBehaviour.incorrectOptions.Count + 1;
+                renderButton(options[counter], true);
             }
             else
             {
-                renderButton(selectOptionsBehaviour.incorrectOptions[counter], false);
-                counter++;
+                renderButton(options[counter], false);
             }
+            counter++;
         }
     }
 
@@ -56,15 +58,18 @@ public class LetterToSignRender : LevelTestModalRender
 
         OptionButtonBehaviour optionButtonBehaviour = optionButtonPrefab.GetComponent<OptionButtonBehaviour>();
 
-        UnityAction unityActionOnCorrectAnswer = new UnityAction(optionButtonBehaviour.onCorrectAnswer);
-        UnityAction unityActionOnIncorrectAnswer = new UnityAction(optionButtonBehaviour.onIncorrectAnswer);
-
         button.GetComponent<RenderSign>().setSign(sign.sign);
-        button.GetComponent<Button>().onClick.AddListener(
-            isCorrect ?
-            unityActionOnCorrectAnswer :
-            unityActionOnIncorrectAnswer
-        );
+        if (isCorrect)
+        {
+            button.GetComponent<OptionButtonBehaviour>().setAsCorrect();
+            testModalController.correctOptionButtonBehaviour = button.GetComponent<OptionButtonBehaviour>();
+        }
+        else
+        {
+            button.GetComponent<OptionButtonBehaviour>().setAsIncorrect();
+        }
+
+        testModalController.optionButtonsList.Add(button);
     }
 
     public void resizeComponent()

@@ -112,8 +112,8 @@ MonoBehaviour:
   optionButtonPrefab: {fileID: 773631589506865240, guid: 6d1894d50c61846ea983bc9ebfbfbfa6, type: 3}
   widthsByLevel:
   - 400
-  - 500
-  - 500
+  - 400
+  - 800
   renderLetter: {fileID: 93691231}
 --- !u!1001 &4140235300401278303
 PrefabInstance:
@@ -212,7 +212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3134356104117813825, guid: be40b5fbcde5e5548bf2c92ba5e20250, type: 3}
       propertyPath: m_Name
-      value: LevelTestModal
+      value: LetterToSignTestModal
       objectReference: {fileID: 0}
     - target: {fileID: 3134356104578990274, guid: be40b5fbcde5e5548bf2c92ba5e20250, type: 3}
       propertyPath: m_Pivot.y
@@ -233,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 3134356104578990274, guid: be40b5fbcde5e5548bf2c92ba5e20250, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -19.000061
+      objectReference: {fileID: 0}
+    - target: {fileID: 3859285915904712178, guid: be40b5fbcde5e5548bf2c92ba5e20250, type: 3}
+      propertyPath: level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3859285915904712178, guid: be40b5fbcde5e5548bf2c92ba5e20250, type: 3}
       propertyPath: levelTestModalRender

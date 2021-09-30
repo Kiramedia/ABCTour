@@ -596,7 +596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323843478735366354, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 473.975
+      value: 515.882
       objectReference: {fileID: 0}
     - target: {fileID: 7323843478735366354, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7323843478735366354, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -359.06
+      value: -380.013
       objectReference: {fileID: 0}
     - target: {fileID: 7323843478735366354, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -649,6 +649,14 @@ PrefabInstance:
     - target: {fileID: 7323843478735366355, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}
       propertyPath: m_Name
       value: SignToLetterTestModal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7719028589639206187, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886178783837239136, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}
+      propertyPath: level
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99c4c507c2bd19149b0c6e09e9f82f0c, type: 3}

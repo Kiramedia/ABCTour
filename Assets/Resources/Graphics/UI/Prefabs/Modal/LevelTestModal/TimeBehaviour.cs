@@ -9,16 +9,25 @@ public class TimeBehaviour : MonoBehaviour
     public float currentTime;
     public bool isStartTime;
     public Image timeIcon;
+    public TestModalController testModalController;
+    private bool timeFlag;
     // Start is called before the first frame update
     void Start()
     {
         currentTime = maxTime;
+
+        timeFlag = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isStartTime && currentTime > 0) currentTime -= Time.deltaTime;
+        if (isStartTime && currentTime > 0) {
+            currentTime -= Time.deltaTime;
+        } else if (timeFlag) {
+            testModalController.onIncorrectAnswer();
+            timeFlag = false;
+        }
 
         timeIcon.fillAmount = currentTime / maxTime;
     }

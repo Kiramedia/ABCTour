@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class LevelTestModalRender : MonoBehaviour
 {
+    public LevelBehaviour levelBehaviour;
     public SelectOptionsBehaviour selectOptionsBehaviour;
     public TestModalController testModalController;
     public GameObject answerOptions;
