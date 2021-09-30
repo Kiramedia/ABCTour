@@ -66,6 +66,7 @@ public class LevelBehaviour : MonoBehaviour
 
         testModalPrefab.GetComponent<TestModalController>().level = level;
         testModalPrefab.GetComponent<TestModalController>().levelBehaviour = this;
+        testModalPrefab.GetComponent<SelectOptionsBehaviour>().levelBehaviour = this;
 
         currentTestModal = Instantiate(testModalPrefab, panel.transform) as GameObject;
     }

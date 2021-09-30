@@ -9,6 +9,7 @@ public class SelectOptionsBehaviour : MonoBehaviour
     public TestModalController testModalController;
     public Abecedary levelSigns;
     public Abecedary abecedary;
+    public LevelBehaviour levelBehaviour;
 
     [NonSerialized]
     public Sign correctOption;
@@ -32,6 +33,7 @@ public class SelectOptionsBehaviour : MonoBehaviour
         List<Sign> temporalAbecedary = abecedary.signs.ToList();
 
         correctOption = selectOption(ref temporalLevelSigns);
+        levelBehaviour.usedSigns.Add(correctOption);
 
         incorrectOptions = new List<Sign>();
 
@@ -91,9 +93,15 @@ public class SelectOptionsBehaviour : MonoBehaviour
 
     public Sign selectOption(ref List<Sign> options)
     {
+        List<Sign> optionsTemporal = options.Except(levelBehaviour.usedSigns).ToList();
         System.Random random = new System.Random();
-        int randomNumber = random.Next(0, options.Count);
-        return RemoveAndGet(options, randomNumber);
+        int randomNumber = random.Next(0, optionsTemporal.Count);
+
+        Sign sign = RemoveAndGet(optionsTemporal, randomNumber);
+
+        options.Remove(sign);
+
+        return sign;
     }
 
     public List<Sign> selectOptions(ref List<Sign> options, int numberOfOptions)
