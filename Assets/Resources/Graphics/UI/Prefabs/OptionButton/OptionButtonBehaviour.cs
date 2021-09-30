@@ -9,12 +9,16 @@ public class OptionButtonBehaviour : MonoBehaviour
     public TestModalController testModalController;
     public Button button;
     public Image image;
+    public Image correctImage; 
+    public Image incorrectImage; 
     public Color correctColor;
     public Color incorrectColor;
     public bool isCorrect;
     // Start is called before the first frame update
     void Start()
     {
+        correctImage.enabled = false;
+        incorrectImage.enabled = false;
     }
 
     // Update is called once per frame
@@ -37,10 +41,12 @@ public class OptionButtonBehaviour : MonoBehaviour
     {
         if (isCorrect)
         {
+            correctImage.enabled = true;
             onCorrectAnswer();
         }
         else
         {
+            incorrectImage.enabled = true;
             onIncorrectAnswer();
         }
     }
