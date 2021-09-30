@@ -274,7 +274,7 @@ public class Utils : MonoBehaviour
         level2.numberLevel = 2;
         level2.isDifficultyVariant = false;
         level2.numberOfPlayers = 2;
-        level2.numberOfItems = 4;
+        level2.numberOfItems = 5;
         level2.possibleMisstakes = 2;
         level2.barSections = 4;
         level2.numOfActivities = 2;
