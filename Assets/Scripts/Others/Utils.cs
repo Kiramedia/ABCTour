@@ -160,9 +160,29 @@ public class Utils : MonoBehaviour
         letterO.activityScene = "Level 1 - Activity 3";
         letterO.id = 2;
 
+        Tutorial letterM = new Tutorial();
+        letterM.isLetterTutorial = true;
+        letterM.videoPath = "Vids/Tutorials/m";
+        letterM.letterSprite = Resources.Load("Graphics/Levels/2/Letters/m", typeof(Sprite)) as Sprite;
+        letterM.camPosition = new Vector3(-4.14f, -1.73f, -10f);
+        letterM.camProjection = 3.05f;
+        letterM.activityScene = "Level 2 - Activity 1";
+        letterM.id = 0;
+
+        Tutorial letterP = new Tutorial();
+        letterP.isLetterTutorial = true;
+        letterP.videoPath = "Vids/Tutorials/p";
+        letterP.letterSprite = Resources.Load("Graphics/Levels/2/Letters/p", typeof(Sprite)) as Sprite;
+        letterP.camPosition = new Vector3(2.44f, -1.73f, -10f);
+        letterP.camProjection = 3.05f;
+        letterP.activityScene = "Level 2 - Activity 2";
+        letterP.id = 1;
+
         tutorials.Add(letterA);
         tutorials.Add(letterE);
         tutorials.Add(letterO);
+        tutorials.Add(letterM);
+        tutorials.Add(letterP);
 
         return tutorials;
     }

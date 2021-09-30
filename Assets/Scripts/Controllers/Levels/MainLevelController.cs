@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -169,6 +168,14 @@ public class MainLevelController : MonoBehaviour
                         case "o letter":
                             PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(2)));
                             GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 1 - Tutorial");
+                            break;
+                        case "m letter":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(3)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 2 - Tutorial");
+                            break;
+                        case "p letter":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(4)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 2 - Tutorial");
                             break;
                         default:
                             break;
