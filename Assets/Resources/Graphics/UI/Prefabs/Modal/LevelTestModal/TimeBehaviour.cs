@@ -24,7 +24,7 @@ public class TimeBehaviour : MonoBehaviour
     {
         if (isStartTime && currentTime > 0) {
             currentTime -= Time.deltaTime;
-        } else if (timeFlag) {
+        } else if (timeFlag && currentTime <= 0) {
             testModalController.onIncorrectAnswer();
             timeFlag = false;
         }

@@ -38,7 +38,7 @@ public class LevelBehaviour : MonoBehaviour
     {
         numberOfQuestionsAnswered++;
 
-        instantiateTestModal();
+        onQuestionAnswered();
     }
 
     //when test answered incorrectly
@@ -47,6 +47,10 @@ public class LevelBehaviour : MonoBehaviour
         numberOfMistakes++;
         numberOfQuestionsAnswered++;
 
+        onQuestionAnswered();
+    }
+
+    private void onQuestionAnswered(){
         if (numberOfQuestionsAnswered >= numberOfQuestions)
             onLevelFinish();
         else instantiateTestModal();
