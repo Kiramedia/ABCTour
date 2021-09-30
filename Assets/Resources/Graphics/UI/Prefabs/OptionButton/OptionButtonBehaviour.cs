@@ -41,18 +41,18 @@ public class OptionButtonBehaviour : MonoBehaviour
     {
         if (isCorrect)
         {
-            correctImage.enabled = true;
             onCorrectAnswer();
         }
         else
         {
-            incorrectImage.enabled = true;
             onIncorrectAnswer();
         }
     }
 
     public void onCorrectAnswer()
     {
+        correctImage.enabled = true;
+
         image.color = correctColor;
 
         testModalController.onCorrectAnswer();
@@ -60,6 +60,8 @@ public class OptionButtonBehaviour : MonoBehaviour
 
     public void onIncorrectAnswer()
     {
+        incorrectImage.enabled = true;
+        
         image.color = incorrectColor;
 
         testModalController.onIncorrectAnswer();
