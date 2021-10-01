@@ -14,6 +14,7 @@ public class LevelBehaviour : MonoBehaviour
     public float waitTime;
     public GameObject panel;
     public GameObject testModalPrefab;
+    public CharacterController characterController;
     public List<Sign> usedSigns;
     private GameObject currentTestModal;
     // Start is called before the first frame update
@@ -39,6 +40,8 @@ public class LevelBehaviour : MonoBehaviour
         numberOfQuestionsAnswered++;
 
         onQuestionAnswered();
+
+        characterController.onCorrectAnswer();
     }
 
     //when test answered incorrectly
@@ -48,6 +51,8 @@ public class LevelBehaviour : MonoBehaviour
         numberOfQuestionsAnswered++;
 
         onQuestionAnswered();
+
+        characterController.onIncorrectAnswer();
     }
 
     private void onQuestionAnswered(){

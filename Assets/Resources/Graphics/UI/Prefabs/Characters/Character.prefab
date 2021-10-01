@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1192054722659830273}
   - component: {fileID: 1192054722659830272}
+  - component: {fileID: 5942644524127542879}
   m_Layer: 5
   m_Name: Character
   m_TagString: Untagged
@@ -26,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 1192054722659830274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6.250491, y: 6.250491, z: 6.250491}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -51,3 +52,17 @@ MonoBehaviour:
   boyPrefab: {fileID: 2239352074307359169, guid: 2ff26f2741d064815a272fbf69903188, type: 3}
   girlPrefab: {fileID: 1496682358923591088, guid: 5781c30e3005b47028d314c9f81a0f5c, type: 3}
   gender: Boy
+  characterController: {fileID: 5942644524127542879}
+--- !u!114 &5942644524127542879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192054722659830274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefb5cff87e7ecf44a1c7d3692fb946d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterEmotionController: {fileID: 0}

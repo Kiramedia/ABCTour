@@ -7,6 +7,7 @@ public class SelectGender : MonoBehaviour
     public GameObject boyPrefab;
     public GameObject girlPrefab;
     public string gender;
+    public CharacterController characterController;
 
     private GameObject currentCharacter; 
     // Start is called before the first frame update
@@ -45,5 +46,7 @@ public class SelectGender : MonoBehaviour
         Destroy(currentCharacter); 
 
         currentCharacter = Instantiate(prefab, this.transform) as GameObject; 
+
+        characterController.characterEmotionController = currentCharacter.GetComponent<CharacterEmotionController>();
     }
 }
