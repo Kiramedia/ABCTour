@@ -395,6 +395,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 865302214}
     m_Modifications:
+    - target: {fileID: 1192054722659830272, guid: b14a0670532df458cabc74088671ae90, type: 3}
+      propertyPath: gender
+      value: Boy
+      objectReference: {fileID: 0}
     - target: {fileID: 1192054722659830273, guid: b14a0670532df458cabc74088671ae90, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -461,7 +465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1192054722659830273, guid: b14a0670532df458cabc74088671ae90, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -417
+      value: -513
       objectReference: {fileID: 0}
     - target: {fileID: 1192054722659830273, guid: b14a0670532df458cabc74088671ae90, type: 3}
       propertyPath: m_AnchoredPosition.y
