@@ -18,8 +18,8 @@ TagManager:
   - Front
   - Medium
   - Back
-  - 
-  - 
+  - ButtonBackground
+  - Button
   - 
   - 
   - 
@@ -44,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ButtonBackground
+    uniqueID: 1091934145
+    locked: 0
+  - name: Button
+    uniqueID: 4044092139
     locked: 0
