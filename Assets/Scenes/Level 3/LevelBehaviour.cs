@@ -59,7 +59,7 @@ public class LevelBehaviour : MonoBehaviour
     //when level finishes
     public void onLevelFinish()
     {
-
+        Debug.Log("Aquí Kevin hace el final del nivel");
     }
 
     IEnumerator instantiateNewTestModal()
