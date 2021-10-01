@@ -64,6 +64,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 54.999985
       objectReference: {fileID: 0}
+    - target: {fileID: 4125997630760964023, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125997630760964023, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125997630760964023, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125997630760964023, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 4125997632430230836, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
       propertyPath: m_Name
       value: LevelTestModal
@@ -102,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4125997632430230837, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 400
+      value: 435.09
       objectReference: {fileID: 0}
     - target: {fileID: 4125997632430230837, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -138,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4125997632430230837, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -17.544983
       objectReference: {fileID: 0}
     - target: {fileID: 4125997632430230837, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

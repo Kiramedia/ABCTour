@@ -417,10 +417,11 @@ MonoBehaviour:
   numberOfQuestions: 3
   numberOfMistakes: 0
   numberOfQuestionsAnswered: 0
-  level: 1
+  level: 3
   waitTime: 1
   panel: {fileID: 865302213}
   testModalPrefab: {fileID: 1299968355611340574, guid: 003c1231f97b87747a9c83343c226569, type: 3}
+  usedSigns: []
 --- !u!1 &1724639445
 GameObject:
   m_ObjectHideFlags: 0

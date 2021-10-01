@@ -599,6 +599,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 794022676}
     m_Modifications:
+    - target: {fileID: 1192054722659830272, guid: b14a0670532df458cabc74088671ae90, type: 3}
+      propertyPath: gender
+      value: Girl
+      objectReference: {fileID: 0}
     - target: {fileID: 1192054722659830273, guid: b14a0670532df458cabc74088671ae90, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -35,7 +35,6 @@ public class CharacterController : MonoBehaviour
     {
         StartCoroutine("sad");
     }
-
     IEnumerator happy()
     {
         image.sprite = happySprite; 
