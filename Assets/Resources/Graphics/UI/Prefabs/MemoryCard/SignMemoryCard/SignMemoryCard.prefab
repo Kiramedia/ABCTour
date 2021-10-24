@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   memoryCardBehavior: {fileID: 8052260249633885217}
-  image: {fileID: 0}
+  image: {fileID: 2995841981333356067}
 --- !u!1001 &8244885048133653423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 2149579644947570574, guid: b8b6c6cd588e94af5932e997c800c13a, type: 3}
       propertyPath: sign
       value: 
-      objectReference: {fileID: 11400000, guid: 4c994bc4cc97a7a478b6a3ab66812cd5, type: 2}
+      objectReference: {fileID: 11400000, guid: 636278c9a44714e26ba90ee392923c13, type: 2}
     - target: {fileID: 2149579644947570574, guid: b8b6c6cd588e94af5932e997c800c13a, type: 3}
       propertyPath: color.a
       value: 1
