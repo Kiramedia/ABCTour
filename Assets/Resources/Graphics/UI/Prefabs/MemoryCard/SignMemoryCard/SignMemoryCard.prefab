@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2925546178703968377}
   - component: {fileID: 2281721013872530178}
   - component: {fileID: 2995841981333356067}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,9 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: c8cc78dd3a30f4455b82126691e671b0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   memoryCardBehavior: {fileID: 8052260249633885217}
-  image: {fileID: 2995841981333356067}
+  image: {fileID: 0}
 --- !u!1001 &8244885048133653423
 PrefabInstance:
   m_ObjectHideFlags: 0
