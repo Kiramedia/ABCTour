@@ -153,7 +153,7 @@ public class MainLevelController : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.gameObject.transform.name.Contains("letter"))
+                if (hit.collider.gameObject.transform.name.Contains("letter") || hit.collider.gameObject.transform.name.Contains("sign"))
                 {
                     switch (hit.collider.gameObject.transform.name)
                     {
