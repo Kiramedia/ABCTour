@@ -20,8 +20,8 @@ TagManager:
   - Front
   - Medium
   - Back
-  - 
-  - 
+  - ButtonBackground
+  - Button
   - 
   - 
   - 
@@ -47,6 +47,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ButtonBackground
+    uniqueID: 1091934145
+    locked: 0
+  - name: Button
+    uniqueID: 4044092139
   - name: Lights
     uniqueID: 3516635705
     locked: 0
