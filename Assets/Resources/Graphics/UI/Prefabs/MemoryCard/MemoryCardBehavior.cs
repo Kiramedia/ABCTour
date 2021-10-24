@@ -11,8 +11,10 @@ public class MemoryCardBehavior : MonoBehaviour
     public GameObject frontElement;
     public Color color;
     public Sign sign;
+    public bool isSelected;
+    public bool isCompleted;
 
-    private bool isFront;
+    public bool isFront;
 
     // Start is called before the first frame update
     void Start()
@@ -35,18 +37,26 @@ public class MemoryCardBehavior : MonoBehaviour
         {
             showFront();
         }
-        isFront = !isFront;
     }
     public void showFront()
     {
         image.sprite = frontImage;
         image.color = color;
         frontElement.SetActive(true);
+
+        isSelected = true;
+        isFront = true;
     }
     public void showBack()
     {
-        image.sprite = backImage;
-        image.color = new Color32(255, 255, 255, 255);
-        frontElement.SetActive(false);
+        if (!isCompleted)
+        {
+            image.sprite = backImage;
+            image.color = new Color32(255, 255, 255, 255);
+            frontElement.SetActive(false);
+
+            isSelected = false;
+            isFront = false;
+        }
     }
 }
