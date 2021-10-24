@@ -52,7 +52,7 @@ public class DifficultController : MonoBehaviour
     /// Duration of the bar animation
     /// </summary>
     public float animDuration = 1f;
-    
+
     /// <summary>
     /// Current time of the bar animation
     /// </summary>
@@ -91,14 +91,17 @@ public class DifficultController : MonoBehaviour
     /// Method to set difficult state, change the current difficult if is possible
     /// </summary>
     /// <param name="state">Define if is enable or disable</param>
-    public void SetDifficultState(bool state){
+    public void SetDifficultState(bool state)
+    {
         isActive = state;
-        if(state){
+        if (state)
+        {
             barUpdating = true;
             currentDifficult = PlayerPrefs.GetInt("selectedDifficult");
             arrow.gameObject.SetActive(true);
             bar.gameObject.SetActive(true);
-            switch(actAvalaibleDifficult){
+            switch (actAvalaibleDifficult)
+            {
                 case 0:
                     baby.material = null;
                     child.material = grayMaterial;
@@ -119,7 +122,9 @@ public class DifficultController : MonoBehaviour
                     teen.material = grayMaterial;
                     break;
             }
-        }else{
+        }
+        else
+        {
             arrow.gameObject.SetActive(false);
             bar.gameObject.SetActive(false);
             baby.material = grayMaterial;
@@ -131,12 +136,16 @@ public class DifficultController : MonoBehaviour
     /// <summary>
     /// Method to update bar animation
     /// </summary>
-    void UpdateUIInformation(){
-        if(barUpdating && time <= animDuration){
+    void UpdateUIInformation()
+    {
+        if (barUpdating && time <= animDuration)
+        {
             time += Time.fixedDeltaTime;
-            bar.sizeDelta = new Vector2(Mathf.Lerp(bar.sizeDelta.x, (currentDifficult+1)*100, 0.1f), bar.sizeDelta.y);
-            arrow.anchoredPosition = new Vector2(Mathf.Lerp(arrow.anchoredPosition.x, ((currentDifficult*100) + 63), 0.1f), arrow.anchoredPosition.y);
-        }else {
+            bar.sizeDelta = new Vector2(Mathf.Lerp(bar.sizeDelta.x, (currentDifficult + 1) * 100, 0.1f), bar.sizeDelta.y);
+            arrow.anchoredPosition = new Vector2(Mathf.Lerp(arrow.anchoredPosition.x, ((currentDifficult * 100) + 63), 0.1f), arrow.anchoredPosition.y);
+        }
+        else
+        {
             time = 0;
             barUpdating = false;
         }
@@ -147,8 +156,10 @@ public class DifficultController : MonoBehaviour
     /// Verify if the difficult is avalabile and if the modal is active
     /// </summary>
     /// <param name="difficult">Selected difficult index</param>
-    public void ClickDifficult(int difficult){
-        if(difficult <= actAvalaibleDifficult && isActive){
+    public void ClickDifficult(int difficult)
+    {
+        if (difficult <= actAvalaibleDifficult && isActive)
+        {
             barUpdating = true;
             currentDifficult = difficult;
             PlayerPrefs.SetInt("selectedDifficult", difficult);

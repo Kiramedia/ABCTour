@@ -27,20 +27,32 @@ public class Level
     public int numberOfPlayers;
 
     /// <summary>
-    /// Serialize information in String
+    /// Number of items in the level
     /// </summary>
-    public new string ToString => "Nivel: " + numberLevel
-        + "\nTiene dificultades: " + isDifficultyVariant
-        + "\nDificultad actual: " + actualDifficult
-        + "\nNumero de jugadores: " + numberOfPlayers;
+    public int numberOfItems;
 
+    /// <summary>
+    /// Possible misstakes for the level
+    /// </summary>
+    public int possibleMisstakes;
+
+    /// <summary>
+    /// Number of sections for the progress bar
+    /// </summary>
+    public int barSections;
+
+    /// <summary>
+    /// Number of activities in the level
+    /// </summary>
+    public int numOfActivities;
 }
 
 /// <summary>
 /// Level collection
 /// </summary>
 [Serializable]
-public class LevelCollection{
+public class LevelCollection
+{
     /// <summary>
     /// Level array
     /// </summary>

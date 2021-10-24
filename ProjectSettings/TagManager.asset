@@ -8,6 +8,8 @@ TagManager:
   - Cursor
   - Loader
   - Configurations
+  - VideoPlayer
+  - LevelController
   layers:
   - Default
   - TransparentFX
@@ -50,4 +52,9 @@ TagManager:
     locked: 0
   - name: Button
     uniqueID: 4044092139
+  - name: Lights
+    uniqueID: 3516635705
+    locked: 0
+  - name: Front
+    uniqueID: 1578929371
     locked: 0

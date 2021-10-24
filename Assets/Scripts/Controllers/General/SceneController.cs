@@ -36,6 +36,16 @@ public class SceneController : MonoBehaviour
     }
 
     /// <summary>
+    /// Method to load async scene from string name
+    /// </summary>
+    /// <param name="scene">name of the scene</param>
+    public void LoadAsycScene(string scene)
+    {
+
+        StartCoroutine(LoadAsync(scene));
+    }
+
+    /// <summary>
     /// Async method to load scene from string name
     /// </summary>
     /// <param name="scene">name of the scene</param>
@@ -44,8 +54,30 @@ public class SceneController : MonoBehaviour
     {
         animator.SetTrigger("load");
         yield return new WaitForSeconds(transitionTime);
-
+        if (scene == "Start - Principal")
+        {
+            PlayerPrefs.SetString("levelData", null);
+        }
         SceneManager.LoadScene(scene);
+    }
+
+    /// <summary>
+    /// Async method to load scene from string name
+    /// </summary>
+    /// <param name="scene">name of the scene</param>
+    /// <returns>yield response</returns>
+    IEnumerator LoadAsync(string scene)
+    {
+        yield return new WaitForSeconds(transitionTime + 0.5f);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
+        operation.allowSceneActivation = false;
+        animator.SetTrigger("load");
+        yield return new WaitForSeconds(transitionTime);
+        if (scene == "Start - Principal")
+        {
+            PlayerPrefs.SetString("levelData", null);
+        }
+        operation.allowSceneActivation = true;
     }
 
     /// <summary>
@@ -56,4 +88,8 @@ public class SceneController : MonoBehaviour
         Application.Quit();
     }
 
+
+    public string GetCurrentScene(){
+        return SceneManager.GetActiveScene().name;
+    }
 }
