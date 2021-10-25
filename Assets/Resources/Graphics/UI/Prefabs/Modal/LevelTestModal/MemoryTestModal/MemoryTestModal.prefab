@@ -160,9 +160,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1010916905691152731}
-  - component: {fileID: 2335853607509024623}
-  - component: {fileID: 2683130648247540660}
-  - component: {fileID: 1733276894044440875}
+  - component: {fileID: 130788422778327286}
+  - component: {fileID: 1114434672}
   m_Layer: 5
   m_Name: MemoryTestModal
   m_TagString: Untagged
@@ -192,7 +191,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -17.544983}
   m_SizeDelta: {x: 460, y: 435.09}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2335853607509024623
+--- !u!114 &130788422778327286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,49 +200,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 3273078574708854655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61dad99e04a34384e84a6a0bdb59e47e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectOptionsBehaviour: {fileID: 0}
-  levelTestModalRender: {fileID: 0}
-  timeBehaviour: {fileID: 2683130648247540660}
-  level: 2
-  numberOfSimilarOptions: 1
-  correctOptionButtonBehaviour: {fileID: 0}
-  optionButtonsList: []
-  levelBehaviour: {fileID: 0}
---- !u!114 &2683130648247540660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3273078574708854655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cefe7facf5a2fbb46b31a735bff150c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxTime: 20
-  currentTime: 0
-  isStartTime: 1
-  timeIcon: {fileID: 7525744047148761913}
-  testModalController: {fileID: 2335853607509024623}
---- !u!114 &1733276894044440875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3273078574708854655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77e476282a67cc642a95aff24c34587a, type: 3}
+  m_Script: {fileID: 11500000, guid: bd21ecffb60c2a1479d4e58d9230cf3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfOptions: 12
   levelSigns: {fileID: 11400000, guid: 35c070133bddc6047a60f029eabebd17, type: 2}
   abecedary: {fileID: 11400000, guid: 386b499a1bcc14b488a46e8260050492, type: 2}
+  memoryCardParent: {fileID: 4931383849714630606}
+  letterMemoryCardPrefab: {fileID: 3930860245194814553, guid: 7c54fe3bfeadc448587882ae6d8557c7, type: 3}
+  signMemoryCardPrefab: {fileID: 8052260249633885244, guid: bc0b6bf3f5d7d49af93cdce1828e1d9c, type: 3}
+  optionsSigns: []
+  optionsGameObjects: []
+  memoryLevelBehaviour: {fileID: 0}
+--- !u!114 &1114434672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3273078574708854655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f67eceb4ea0d84ca1f1f8c3a0320a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: 100
+  currentTime: 0
+  isStartTime: 1
+  timeIcon: {fileID: 7525744047148761913}
+  memoryTestModalBehaviour: {fileID: 0}
+  memoryLevelBehaviour: {fileID: 0}
 --- !u!1 &4224648570227650574
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,10 +362,10 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 101.4, y: 131.7}
-  m_Spacing: {x: 24.18, y: 16.56}
-  m_Constraint: 2
-  m_ConstraintCount: 1
+  m_CellSize: {x: 91.7, y: 131.7}
+  m_Spacing: {x: 11.5, y: -16.3}
+  m_Constraint: 1
+  m_ConstraintCount: 4
 --- !u!1 &7673895280394463456
 GameObject:
   m_ObjectHideFlags: 0
