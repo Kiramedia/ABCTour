@@ -119,8 +119,12 @@ MonoBehaviour:
   frontImage: {fileID: 21300000, guid: 4e3b898e99dcb4668ba925f17a4270ca, type: 3}
   image: {fileID: 7562863663875042815}
   frontElement: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 0.2627451, b: 0.3529412, a: 1}
+  colorRigth: {r: 0.18039216, g: 0.8, b: 0.1254902, a: 1}
   sign: {fileID: 0}
+  isSelected: 0
+  isCompleted: 0
+  isFront: 0
 --- !u!1 &4844954794019168647
 GameObject:
   m_ObjectHideFlags: 0

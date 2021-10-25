@@ -10,6 +10,7 @@ public class MemoryCardBehavior : MonoBehaviour
     public Image image;
     public GameObject frontElement;
     public Color color;
+    public Color colorRigth;
     public Sign sign;
     public bool isSelected;
     public bool isCompleted;
@@ -25,7 +26,10 @@ public class MemoryCardBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isCompleted)
+        {
+            image.color = colorRigth;
+        }
     }
     public void onClick()
     {
