@@ -9,8 +9,14 @@ public class MemoryCardBehavior : MonoBehaviour
     public Sprite frontImage;
     public Image image;
     public GameObject frontElement;
+    public Color color;
+    public Color colorRigth;
+    public Sign sign;
+    public bool isSelected;
+    public bool isCompleted;
 
-    private bool isFront;
+    public bool isFront;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +26,10 @@ public class MemoryCardBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isCompleted)
+        {
+            image.color = colorRigth;
+        }
     }
     public void onClick()
     {
@@ -32,14 +41,26 @@ public class MemoryCardBehavior : MonoBehaviour
         {
             showFront();
         }
-        isFront = !isFront;
     }
     public void showFront()
     {
         image.sprite = frontImage;
+        image.color = color;
+        frontElement.SetActive(true);
+
+        isSelected = true;
+        isFront = true;
     }
     public void showBack()
     {
-        image.sprite = backImage;
+        if (!isCompleted)
+        {
+            image.sprite = backImage;
+            image.color = new Color32(255, 255, 255, 255);
+            frontElement.SetActive(false);
+
+            isSelected = false;
+            isFront = false;
+        }
     }
 }
