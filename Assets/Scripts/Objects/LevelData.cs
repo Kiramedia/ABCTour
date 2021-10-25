@@ -13,6 +13,11 @@ public class LevelData
     public List<int> currentTrophies;
 
     /// <summary>
+    /// List with trophies won level 3-4 when misstakes
+    /// </summary>
+    public List<int> misstakesTrophies;
+
+    /// <summary>
     /// List of the players that have the level
     /// </summary>
     public List<Player> players;

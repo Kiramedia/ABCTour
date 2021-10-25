@@ -368,7 +368,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893383817}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &893383819
 Camera:
   m_ObjectHideFlags: 0
@@ -631,6 +631,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 849532595}
     m_Modifications:
+    - target: {fileID: 306778109770444335, guid: cdcd3c71f05de4901a658de0dbe274e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8666015586124616680, guid: cdcd3c71f05de4901a658de0dbe274e4, type: 3}
       propertyPath: m_Name
       value: VideoPlayerModal

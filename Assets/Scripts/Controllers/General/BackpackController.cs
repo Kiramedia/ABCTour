@@ -19,6 +19,11 @@ public class BackpackController : MonoBehaviour
     public List<int> currentTrophies;
 
     /// <summary>
+    /// List with trophies won level 3-4 when misstakes
+    /// </summary>
+    public List<int> misstakeTrophies;
+
+    /// <summary>
     /// Material for disabled porpouses
     /// </summary>
     public Material grayMaterial;
@@ -48,6 +53,10 @@ public class BackpackController : MonoBehaviour
                 child.transform.GetChild(0).GetComponent<Image>().material = null;
                 child.transform.GetChild(1).GetComponent<Image>().enabled = false;
                 child.transform.GetChild(2).GetComponent<Image>().enabled = true;
+
+                if(misstakeTrophies.Contains(i)){
+                    child.GetComponent<BackPackItem>().SetMisstakeIcon();
+                }
             }
             else
             {

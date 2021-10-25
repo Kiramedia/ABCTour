@@ -54,6 +54,7 @@ public class MainLevelController : MonoBehaviour
         progressBar.sections = levelData.level.barSections;
         progressBar.currentSection = levelData.barCurrentSection;
         backpack.currentTrophies = levelData.currentTrophies;
+        backpack.misstakeTrophies = levelData.misstakesTrophies;
 
         if (levelData.currentTrophies.Count == levelData.level.numOfActivities)
         {
@@ -94,6 +95,7 @@ public class MainLevelController : MonoBehaviour
     {
         LevelData data = new LevelData();
         data.currentTrophies = new List<int>();
+        data.misstakesTrophies = new List<int>();
         Player player1 = JsonUtility.FromJson<Player>(PlayerPrefs.GetString("player1"));
 
         data.players = new List<Player>();
@@ -176,6 +178,18 @@ public class MainLevelController : MonoBehaviour
                         case "p letter":
                             PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(4)));
                             GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 2 - Tutorial");
+                            break;
+                        case "sign 3-1":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(5)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 3 - Tutorial");
+                            break;
+                        case "sign 3-2":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(6)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 3 - Tutorial");
+                            break;
+                        case "sign 3-3":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(7)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 3 - Tutorial");
                             break;
                         default:
                             break;

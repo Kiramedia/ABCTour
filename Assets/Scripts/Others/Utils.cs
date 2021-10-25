@@ -178,11 +178,38 @@ public class Utils : MonoBehaviour
         letterP.activityScene = "Level 2 - Activity 2";
         letterP.id = 1;
 
+        Tutorial sign3_1 = new Tutorial();
+        sign3_1.isLetterTutorial = false;
+        sign3_1.videoPath = "Vids/Tutorials/3_1";
+        sign3_1.camPosition = new Vector3(-1.25f, -1.73f, -10f);
+        sign3_1.camProjection = 3.05f;
+        sign3_1.activityScene = "Level 3 - Activity 1";
+        sign3_1.id = 0;
+
+        Tutorial sign3_2 = new Tutorial();
+        sign3_2.isLetterTutorial = false;
+        sign3_2.videoPath = "Vids/Tutorials/3_2";
+        sign3_2.camPosition = new Vector3(2.33f, -1.73f, -10f);
+        sign3_2.camProjection = 3.05f;
+        sign3_2.activityScene = "Level 3 - Activity 2";
+        sign3_2.id = 1;
+
+        Tutorial sign3_3 = new Tutorial();
+        sign3_3.isLetterTutorial = false;
+        sign3_3.videoPath = "Vids/Tutorials/3_3";
+        sign3_3.camPosition = new Vector3(0.73f, -1.73f, -10f);
+        sign3_3.camProjection = 3.05f;
+        sign3_3.activityScene = "Level 3 - Activity 3";
+        sign3_3.id = 2;
+
         tutorials.Add(letterA);
         tutorials.Add(letterE);
         tutorials.Add(letterO);
         tutorials.Add(letterM);
         tutorials.Add(letterP);
+        tutorials.Add(sign3_1);
+        tutorials.Add(sign3_2);
+        tutorials.Add(sign3_3);
 
         return tutorials;
     }
@@ -326,35 +353,41 @@ public class Utils : MonoBehaviour
     public static void SetPlayer(string playerParam, PlayerSpriteRenderer spriteContainer, SpriteRenderer iconContainer)
     {
         Player player = JsonUtility.FromJson<Player>(PlayerPrefs.GetString(playerParam));
-        spriteContainer.spriteRenderer.material = player.colorMaterial;
-        if (iconContainer != null && player.icon != null)
+
+        if (spriteContainer != null)
         {
-            iconContainer.sprite = player.icon;
-        }
-        if (player.sex == "Boy")
-        {
-            if (spriteContainer.isBack)
+            spriteContainer.spriteRenderer.material = player.colorMaterial;
+            if (iconContainer != null && player.icon != null)
             {
-                spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/BoyBack", typeof(Sprite)) as Sprite;
-                spriteContainer.spriteRenderer.material.SetTexture("_MainText", Resources.Load("Graphics/UI/Pjs/Selector/BoyBack", typeof(Texture)) as Texture);
+                iconContainer.sprite = player.icon;
+            }
+            if (player.sex == "Boy")
+            {
+                if (spriteContainer.isBack)
+                {
+                    spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/BoyBack", typeof(Sprite)) as Sprite;
+                    spriteContainer.spriteRenderer.material.SetTexture("_MainText", Resources.Load("Graphics/UI/Pjs/Selector/BoyBack", typeof(Texture)) as Texture);
+                }
+                else
+                {
+                    spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Boy", typeof(Sprite)) as Sprite;
+                }
             }
             else
             {
-                spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Boy", typeof(Sprite)) as Sprite;
+                if (spriteContainer.isBack)
+                {
+                    spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/GirlBack", typeof(Sprite)) as Sprite;
+                    spriteContainer.spriteRenderer.material.SetTexture("_MainText", Resources.Load("Graphics/UI/Pjs/Selector/GirlBack", typeof(Texture)) as Texture);
+                }
+                else
+                {
+                    spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Girl", typeof(Sprite)) as Sprite;
+                }
             }
         }
-        else
-        {
-            if (spriteContainer.isBack)
-            {
-                spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/GirlBack", typeof(Sprite)) as Sprite;
-                spriteContainer.spriteRenderer.material.SetTexture("_MainText", Resources.Load("Graphics/UI/Pjs/Selector/GirlBack", typeof(Texture)) as Texture);
-            }
-            else
-            {
-                spriteContainer.spriteRenderer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Girl", typeof(Sprite)) as Sprite;
-            }
-        }
+
+
     }
 
     /// <summary>
@@ -385,7 +418,11 @@ public class Utils : MonoBehaviour
     {
         Player player = JsonUtility.FromJson<Player>(PlayerPrefs.GetString(playerParam));
         spriteContainer.material = player.colorMaterial;
-        iconContainer.sprite = player.icon;
+        
+        if(iconContainer != null){
+            iconContainer.sprite = player.icon;
+        }
+
         if (player.sex == "Boy")
         {
             spriteContainer.sprite = Resources.Load("Graphics/UI/Pjs/Selector/Boy", typeof(Sprite)) as Sprite;

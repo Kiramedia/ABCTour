@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: 1383993923}
   - component: {fileID: 1383993922}
   - component: {fileID: 1383993921}
-  - component: {fileID: 1383993924}
   m_Layer: 5
   m_Name: Video
   m_TagString: Untagged
@@ -278,21 +277,6 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
---- !u!114 &1383993924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383993919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63c3cf1f2de54e9680559acf424c005, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoPlayer: {fileID: 1383993921}
-  videoGameObject: {fileID: 1383993919}
-  videoButtons: {fileID: 1846597571}
 --- !u!1 &1695839640
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +370,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1383993924}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: VideoController, Assembly-CSharp
           m_MethodName: replay
           m_Mode: 1
@@ -517,6 +501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2385018026788992505, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4125997632430230836, guid: 6a781edf1f6dae24a91d7f558c99ff34, type: 3}
       propertyPath: m_Name
       value: VideoPlayerModal

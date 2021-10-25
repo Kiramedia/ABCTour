@@ -10,6 +10,7 @@ TagManager:
   - Configurations
   - VideoPlayer
   - LevelController
+  - Backpack
   layers:
   - Default
   - TransparentFX
@@ -52,6 +53,7 @@ TagManager:
     locked: 0
   - name: Button
     uniqueID: 4044092139
+    locked: 0
   - name: Lights
     uniqueID: 3516635705
     locked: 0

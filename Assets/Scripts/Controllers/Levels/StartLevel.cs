@@ -106,7 +106,10 @@ public class StartLevel : MonoBehaviour
 
             if (tutorialInfo != null)
             {
-                Letter.sprite = tutorialInfo.letterSprite;
+                if(tutorialInfo.isLetterTutorial){
+                    Letter.sprite = tutorialInfo.letterSprite;
+                }
+                
                 Camera.main.transform.localPosition = tutorialInfo.camPosition;
                 Camera.main.orthographicSize = tutorialInfo.camProjection;
                 VideoPlayer videoPlayer = videoObject.GetComponentInChildren<VideoPlayer>();
