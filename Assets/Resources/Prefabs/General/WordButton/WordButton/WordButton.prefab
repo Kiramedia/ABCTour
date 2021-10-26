@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upperCaseText: {fileID: 0}
   lowerCaseText: {fileID: 0}
-  text: 
+  text: Hola
 --- !u!1001 &3109903671128784775
 PrefabInstance:
   m_ObjectHideFlags: 0

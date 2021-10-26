@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4080444760593068513}
   - component: {fileID: 544880905890479445}
+  - component: {fileID: 5194364195354016114}
   m_Layer: 5
   m_Name: WordModal
   m_TagString: Untagged
@@ -133,6 +134,22 @@ MonoBehaviour:
   upperCaseText: {fileID: 5636396547161701044}
   lowerCaseText: {fileID: 5915586961410885659}
   text: Hola
+--- !u!114 &5194364195354016114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071730943772781373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a840a277e002b4a09a8a475d62f4e8c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTime: 120
+  currentTime: 0
+  isStartTime: 0
+  timeIcon: {fileID: 3674424196009315954}
 --- !u!1 &2199306632563543905
 GameObject:
   m_ObjectHideFlags: 0
