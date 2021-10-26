@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SignWord : ScriptableObject, IEqualityComparer<SignWord>
 {
     public string word;
-    public Sprite signWord;
+    public Sprite signs;
 
 
     public bool Equals(SignWord x, SignWord y)
