@@ -11,16 +11,25 @@ public class SelectText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        text = text.ToLower();
-
-        upperCaseText.text = text.ToUpper();
-
-        lowerCaseText.text = text;
+        renderText();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    public void setText(string text){
+        this.text = text;
+        renderText();
+    }
+
+    public void renderText(){
+        text = text.ToLower();
+
+        upperCaseText.text = text.ToUpper();
+
+        lowerCaseText.text = text;
     }
 }
