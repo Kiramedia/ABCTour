@@ -41,9 +41,9 @@ public class SelectMemoryOptions : MonoBehaviour
             ).ToList();
 
             if(selectedLetterSigns.Count > 1){
+                onCorrectAnswer();
                 selectedLetterSigns.ForEach((selectedLetterSign) => {
                     selectedLetterSign.GetComponent<MemoryCardBehavior>().isCompleted = true;
-                    onCorrectAnswer();
                 });
             }
             else if(coroutineFlag){

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,15 +16,15 @@ public class MemoryTimeBehaviour : MonoBehaviour
     {
         switch(memoryLevelBehaviour.level){
             case 1:
-                maxTime = 100f;
+                maxTime = 300f;
                 break;
 
             case 2:
-                maxTime = 70f;
+                maxTime = 225f;
                 break;
 
             case 3:
-                maxTime = 40f;
+                maxTime = 150f;
                 break;
             
             default:
@@ -37,7 +35,6 @@ public class MemoryTimeBehaviour : MonoBehaviour
         currentTime = maxTime;
 
         timeFlag = true;
-
 
     }
 

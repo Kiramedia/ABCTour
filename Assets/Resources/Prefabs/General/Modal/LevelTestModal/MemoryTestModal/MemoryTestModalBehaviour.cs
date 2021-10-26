@@ -41,9 +41,9 @@ public class MemoryTestModalBehaviour : MonoBehaviour
             ).ToList();
 
             if(selectedLetterSigns.Count > 1){
+                onCorrectAnswer();
                 selectedLetterSigns.ForEach((selectedLetterSign) => {
                     selectedLetterSign.GetComponent<MemoryCardBehavior>().isCompleted = true;
-                    onCorrectAnswer();
                 });
             }
             else if(coroutineFlag){
@@ -97,8 +97,6 @@ public class MemoryTestModalBehaviour : MonoBehaviour
             int randomNumber = random.Next(0, numberOfChildren);
             letterMemoryCard.transform.SetSiblingIndex(randomNumber);
 
-            Debug.Log(sign.letter + " letter: " + (randomNumber) + " (" + numberOfChildren + ")");
-
             letterMemoryCard.name = sign.letter + " letter";
 
             optionsGameObjects.Add(letterMemoryCard);
@@ -116,7 +114,6 @@ public class MemoryTestModalBehaviour : MonoBehaviour
             signMemoryCard.transform.SetSiblingIndex(signRandomNumber);
 
             signMemoryCard.name = sign.letter + " sign";
-            Debug.Log(sign.letter + " sign: " + (signRandomNumber) + " (" + numberOfChildrenSign + ")");
 
             optionsGameObjects.Add(signMemoryCard);
         });

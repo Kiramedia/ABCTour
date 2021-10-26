@@ -76,7 +76,7 @@ public class LevelController : MonoBehaviour
     /// <summary>
     /// Levels array with all levels information
     /// </summary>
-    private Level[] levels;
+    public Level[] levels;
 
     /// <summary>
     /// Selected random difficulty modal, boy or girl in 50% of changes
@@ -157,6 +157,7 @@ public class LevelController : MonoBehaviour
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
             {
                 currentSelectedLevel = i;
+                PlayerPrefs.SetString("selectedLevel", JsonUtility.ToJson(levels[currentSelectedLevel]));
                 SetDificulty();
 
                 transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f);
