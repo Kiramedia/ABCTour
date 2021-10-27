@@ -67,6 +67,7 @@ public class DifficultController : MonoBehaviour
     /// State that defines if the difficult modal is enable or disabled
     /// </summary>
     bool isActive = true;
+    Level selectedLevel;
 
     /// <summary>
     /// Start is called on the frame when a script is enabled just before
@@ -74,10 +75,13 @@ public class DifficultController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        actAvalaibleDifficult = PlayerPrefs.GetInt("actDifficultAvalaible");
+        selectedLevel = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel"));
+        actAvalaibleDifficult = selectedLevel.actualDifficult;
         currentDifficult = actAvalaibleDifficult;
         PlayerPrefs.SetInt("selectedDifficult", actAvalaibleDifficult);
     }
+
+
 
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -85,6 +89,13 @@ public class DifficultController : MonoBehaviour
     void Update()
     {
         UpdateUIInformation();
+        if(selectedLevel.numberLevel != JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel")).numberLevel){
+            selectedLevel = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel"));
+            actAvalaibleDifficult = selectedLevel.actualDifficult;
+            currentDifficult = actAvalaibleDifficult;
+            PlayerPrefs.SetInt("selectedDifficult", actAvalaibleDifficult);
+            SetDifficultState(true);
+        }
     }
 
     /// <summary>

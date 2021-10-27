@@ -245,5 +245,17 @@ public class MainLevelController : MonoBehaviour
         {
             PlayerPrefs.SetInt("actLevelAvalaible", data.level.numberLevel + 1);
         }
+
+        if(data.level.isDifficultyVariant){
+            Level[] levels = JsonUtility.FromJson<LevelCollection>(PlayerPrefs.GetString("Levels")).levels;
+            if(levels[data.level.numberLevel - 1].actualDifficult < 2){
+                levels[data.level.numberLevel - 1].actualDifficult++;
+            }
+
+            LevelCollection levelCollection = new LevelCollection();
+            levelCollection.levels = levels;
+
+            PlayerPrefs.SetString("Levels", JsonUtility.ToJson(levelCollection));
+        }
     }
 }

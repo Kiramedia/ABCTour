@@ -38,14 +38,18 @@ public class CharacterEmotionController : MonoBehaviour
 
     IEnumerator happy()
     {
-        image.sprite = happySprite; 
+        image.sprite = happySprite;
+        image.material.SetTexture("_MainText", happySprite.texture);
         yield return new WaitForSeconds(waitTime);
-        image.sprite = neutralSprite; 
+        image.sprite = neutralSprite;
+        image.material.SetTexture("_MainText", neutralSprite.texture);
     }
     IEnumerator sad()
     {
         image.sprite = sadSprite; 
+        image.material.SetTexture("_MainText", sadSprite.texture);
         yield return new WaitForSeconds(waitTime);
         image.sprite = neutralSprite; 
+        image.material.SetTexture("_MainText", neutralSprite.texture);
     }
 }
