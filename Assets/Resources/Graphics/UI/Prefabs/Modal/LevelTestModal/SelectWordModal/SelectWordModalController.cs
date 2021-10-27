@@ -11,6 +11,8 @@ public class SelectWordModalController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        wordSignWordLevelController.selectTimeAndNumberOfOptions();
+        wordSignWordLevelController.selectOptions();
         renderButtons();
         Debug.Log("SelectWordModalController");
     }
@@ -29,7 +31,8 @@ public class SelectWordModalController : MonoBehaviour
         List<SignWord> options = new List<SignWord>(wordSignWordLevelController.incorrectSignWords);
         options.Insert(randomNumber, wordSignWordLevelController.correctSignWords);
 
-        options.ForEach((value) => Debug.Log(value.word));
+        Debug.Log(options.Count);
+        options.ForEach((value) => {Debug.Log(value.word);});
 
         int counter = 0;
         while (counter < options.Count)
@@ -60,12 +63,12 @@ public class SelectWordModalController : MonoBehaviour
         button.GetComponent<SelectText>().setText(signWord.word);
         if (isCorrect)
         {
-            button.GetComponent<OptionButtonBehaviour>().setAsCorrect();
+            // button.GetComponent<OptionButtonBehaviour>().setAsCorrect();
             // testModalController.correctOptionButtonBehaviour = button.GetComponent<OptionButtonBehaviour>();
         }
         else
         {
-            button.GetComponent<OptionButtonBehaviour>().setAsIncorrect();
+            // button.GetComponent<OptionButtonBehaviour>().setAsIncorrect();
         }
 
         // testModalController.optionButtonsList.Add(button);

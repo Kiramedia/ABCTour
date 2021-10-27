@@ -628,6 +628,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SelectWordModal
       objectReference: {fileID: 0}
+    - target: {fileID: 4151917733254014217, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
+      propertyPath: m_Spacing.x
+      value: 11.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151917733254014217, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
+      propertyPath: m_Spacing.y
+      value: 9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151917733254014217, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
+      propertyPath: m_CellSize.x
+      value: 139.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151917733254014217, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
+      propertyPath: m_CellSize.y
+      value: 83.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151917733254014217, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
+      propertyPath: m_Constraint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151917733254014217, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
+      propertyPath: m_ConstraintCount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5930155978016752322, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -719,7 +743,7 @@ PrefabInstance:
     - target: {fileID: 8193747744023906279, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
       propertyPath: wordButtonPrefab
       value: 
-      objectReference: {fileID: 7179498717023886418, guid: 8e3697b70304e43d891d9f0744769dc7, type: 3}
+      objectReference: {fileID: 2354671833228948283, guid: 76c1ea93f4d9f49bfa79d48e48c2e8d3, type: 3}
     - target: {fileID: 8193747744023906279, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
       propertyPath: wordSignWordLevelController
       value: 
