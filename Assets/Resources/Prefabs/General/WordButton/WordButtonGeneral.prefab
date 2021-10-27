@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5227039667073098711}
   - component: {fileID: 6595415347740914391}
   m_Layer: 5
-  m_Name: WordButton
+  m_Name: WordButtonGeneral
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
