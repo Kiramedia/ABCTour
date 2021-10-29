@@ -36,7 +36,7 @@ public class EmailManager
 
             SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
             smtpServer.Port = 587;
-            smtpServer.Credentials = new System.Net.NetworkCredential("abctour.project@gmail.com", "ABCTour123") as ICredentialsByHost;
+            smtpServer.Credentials = new System.Net.NetworkCredential("abctour.project@gmail.com", "abctour123!") as ICredentialsByHost;
             smtpServer.EnableSsl = true;
             ServicePointManager.ServerCertificateValidationCallback =
                 delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
