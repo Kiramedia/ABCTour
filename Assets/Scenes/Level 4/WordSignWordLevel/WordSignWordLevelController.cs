@@ -11,13 +11,19 @@ public class WordSignWordLevelController : MonoBehaviour
     public List<SignWord> incorrectSignWords;
     public float maxTime;
     public float numberOfOptions;
+    public bool isAnsweredCorrectly;
+    public GameObject selectWordModal;
+    public GameObject wordModal;
 
     // Start is called before the first frame update
     void Start()
     {
         selectTimeAndNumberOfOptions();
         selectOptions();
-        Debug.Log("WordSignWordLevelController");
+        selectWordModal.GetComponent<SelectWordModalController>().renderButtons();
+        selectWordModal.GetComponent<SelectWordModalController>().maxTime = maxTime;
+        wordModal.GetComponent<WordModalController>().setup();
+        wordModal.SetActive(true);
     }
 
     // Update is called once per frame
@@ -73,5 +79,70 @@ public class WordSignWordLevelController : MonoBehaviour
             list.RemoveAt(index);
             return value;
         }
+    }
+
+    //when test answered correctly
+    public void onCorrectAnswer()
+    {
+        // if(main != null){
+        //     main.starsController.CorrectAnswer();
+        // }
+
+        isAnsweredCorrectly = true;
+        onQuestionAnswered();
+
+        // characterController.onCorrectAnswer();
+    }
+
+    //when test answered incorrectly
+    public void onIncorrectAnswer()
+    {
+        // if(main != null){
+        //     main.starsController.IncorrectAnswer();
+        // }
+
+        isAnsweredCorrectly = false;
+        selectWordModal.GetComponent<SelectWordModalController>().onAnswer();
+        onQuestionAnswered();
+
+        // characterController.onIncorrectAnswer();
+    }
+
+    private void onQuestionAnswered()
+    {
+        onLevelFinish();
+    }
+
+    //when level finishes
+    public void onLevelFinish()
+    {
+        Debug.Log("Kevin, haz lo tuyo");
+        // Tutorial tutorialInfo = JsonUtility.FromJson<Tutorial>(PlayerPrefs.GetString("SelectedTutorial"));
+        // if (!main.levelData.currentTrophies.Contains(tutorialInfo.id))
+        // {
+        //     main.levelData.currentTrophies.Add(tutorialInfo.id);
+        // }
+
+        // main.progressBar.AddSection(true);
+
+        // if (numberOfMistakes > 0)
+        // {
+
+        //     if (!main.levelData.misstakesTrophies.Contains(tutorialInfo.id))
+        //     {
+        //         main.levelData.misstakesTrophies.Add(tutorialInfo.id);
+        //     }
+        //     Misstake.SetActive(true);
+        // }
+        // else
+        // {
+        //     Misstake.SetActive(false);
+        // }
+
+        // StartCoroutine(ChangeToPrincipal(main));
+    }
+
+    public void onWordModalButtonPressed(){
+        selectWordModal.SetActive(true);
     }
 }

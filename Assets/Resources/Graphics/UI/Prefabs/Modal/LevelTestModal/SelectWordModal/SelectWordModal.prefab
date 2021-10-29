@@ -51,6 +51,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4a438538ac67b4b9091765e32bef0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wordSignWordLevelController: {fileID: 0}
+  wordButtonPrefab: {fileID: 0}
+  answerOptions: {fileID: 0}
+  levelController: {fileID: 0}
+  correctWordButtonBehavior: {fileID: 0}
+  wordButtonsList: []
+  maxTime: 0
+  currentTime: 0
+  isStartTime: 1
+  timeIcon: {fileID: 5878217551770248400}
 --- !u!1 &3104192072798276138
 GameObject:
   m_ObjectHideFlags: 0

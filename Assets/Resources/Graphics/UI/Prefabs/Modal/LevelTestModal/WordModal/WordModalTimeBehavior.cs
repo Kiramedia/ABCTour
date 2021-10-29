@@ -10,6 +10,7 @@ public class WordModalTimeBehavior : MonoBehaviour
     public bool isStartTime;
     public Image timeIcon;
     private bool timeFlag;
+    public WordModalController wordModalController;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class WordModalTimeBehavior : MonoBehaviour
         }
         else if (timeFlag && currentTime <= 0)
         {
-            // testModalController.onIncorrectAnswer();
+            wordModalController.OnButtonPressed();
             timeFlag = false;
         }
 
