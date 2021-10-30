@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c3cb5e252d4ceb469ccd39cfbfe4990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 2
+  level: 1
   availableWords:
   - {fileID: 11400000, guid: 3f1fc58b506134a0faf8710592958ef4, type: 2}
   - {fileID: 11400000, guid: a473f74f9c946446b98357f099a80dea, type: 2}
