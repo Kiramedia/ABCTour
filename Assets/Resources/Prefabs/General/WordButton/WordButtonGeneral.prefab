@@ -273,6 +273,7 @@ MonoBehaviour:
   incorrectImage: {fileID: 2757087531242100803}
   correctColor: {r: 0.18039216, g: 0.8, b: 0.1254902, a: 1}
   incorrectColor: {r: 0.81960785, g: 0.14509805, b: 0.14509805, a: 1}
+  selectWordModalController: {fileID: 0}
   isCorrect: 1
 --- !u!1 &6516224025867693082
 GameObject:
