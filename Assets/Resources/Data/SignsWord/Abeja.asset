@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Abeja
   m_EditorClassIdentifier: 
   word: Abeja
-  signWord: {fileID: 21300000, guid: ecc4c45526c16492b9b8300bd313e059, type: 3}
+  signs: {fileID: 21300000, guid: ecc4c45526c16492b9b8300bd313e059, type: 3}

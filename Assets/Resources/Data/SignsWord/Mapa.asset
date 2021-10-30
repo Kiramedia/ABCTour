@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Mapa
   m_EditorClassIdentifier: 
   word: Mapa
-  signWord: {fileID: 21300000, guid: 6ee6f3926d7bd484cb10b1ed7fb8dc3e, type: 3}
+  signs: {fileID: 21300000, guid: 6ee6f3926d7bd484cb10b1ed7fb8dc3e, type: 3}

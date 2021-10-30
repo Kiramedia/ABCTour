@@ -22,7 +22,7 @@ public class SignWordSignLevelController : MonoBehaviour
         selectOptions();
         selectSignModal.GetComponent<SelectSignWordModalController>().renderButtons();
         selectSignModal.GetComponent<SelectSignWordModalController>().maxTime = maxTime;
-        signModal.GetComponent<WordModalController>().setup();
+        signModal.GetComponent<SignModalController>().setup();
         signModal.SetActive(true);
     }
 
@@ -102,7 +102,7 @@ public class SignWordSignLevelController : MonoBehaviour
         // }
 
         isAnsweredCorrectly = false;
-        selectSignModal.GetComponent<SelectWordModalController>().onAnswer();
+        selectSignModal.GetComponent<SelectSignWordModalController>().onAnswer();
         onQuestionAnswered();
 
         // characterController.onIncorrectAnswer();

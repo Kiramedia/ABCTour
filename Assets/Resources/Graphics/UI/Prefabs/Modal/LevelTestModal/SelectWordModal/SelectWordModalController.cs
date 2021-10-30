@@ -42,6 +42,30 @@ public class SelectWordModalController : SelectWordSignModalAbstract
         }
     }
 
+    private void renderButton(SignWord signWord, bool isCorrect)
+    {
+        buttonPrefab.GetComponent<WordButtonBehavior>().selectWordSignModalAbstract = this;
+        GameObject button = Instantiate(
+            buttonPrefab,
+            answerOptions.transform
+        ) as GameObject;
+
+        WordButtonBehavior optionButtonBehaviour = buttonPrefab.GetComponent<WordButtonBehavior>();
+
+        button.GetComponent<SelectText>().setText(signWord.word);
+        if (isCorrect)
+        {
+            button.GetComponent<WordButtonBehavior>().setAsCorrect();
+            correctWordButtonBehavior = button.GetComponent<WordButtonBehavior>();
+        }
+        else
+        {
+            button.GetComponent<WordButtonBehavior>().setAsIncorrect();
+        }
+
+        buttonsList.Add(button);
+    }
+
     public override void levelControllerOnIncorrectAnswer(){
         wordSignWordLevelController.onIncorrectAnswer();
     }

@@ -284,13 +284,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3242523117681411801, guid: 265c2f283a90d4203ae88da6ea94e933, type: 3}
+      propertyPath: signWordSignLevelController
+      value: 
+      objectReference: {fileID: 135327748}
     - target: {fileID: 3941246365007439723, guid: 265c2f283a90d4203ae88da6ea94e933, type: 3}
       propertyPath: m_Name
       value: SignModal
       objectReference: {fileID: 0}
     - target: {fileID: 3941246365007439723, guid: 265c2f283a90d4203ae88da6ea94e933, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 265c2f283a90d4203ae88da6ea94e933, type: 3}
@@ -474,6 +478,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1126314962}
     m_Modifications:
+    - target: {fileID: 1061360395615018792, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
+      propertyPath: signWordSignLevelController
+      value: 
+      objectReference: {fileID: 135327748}
     - target: {fileID: 2184781516373226136, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -504,11 +512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2184781516373226136, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 425.11
+      value: 615.806
       objectReference: {fileID: 0}
     - target: {fileID: 2184781516373226136, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 473.98
+      value: 434.974
       objectReference: {fileID: 0}
     - target: {fileID: 2184781516373226136, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -561,10 +569,6 @@ PrefabInstance:
     - target: {fileID: 5016537210776107475, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
       propertyPath: m_Name
       value: SelectSignWordModal
-      objectReference: {fileID: 0}
-    - target: {fileID: 5016537210776107475, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82306b4a05675c94ca0d3c875797f07f, type: 3}
