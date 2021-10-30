@@ -11,7 +11,7 @@ public class WordButtonBehavior : MonoBehaviour
     public Image incorrectImage;
     public Color correctColor;
     public Color incorrectColor;
-    public SelectWordModalController selectWordModalController;
+    public SelectWordSignModalAbstract selectWordSignModalAbstract;
     public bool isCorrect;
     // Start is called before the first frame update
     void Start()
@@ -54,7 +54,7 @@ public class WordButtonBehavior : MonoBehaviour
 
         image.color = correctColor;
 
-        selectWordModalController.onCorrectAnswer();
+        selectWordSignModalAbstract.onCorrectAnswer();
     }
 
     public void onIncorrectAnswer()
@@ -63,7 +63,7 @@ public class WordButtonBehavior : MonoBehaviour
 
         image.color = incorrectColor;
 
-        selectWordModalController.onIncorrectAnswer();
+        selectWordSignModalAbstract.onIncorrectAnswer();
     }
 
     public void showCorrectAnswer()
