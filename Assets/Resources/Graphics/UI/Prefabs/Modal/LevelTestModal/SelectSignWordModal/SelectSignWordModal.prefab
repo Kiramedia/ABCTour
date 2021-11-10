@@ -243,7 +243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2184781516373226136
 RectTransform:
   m_ObjectHideFlags: 0
@@ -278,6 +278,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ba6bb8a07a3d8439987ec5046725c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonPrefab: {fileID: 3376592736568770145, guid: 51a56ba8796464c2088ed9db8208653f, type: 3}
+  answerOptions: {fileID: 7424619915012962928}
+  correctWordButtonBehavior: {fileID: 0}
+  buttonsList: []
+  maxTime: 0
+  currentTime: 0
+  isStartTime: 0
+  timeIcon: {fileID: 2129743027795760266}
+  signWordSignLevelController: {fileID: 0}
 --- !u!1 &7157752349709903917
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,7 +418,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 101.4, y: 131.7}
-  m_Spacing: {x: 24.18, y: 16.56}
+  m_CellSize: {x: 268.1, y: 90.6}
+  m_Spacing: {x: 26.3, y: 18.37}
   m_Constraint: 2
-  m_ConstraintCount: 1
+  m_ConstraintCount: 3

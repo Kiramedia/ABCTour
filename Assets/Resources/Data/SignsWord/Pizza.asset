@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Pizza
   m_EditorClassIdentifier: 
   word: Pizza
-  signWord: {fileID: 21300000, guid: 92f3e4ac968cc45d69aeac7ed2565b40, type: 3}
+  signs: {fileID: 21300000, guid: 92f3e4ac968cc45d69aeac7ed2565b40, type: 3}

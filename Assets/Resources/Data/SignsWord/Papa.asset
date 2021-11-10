@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Papa
   m_EditorClassIdentifier: 
   word: Papa
-  signWord: {fileID: 21300000, guid: 6deadf1375fdb4fccb3912d26728101d, type: 3}
+  signs: {fileID: 21300000, guid: 6deadf1375fdb4fccb3912d26728101d, type: 3}

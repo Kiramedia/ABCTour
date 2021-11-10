@@ -3,47 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectWordModalController : MonoBehaviour
+public class SelectWordModalController : SelectWordSignModalAbstract
 {
     public WordSignWordLevelController wordSignWordLevelController;
-    public GameObject wordButtonPrefab;
-    public GameObject answerOptions;
-    public WordSignWordLevelController levelController;
-    public WordButtonBehavior correctWordButtonBehavior;
-    public List<GameObject> wordButtonsList;
-    public float maxTime;
-    public float currentTime;
-    public bool isStartTime;
-    public Image timeIcon;
-    private bool timeFlag;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentTime = maxTime;
-
-        timeFlag = true;
-
-        isStartTime = true;
+        base.start();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isStartTime && currentTime > 0)
-        {
-            currentTime -= Time.deltaTime;
-        }
-        else if (timeFlag && currentTime <= 0)
-        {
-            wordSignWordLevelController.onIncorrectAnswer();
-            timeFlag = false;
-        }
-
-        timeIcon.fillAmount = currentTime / maxTime;
+        base.update();
     }
 
-    public void renderButtons()
+    public override void renderButtons()
     {
         System.Random random = new System.Random();
         int randomNumber = random.Next(0, wordSignWordLevelController.incorrectSignWords.Count + 1);
@@ -66,15 +42,15 @@ public class SelectWordModalController : MonoBehaviour
         }
     }
 
-    public void renderButton(SignWord signWord, bool isCorrect)
+    private void renderButton(SignWord signWord, bool isCorrect)
     {
-        wordButtonPrefab.GetComponent<WordButtonBehavior>().selectWordModalController = this;
+        buttonPrefab.GetComponent<WordButtonBehavior>().selectWordSignModalAbstract = this;
         GameObject button = Instantiate(
-            wordButtonPrefab,
+            buttonPrefab,
             answerOptions.transform
         ) as GameObject;
 
-        WordButtonBehavior optionButtonBehaviour = wordButtonPrefab.GetComponent<WordButtonBehavior>();
+        WordButtonBehavior optionButtonBehaviour = buttonPrefab.GetComponent<WordButtonBehavior>();
 
         button.GetComponent<SelectText>().setText(signWord.word);
         if (isCorrect)
@@ -87,35 +63,13 @@ public class SelectWordModalController : MonoBehaviour
             button.GetComponent<WordButtonBehavior>().setAsIncorrect();
         }
 
-        wordButtonsList.Add(button);
+        buttonsList.Add(button);
     }
 
-    public void onCorrectAnswer()
-    {
-        levelController.onCorrectAnswer();
-
-        onAnswer();
+    public override void levelControllerOnIncorrectAnswer(){
+        wordSignWordLevelController.onIncorrectAnswer();
     }
-
-    public void onIncorrectAnswer()
-    {
-        levelController.onIncorrectAnswer();
-
-        onAnswer();
+    public override void levelControllerOnCorrectAnswer(){
+        wordSignWordLevelController.onCorrectAnswer();
     }
-
-    public void onAnswer()
-    {
-        correctWordButtonBehavior.showCorrectAnswer();
-
-        deactivateButtons();
-
-        // timeBehaviour.isStartTime = false;
-    }
-
-    public void deactivateButtons()
-    {
-        wordButtonsList.ForEach(wordButton => wordButton.GetComponent<Button>().enabled = false);
-    }
-
 }

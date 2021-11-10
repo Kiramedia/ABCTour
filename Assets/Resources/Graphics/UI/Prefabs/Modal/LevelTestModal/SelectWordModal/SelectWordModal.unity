@@ -880,6 +880,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8193747744023906279, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
+      propertyPath: buttonPrefab
+      value: 
+      objectReference: {fileID: 2354671833228948283, guid: 76c1ea93f4d9f49bfa79d48e48c2e8d3, type: 3}
+    - target: {fileID: 8193747744023906279, guid: fd217a070ef81954f9f834dcb0a9d16b, type: 3}
       propertyPath: answerOptions
       value: 
       objectReference: {fileID: 403323454273075327}

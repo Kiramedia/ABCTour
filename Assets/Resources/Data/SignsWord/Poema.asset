@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Poema
   m_EditorClassIdentifier: 
   word: Poema
-  signWord: {fileID: 21300000, guid: a918d0295bf504768baa430f912dbe59, type: 3}
+  signs: {fileID: 21300000, guid: a918d0295bf504768baa430f912dbe59, type: 3}
