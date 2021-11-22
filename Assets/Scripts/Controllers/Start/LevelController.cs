@@ -107,7 +107,7 @@ public class LevelController : MonoBehaviour
     {
         actLevel = PlayerPrefs.GetInt("actLevelAvalaible");
         actLevel = actLevel == 0 ? 1 : actLevel;
-        currentSelectedLevel = actLevel - 1;
+        currentSelectedLevel = actLevel - 1 < 4 ? actLevel - 1 : 3;
     }
 
     /// <summary>
@@ -131,7 +131,7 @@ public class LevelController : MonoBehaviour
             pos[i] = distance * i;
         }
 
-        btnNumber = actLevel - 1;
+        btnNumber = actLevel - 1 < 4 ? actLevel - 1 : 3;
         time = 0;
         scroll_pos = (pos[btnNumber]);
         runIt = true;
@@ -156,7 +156,7 @@ public class LevelController : MonoBehaviour
         {
             if (scroll_pos < pos[i] + (distance / 2) && scroll_pos > pos[i] - (distance / 2))
             {
-                currentSelectedLevel = i;
+                currentSelectedLevel = i < 4 ? i : 3;
                 PlayerPrefs.SetString("selectedLevel", JsonUtility.ToJson(levels[currentSelectedLevel]));
                 SetDificulty();
 

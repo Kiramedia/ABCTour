@@ -11,6 +11,12 @@ public class SelectSignWordModalController : SelectWordSignModalAbstract
     void Start()
     {
         base.start();
+        if(signWordSignLevelController == null){
+            GameObject levelController = GameObject.FindGameObjectWithTag("LevelController");
+            if(levelController != null){
+                signWordSignLevelController = levelController.GetComponent<SignWordSignLevelController>();
+            }
+        }
     }
 
     // Update is called once per frame
@@ -21,6 +27,13 @@ public class SelectSignWordModalController : SelectWordSignModalAbstract
 
     public override void renderButtons()
     {
+        if(signWordSignLevelController == null){
+            GameObject levelController = GameObject.FindGameObjectWithTag("LevelController");
+            if(levelController != null){
+                signWordSignLevelController = levelController.GetComponent<SignWordSignLevelController>();
+            }
+        }
+
         System.Random random = new System.Random();
         int randomNumber = random.Next(0, signWordSignLevelController.incorrectSignWords.Count + 1);
 

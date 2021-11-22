@@ -12,6 +12,7 @@ public class WordModalController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        setup();
     }
 
     // Update is called once per frame
@@ -22,6 +23,13 @@ public class WordModalController : MonoBehaviour
 
     public void setup()
     {
+        if(wordSignWordLevelController == null){
+            GameObject levelController = GameObject.FindGameObjectWithTag("LevelController");
+            if(levelController != null){
+                wordSignWordLevelController = levelController.GetComponent<WordSignWordLevelController>();
+            }
+        }
+
         text = wordSignWordLevelController.correctSignWords.word;
         text = text.ToLower();
 
@@ -32,7 +40,6 @@ public class WordModalController : MonoBehaviour
 
     public void OnButtonPressed()
     {
-        Debug.Log("se presionó el botón");
         wordSignWordLevelController.onWordModalButtonPressed();
         this.gameObject.SetActive(false);
     }

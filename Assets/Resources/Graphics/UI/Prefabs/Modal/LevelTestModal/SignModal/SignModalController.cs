@@ -12,6 +12,7 @@ public class SignModalController : MonoBehaviour
     void Start()
     {
         setup();
+
     }
 
     // Update is called once per frame
@@ -22,13 +23,19 @@ public class SignModalController : MonoBehaviour
 
     public void setup()
     {
+        if(signWordSignLevelController == null){
+            GameObject levelController = GameObject.FindGameObjectWithTag("LevelController");
+            if(levelController != null){
+                signWordSignLevelController = levelController.GetComponent<SignWordSignLevelController>();
+            }
+        }
+
         signSprite = signWordSignLevelController.correctSignWords.signs;
 
         signImage.sprite = signSprite;
     }
     public void OnButtonPressed()
     {
-        Debug.Log("se presionó el botón");
         signWordSignLevelController.onWordModalButtonPressed();
         this.gameObject.SetActive(false);
     }

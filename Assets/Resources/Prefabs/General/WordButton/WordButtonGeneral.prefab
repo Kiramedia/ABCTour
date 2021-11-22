@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4e3b898e99dcb4668ba925f17a4270ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36d2a4304d0b95f40858acab610b2b46, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -107,10 +107,10 @@ RectTransform:
   m_Father: {fileID: 5227039667073098710}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: -0.000011444092}
-  m_SizeDelta: {x: -6, y: -2}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5616535492821339298
 CanvasRenderer:
@@ -273,7 +273,7 @@ MonoBehaviour:
   incorrectImage: {fileID: 2757087531242100803}
   correctColor: {r: 0.18039216, g: 0.8, b: 0.1254902, a: 1}
   incorrectColor: {r: 0.81960785, g: 0.14509805, b: 0.14509805, a: 1}
-  selectWordModalController: {fileID: 0}
+  selectWordSignModalAbstract: {fileID: 0}
   isCorrect: 1
 --- !u!1 &6516224025867693082
 GameObject:
@@ -307,10 +307,10 @@ RectTransform:
   m_Father: {fileID: 5227039667073098710}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000015258789, y: -0.000011444092}
-  m_SizeDelta: {x: -6, y: -2}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2367637530060476521
 CanvasRenderer:

@@ -92,7 +92,9 @@ MonoBehaviour:
   neutralSprite: {fileID: 21300000, guid: c442db8721652423a8f3b8dec6749159, type: 3}
   happySprite: {fileID: 21300000, guid: 21b8bb0dd373c44039b01c11286893b1, type: 3}
   sadSprite: {fileID: 21300000, guid: 4b5be50d2c3714236b7f33e92128baf9, type: 3}
+  backSprite: {fileID: 21300000, guid: b7407bbe7c8d1904fa806d5144ec05b9, type: 3}
   image: {fileID: 2239352074307359183}
+  iconImage: {fileID: 7963272761812773594}
   waitTime: 1
   test: 0
 --- !u!1 &7963272761812773594

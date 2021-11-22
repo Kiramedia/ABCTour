@@ -202,6 +202,22 @@ public class Utils : MonoBehaviour
         sign3_3.activityScene = "Level 3 - Activity 3";
         sign3_3.id = 2;
 
+        Tutorial sign4_1 = new Tutorial();
+        sign4_1.isLetterTutorial = false;
+        sign4_1.videoPath = "Vids/Tutorials/4_1";
+        sign4_1.camPosition = new Vector3(-0.79f, -1.73f, -10f);
+        sign4_1.camProjection = 3.05f;
+        sign4_1.activityScene = "Level 4 - Activity 1";
+        sign4_1.id = 0;
+
+        Tutorial sign4_2 = new Tutorial();
+        sign4_2.isLetterTutorial = false;
+        sign4_2.videoPath = "Vids/Tutorials/4_2";
+        sign4_2.camPosition = new Vector3(-0.79f, -1.73f, -10f);
+        sign4_2.camProjection = 3.05f;
+        sign4_2.activityScene = "Level 4 - Activity 2";
+        sign4_2.id = 1;
+
         tutorials.Add(letterA);
         tutorials.Add(letterE);
         tutorials.Add(letterO);
@@ -210,6 +226,8 @@ public class Utils : MonoBehaviour
         tutorials.Add(sign3_1);
         tutorials.Add(sign3_2);
         tutorials.Add(sign3_3);
+        tutorials.Add(sign4_1);
+        tutorials.Add(sign4_2);
 
         return tutorials;
     }
@@ -311,7 +329,7 @@ public class Utils : MonoBehaviour
         level3.isDifficultyVariant = true;
         level3.actualDifficult = 0;
         level3.numberOfPlayers = 1;
-        level3.numberOfItems = 12;
+        level3.numberOfItems = 9; //Special case, really 12
         level3.possibleMisstakes = 5;
         level3.barSections = 6;
         level3.numOfActivities = 3;
@@ -321,7 +339,7 @@ public class Utils : MonoBehaviour
         level4.isDifficultyVariant = true;
         level4.actualDifficult = 0;
         level4.numberOfPlayers = 2;
-        level4.numberOfItems = 4;
+        level4.numberOfItems = 3; //Special case, really 4
         level4.possibleMisstakes = 2;
         level4.barSections = 4;
         level4.numOfActivities = 2;

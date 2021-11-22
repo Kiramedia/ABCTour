@@ -191,6 +191,14 @@ public class MainLevelController : MonoBehaviour
                             PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(7)));
                             GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 3 - Tutorial");
                             break;
+                        case "sign 4-1":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(8)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 4 - Tutorial");
+                            break;
+                        case "sign 4-2":
+                            PlayerPrefs.SetString("SelectedTutorial", JsonUtility.ToJson(Utils.GetTutorial(9)));
+                            GameObject.FindGameObjectWithTag("Loader").GetComponent<SceneController>().LoadScene("Level 4 - Tutorial");
+                            break;
                         default:
                             break;
                     }
@@ -248,8 +256,9 @@ public class MainLevelController : MonoBehaviour
 
         if(data.level.isDifficultyVariant){
             Level[] levels = JsonUtility.FromJson<LevelCollection>(PlayerPrefs.GetString("Levels")).levels;
+
             if(levels[data.level.numberLevel - 1].actualDifficult < 2){
-                levels[data.level.numberLevel - 1].actualDifficult++;
+                levels[data.level.numberLevel - 1].actualDifficult += 1;
             }
 
             LevelCollection levelCollection = new LevelCollection();

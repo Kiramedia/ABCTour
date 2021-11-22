@@ -28,7 +28,9 @@ public class StartApp : MonoBehaviour
         int fullScreen = PlayerPrefs.GetInt("FullScreen");
         Screen.fullScreen = fullScreen == -1 ? false : true;
 
-        Utils.InitLevelsData();
+        if(PlayerPrefs.GetString("Levels") == "" || PlayerPrefs.GetString("Levels") == null){
+            Utils.InitLevelsData();
+        }
         Utils.CalificationData();
     }
 

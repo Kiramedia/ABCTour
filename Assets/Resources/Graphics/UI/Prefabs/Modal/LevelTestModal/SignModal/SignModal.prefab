@@ -186,7 +186,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.271, y: 96.367}
+  m_AnchoredPosition: {x: 1.271, y: 52.2}
   m_SizeDelta: {x: 358.591, y: 239.246}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4185548388541360715
@@ -339,8 +339,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.271, y: -99.63698}
-  m_SizeDelta: {x: 239.714, y: 52.674}
+  m_AnchoredPosition: {x: 1.271, y: -128.8}
+  m_SizeDelta: {x: 312.67, y: 79.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3223196950209123846
 CanvasRenderer:
@@ -507,6 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   signImage: {fileID: 1595541623295538125}
   signSprite: {fileID: 21300000, guid: a918d0295bf504768baa430f912dbe59, type: 3}
+  signWordSignLevelController: {fileID: 0}
 --- !u!1 &5126321122076028469
 GameObject:
   m_ObjectHideFlags: 0

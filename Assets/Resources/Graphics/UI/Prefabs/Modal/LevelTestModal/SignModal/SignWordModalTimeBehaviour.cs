@@ -10,6 +10,7 @@ public class SignWordModalTimeBehaviour : MonoBehaviour
     public bool isStartTime;
     public Image timeIcon;
     private bool timeFlag;
+    public int type = 0;
     public SignModalController signModalController;
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,16 @@ public class SignWordModalTimeBehaviour : MonoBehaviour
         }
         else if (timeFlag && currentTime <= 0)
         {
-            signModalController.OnButtonPressed();
+            if( type == 0 ){
+                signModalController.OnButtonPressed();
+            } else {
+                GameObject levelController = GameObject.FindGameObjectWithTag("LevelController");
+                if(levelController != null){
+                    SignWordSignLevelController signWordSignLevelController = levelController.GetComponent<SignWordSignLevelController>();
+                    signWordSignLevelController.changeQuestion();
+                }
+            }
+            
             timeFlag = false;
         }
 
