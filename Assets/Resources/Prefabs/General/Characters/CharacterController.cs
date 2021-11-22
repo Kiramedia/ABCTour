@@ -28,4 +28,16 @@ public class CharacterController : MonoBehaviour
     {
         characterEmotionController.onIncorrectAnswer();
     }
+
+    public void onBack(){
+        characterEmotionController.onBack();
+    }
+
+    public void onNeutral(){
+        characterEmotionController.onNeutral();
+    }
+
+    public void onHappy(){
+        characterEmotionController.onHappy();
+    }
 }

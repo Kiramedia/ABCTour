@@ -76,7 +76,7 @@ public class DifficultController : MonoBehaviour
     void Start()
     {
         selectedLevel = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel"));
-        actAvalaibleDifficult = selectedLevel.actualDifficult;
+        actAvalaibleDifficult = selectedLevel.actualDifficult < 3 ? selectedLevel.actualDifficult : 2;
         currentDifficult = actAvalaibleDifficult;
         PlayerPrefs.SetInt("selectedDifficult", actAvalaibleDifficult);
     }
@@ -89,13 +89,6 @@ public class DifficultController : MonoBehaviour
     void Update()
     {
         UpdateUIInformation();
-        if(selectedLevel.numberLevel != JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel")).numberLevel){
-            selectedLevel = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel"));
-            actAvalaibleDifficult = selectedLevel.actualDifficult;
-            currentDifficult = actAvalaibleDifficult;
-            PlayerPrefs.SetInt("selectedDifficult", actAvalaibleDifficult);
-            SetDifficultState(true);
-        }
     }
 
     /// <summary>
@@ -108,7 +101,12 @@ public class DifficultController : MonoBehaviour
         if (state)
         {
             barUpdating = true;
-            currentDifficult = PlayerPrefs.GetInt("selectedDifficult");
+            selectedLevel = JsonUtility.FromJson<Level>(PlayerPrefs.GetString("selectedLevel"));
+            actAvalaibleDifficult = selectedLevel.actualDifficult < 3 ? selectedLevel.actualDifficult : 2;
+            currentDifficult = actAvalaibleDifficult;
+            PlayerPrefs.SetInt("selectedDifficult", actAvalaibleDifficult);
+            barUpdating = true;
+
             arrow.gameObject.SetActive(true);
             bar.gameObject.SetActive(true);
             switch (actAvalaibleDifficult)

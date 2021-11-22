@@ -13,9 +13,9 @@ public class SelectGender : MonoBehaviour
 
     public Player playerInfo;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        playerInfo = JsonUtility.FromJson<Player>(PlayerPrefs.GetString("player1"));
+        playerInfo = JsonUtility.FromJson<Player>(PlayerPrefs.GetString("player" + player));
         setGender(playerInfo.sex);
     }
 

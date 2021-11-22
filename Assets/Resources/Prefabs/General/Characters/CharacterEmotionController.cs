@@ -7,8 +7,10 @@ public class CharacterEmotionController : MonoBehaviour
 {
     public Sprite neutralSprite; 
     public Sprite happySprite; 
-    public Sprite sadSprite; 
-    public Image image; 
+    public Sprite sadSprite;
+    public Sprite backSprite;
+    public Image image;
+    public GameObject iconImage;
     public float waitTime; 
     public bool test; 
     // Start is called before the first frame update
@@ -36,10 +38,29 @@ public class CharacterEmotionController : MonoBehaviour
         StartCoroutine("sad");
     }
 
+    public void onHappy(){
+        iconImage.SetActive(true);
+        image.sprite = happySprite;
+        image.material.SetTexture("_MainText", happySprite.texture);
+    }
+
+    public void onBack(){
+        iconImage.SetActive(false);
+        image.sprite = backSprite;
+        image.material.SetTexture("_MainText", backSprite.texture);
+    }
+
+    public void onNeutral(){
+        iconImage.SetActive(true);
+        image.sprite = neutralSprite;
+        image.material.SetTexture("_MainText", neutralSprite.texture);
+    }
+
     IEnumerator happy()
     {
         image.sprite = happySprite;
         image.material.SetTexture("_MainText", happySprite.texture);
+        iconImage.SetActive(true);
         yield return new WaitForSeconds(waitTime);
         image.sprite = neutralSprite;
         image.material.SetTexture("_MainText", neutralSprite.texture);
@@ -48,6 +69,7 @@ public class CharacterEmotionController : MonoBehaviour
     {
         image.sprite = sadSprite; 
         image.material.SetTexture("_MainText", sadSprite.texture);
+        iconImage.SetActive(true);
         yield return new WaitForSeconds(waitTime);
         image.sprite = neutralSprite; 
         image.material.SetTexture("_MainText", neutralSprite.texture);
